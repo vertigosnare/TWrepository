@@ -1,6 +1,9 @@
-/* Table of contents
+/* TABLE OF CONTENTS
 
     1. Default styles
+    2. Wrong device message
+    3. Launch screen
+    4. User onboarding
 
 */
 
@@ -11,4 +14,60 @@
 
 body {    
     font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
 }
+
+
+/* ------------------------- 2. Wrong device message ----------------------------- */
+
+
+div.wrong-device {
+    color: #fff;
+    text-align: center;
+}
+
+/* Don't display the wrong device message for tablets and phones - screen width 768px and less */
+@media screen and (max-width: 768px) {
+    div.wrong-device {
+        display: none;
+    }
+}
+
+/* Display the wrong device message for desktop - screen width 768px or more */
+@media screen and (min-width: 768px) {
+    body {
+        background: #7f143c;
+    }
+    
+    /* Hides all main content divs */
+    div.main-content {
+        display: none;
+    }
+    
+    /* Shows the wrong-device div */
+    div.wrong-device {
+        display: block;
+        margin-top: 25%;
+    }
+    
+    div.wrong-device img {
+        width: 70px;
+        margin-bottom: 30px;
+    }
+}
+
+/* ------------------------- 3. Launch screen ----------------------------- */
+
+
+
+/* ------------------------- 4. User onboarding ----------------------------- */
+
+div.onboarding {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+    div.onboarding h1 {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
