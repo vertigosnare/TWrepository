@@ -58,6 +58,23 @@ div.wrong-device {
 
 /* ------------------------- 3. Launch screen ----------------------------- */
 
+img {
+		display: block;
+		margin: auto;
+	
+	}
+	
+	
+#loading {
+    text-align: center;
+    font-size: 1.8rem;
+	color: #fff;
+}
+	
+	.hiding {
+	
+	}
+
 
 
 /* ------------------------- 4. User onboarding ----------------------------- */
