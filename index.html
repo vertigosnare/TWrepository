@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <title>These Walls</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:200i,300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500" rel="stylesheet">
   <link rel="stylesheet" href="skeleton.css">
   <link rel="stylesheet" href="stylesheet.css">
-  
-<script src="jquery-3.2.1.min.js" defer></script>
-<script src="javascript.js" defer></script>
-	
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="jquery.mobile-1.4.5.min.js"></script>
+  <script src="javascript.js" defer></script>
 </head>
+    
     
 <body>
 
@@ -26,28 +26,128 @@
   </div>
   
 
-  <!---- Launch screen (for Caitlin) ---->
-  
-  <div class="hiding">
-  <div id="loading">
-        <img src="../TWrepository/images/these-walls-logo.svg" alt="These Walls">
-        <p>Discover Canberra's most astonishing building</p>
-        <img src="../loading.svg"> 
-        <img src="../TWrepository/images/nfsa-logo.png">
-  </div>
-</div>
-
-
-  <!---- User onboarding (for Steph) ---->
-  <div class="container main-content onboarding">
-    <div class="row">
-      <div class="ten columns offset-by-one">
-        <h1>Welcome</h1>
-        <p>The National Film and Sound Archive building has beautiful Art Deco features &ndash; you don't want to miss them...</p>
+    
+    
+  <!---- Launch screen (Caitlin) ---->
+    
+  <div class="main-content launch">
+    <div id="loading" class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <img id="these-walls" src="images/these-walls-logo.svg" alt="These Walls">
+          <p><em>Discover Canberra's most<br>astonishing building</em></p>
+          <img id="load-icon" src="images/loading.gif"> <!-- from http://loading.io/ -->
+        </div>
       </div>
+    </div>
+      
+    <img id="nfsa" src="images/nfsa-logo.png" alt="National Film and Sound Archive">
+  </div>
+
+    
+    
+    
+  <!-------- User onboarding (Steph) -------->
+    
+  <!-------- 1st onboarding screen -------->
+  <div id="onboarding1" class="main-content onboarding-screens hide">
+    <div class="container onboarding">
+      <div class="row">
+        <div class="twelve columns">
+          <h1>Welcome</h1>
+          <p>The National Film and Sound Archive building has beautiful Art Deco features &ndash; you don't want to miss them...</p>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="arrows">
+      <img id="first-next" class="right-arrow" src="images/right-arrow-white.svg" alt="Next">
+    </div>
+          
+    <div class="progress">
+      <div class="progress-dots"></div>
+      <div class="progress-dots low-opacity"></div>
+      <div class="progress-dots low-opacity"></div>
+      <div class="progress-dots low-opacity"></div>
     </div>
   </div>
 
-
+  <!-------- 2nd user onboarding screen --------> 
+  <div id="onboarding2" class="main-content onboarding-screens hide">
+    <div class="container onboarding">
+      <div class="row">
+        <div class="twelve columns">
+          <img class="ob-icons" src="images/puzzle-icon.svg" alt="decorative">
+          <p>So you will get a clue about a particular feature...</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="arrows">
+      <img id="second-next" class="right-arrow" src="images/right-arrow-white.svg" alt="Next">
+    </div>
+          
+    <div class="progress">
+      <div class="progress-dots"></div>
+      <div class="progress-dots"></div>
+      <div class="progress-dots low-opacity"></div>
+      <div class="progress-dots low-opacity"></div>
+    </div>
+  </div>
+    
+  <!-------- 3rd user onboarding screen --------> 
+  <div id="onboarding3" class="main-content onboarding-screens hide">
+    <div class="container onboarding">
+      <div class="row">
+        <div class="twelve columns">
+          <img class="ob-icons" src="images/search-icon.svg" alt="decorative">
+          <p>Use the clue to locate the feature and learn more about it to...</p> 
+        </div>
+      </div>
+    </div>
+      
+    <div class="arrows">
+      <img id="third-next" class="right-arrow" src="images/right-arrow-white.svg" alt="Next">
+    </div>
+          
+    <div class="progress">
+      <div class="progress-dots"></div>
+      <div class="progress-dots"></div>
+      <div class="progress-dots"></div>
+      <div class="progress-dots low-opacity"></div>
+    </div>
+  </div>
+    
+  <!-------- 4th (and last) user onboarding screen --------> 
+  <div id="onboarding4" class="main-content onboarding-screens hide">
+    <div class="container onboarding">
+      <div class="row">
+        <div class="twelve columns">
+          <img class="ob-icons" src="images/bulb-icon.svg" alt="decorative">
+          <p>Unlock the next clue and get bonus history!</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="begin">
+      <p><a href="#">Begin</a></p>
+    </div>
+      
+    <div class="progress">
+      <div class="progress-dots"></div>
+      <div class="progress-dots"></div>
+      <div class="progress-dots"></div>
+      <div class="progress-dots"></div>
+    </div>
+  </div>
+    
+    
+    
+    
+  <!-------- Home (Grace and Rob) -------->
+    
+    
+  
 </body>
 </html>

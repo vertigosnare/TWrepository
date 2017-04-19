@@ -14,7 +14,6 @@
 - Base Styles
 - Typography
 - Lists
-- Spacing
 - Utilities
 - Clearing
 - Media Queries
@@ -154,16 +153,6 @@ ol ul {
   font-size: 90%; }
 li {
   margin-bottom: 1rem; }
-
-
-/* Spacing
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-p,
-ul,
-ol {
-  margin-bottom: 2.5rem; 
-}
 
 
 /* Utilities
