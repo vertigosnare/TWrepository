@@ -60,4 +60,42 @@ $('#begin').on('click touchstart', function() {
     $('#onboarding4').fadeOut();
     $('body').removeClass('redwine-gradient');
     $('body').removeClass('gold-gradient');
+	$('#home').css('display', 'block');
 });
+
+
+// Top Navigation Grace
+
+var isActive = false;
+
+// toggle display for menu and changing shape of bars when menu is open
+$('.js-menu').on('click', function() {
+	
+	if (isActive) {
+		$(this).removeClass('active');
+		$('body').removeClass('menu-open');
+		$('nav').slideToggle('swing'); 
+
+	} else {
+		$(this).addClass('active');
+		$('body').addClass('menu-open');
+		$('nav').slideToggle('swing'); 
+	}
+
+	isActive = !isActive;
+});
+
+// Bottom Navigation Grace
+
+var $li = $('.bottom-menu li').click(function() {
+    $li.removeClass('selected');
+    $(this).addClass('selected');
+
+var $p = $('.bottom-menu li p').click(function() {
+    $p.removeClass('selected');
+    $(this).addClass('selected');
+
+});
+
+});
+

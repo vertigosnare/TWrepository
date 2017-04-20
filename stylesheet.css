@@ -4,7 +4,8 @@
     2. Wrong device message
     3. Launch screen (Caitlin)
     4. User onboarding (Steph)
-
+	5. Hamburger Menu
+	6. Bottom Navigation
 
     X. General media queries
 */
@@ -278,3 +279,203 @@ div#begin {
     }
     
 }
+
+#home {
+	
+	display: none;
+	height: 100%;
+}
+
+/* ------------------------- 5. Hamburger Menu ----------------------------- */
+
+.burger {
+    background: rgba(204,57,118,1);
+    background: -moz-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(204,57,118,1)), color-stop(19%, rgba(176,43,96,1)), color-stop(41%, rgba(143,27,71,1)), color-stop(100%, rgba(143,27,71,1)));
+    background: -webkit-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    background: linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc3976', endColorstr='#8f1b47', GradientType=1 );
+	width: 100%;
+	height: 4rem;
+}
+
+.burger img {
+	float: left;
+	width: 3rem;
+	padding-left: 1.5rem;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+.menu {
+    transition: 0.1s transform linear;
+    position: relative;
+    background: 0;
+    float: right;
+    margin: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    z-index: 2;
+    outline: 0;
+    padding: 0;
+    border: 0;
+}
+
+.bar, .bar::before, .bar::after {
+    -webkit-transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s -webkit-transform linear;
+  transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s -webkit-transform linear;
+  transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s transform linear;
+  transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s transform linear, 0.2s -webkit-transform linear;
+  position: absolute;
+  background: #fff;
+  margin: 0.02rem;
+  width: 100%;
+  height: 0.1rem;
+  content: '';
+  top: 6%;
+  right: 0;
+}
+.bar {
+  margin-top: -0.3rem;
+}
+.bar::before {
+  top: -0.8rem;
+}
+.bar::after {
+  top: 0.8rem;
+}
+.bar::before, .bar::after {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+.active .bar {
+  background: 0;
+}
+.active .bar::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.active .bar::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.active .bar::before, .active .bar::after {
+  top: 0;
+}
+.active .bar, .active .bar::before, .active .bar::after {
+  -webkit-transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s -webkit-transform linear 0.2s;
+  transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s -webkit-transform linear 0.2s;
+  transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s;
+  transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s, 0.2s -webkit-transform linear 0.2s;
+}
+
+nav {
+  float: right;
+  width: 50%;
+  height: 100%;
+  background: #414040;
+  position: absolute;
+  display: none;
+  padding-top: 4rem;
+  margin-left: 50%;
+  margin-right: 0;
+  z-index: 1;
+}
+
+nav ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+nav ul li {
+  padding: 1.5rem 1.5rem;
+  font-size: 1.5rem;
+}
+
+nav ul li a {
+	text-decoration: none;
+	text-transform:uppercase;
+	color: #fff;	
+}
+
+.nav-logo img {
+	
+	width: 7rem;
+	margin-top: 100%;
+}
+
+/* ------------------------- 6. Bottom Navigation ----------------------------- */
+
+.bottom-menu {
+	
+	width: 100%;
+	background-color: #E6E6E6;
+	padding: 0;
+    position: fixed;
+    bottom: 0;
+}
+
+ .bottom-menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0; 
+ }
+ 
+ .bottom-menu li {
+	width: 32%;
+	display: inline-block;
+	align-content:center;
+	height: 100%;
+	margin: 0;
+	float:none;
+ }
+ 
+ .bottom-menu li p {
+    text-align:center;
+	text-transform:uppercase;
+	font-size: 1rem;
+	margin: 0;
+	padding-bottom: 0.3em;
+	color: #363636;
+ }
+ 
+ .bottom-menu li.selected {
+	 
+	background-color: #7f143c;
+	margin: 0;
+    color: #EBEBEB;
+ }
+ 
+ 
+ .bottom-menu li p.selected {
+	 color: #EBEBEB;
+ }
+ 
+ 
+ .bottom-menu li a {
+	 text-decoration: none;	
+ }
+  
+ .bottom-menu li a img {
+	padding: 0.3rem;
+	display: block;
+	margin: 0 auto;
+  }
+  
+  .building, .map {
+	
+	border-right: 1px solid #CBC9C9;
+  }
+ 
+  .building img {
+ 
+	width: 55%; 
+ }
+ 
+ .map img,  .favourites img{
+	 
+	width: 25%;
+ }
+ 
