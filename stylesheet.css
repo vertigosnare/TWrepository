@@ -448,20 +448,31 @@ nav ul li a {
     color: #EBEBEB;
  }
  
- 
- .bottom-menu li p.selected {
+ .bottom-menu li.selected p {
 	 color: #EBEBEB;
  }
- 
  
  .bottom-menu li a {
 	 text-decoration: none;	
  }
-  
- .bottom-menu li a img {
+ 
+ .bottom-menu li .icon-white {
+	 
+	display: none; 
+ }
+ 
+ .bottom-menu li img{
 	padding: 0.3rem;
 	display: block;
 	margin: 0 auto;
+  }
+  
+  .bottom-menu li.selected img {
+	  display: none;
+  }
+  
+  .bottom-menu li.selected .icon-white {
+	 display: block; 
   }
   
   .building, .map {
@@ -474,8 +485,13 @@ nav ul li a {
 	width: 55%; 
  }
  
- .map img,  .favourites img{
+ .map img, .favourites img{
 	 
 	width: 25%;
  }
+ 
+ img .dark-icon.selected {
+	display: none; 
+ }
+ 
  

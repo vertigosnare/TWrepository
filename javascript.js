@@ -91,11 +91,4 @@ var $li = $('.bottom-menu li').click(function() {
     $li.removeClass('selected');
     $(this).addClass('selected');
 
-var $p = $('.bottom-menu li p').click(function() {
-    $p.removeClass('selected');
-    $(this).addClass('selected');
-
 });
-
-});
-
