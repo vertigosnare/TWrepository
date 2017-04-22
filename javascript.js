@@ -31,7 +31,7 @@ $(function(){
 // USER ONBOARDING SCREENS (Steph)
 
 // 1st user onboarding screen, moving to 2nd user onboarding screen
-$('#first-next').on('click touchstart', function() {
+$('#first-next').on('click', function() {
     $('#onboarding1').css('display', 'none');
     $('#onboarding2').css('display', 'block');
 });
@@ -44,13 +44,13 @@ $('#onboarding1').on('swipeleft', function(){
 
 
 // 2nd user onboarding screen, moving to 3rd user onboarding screen
-$('#second-next').on('click touchstart', function() {
+$('#second-next').on('click', function() {
     $('#onboarding2').css('display', 'none');
     $('#onboarding3').css('display', 'block');
 });
 
 // 3rd user onboarding screen, moving to 4th (and final) user onboarding screen
-$('#third-next').on('click touchstart', function() {
+$('#third-next').on('click', function() {
     $('#onboarding3').css('display', 'none');
     $('#onboarding4').css('display', 'block');
 });
