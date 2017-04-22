@@ -5,9 +5,10 @@
   <title>These Walls</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500" rel="stylesheet">
+  <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
   <link rel="stylesheet" href="skeleton.css">
   <link rel="stylesheet" href="stylesheet.css">
-  <script src="jquery-3.2.1.min.js"></script>
+  <script src="jquery-2.2.3.min.js"></script>
   <script src="jquery.mobile-1.4.5.min.js"></script>
   <script src="javascript.js" defer></script>
 </head>
@@ -36,7 +37,7 @@
         <div class="twelve columns">
           <img id="these-walls" src="images/these-walls-logo.svg" alt="These Walls">
           <p><em>Discover Canberra's most<br>astonishing building</em></p>
-          <img id="load-icon" src="images/loading.gif"> <!-- from http://loading.io/ -->
+          <img id="load-icon" src="images/loading-icon.svg"> <!-- from http://loading.io/ -->
         </div>
       </div>
     </div>
@@ -122,17 +123,25 @@
   <!-------- 4th (and last) user onboarding screen --------> 
   <div id="onboarding4" class="main-content onboarding-screens hide">
     <div class="container onboarding">
+        
       <div class="row">
         <div class="twelve columns">
           <img class="ob-icons" src="images/bulb-icon.svg" alt="decorative">
           <p>Unlock the next clue and get bonus history!</p>
         </div>
       </div>
+        
+      <div class="row">
+          <div class="twelve columns">
+            <div id="begin">
+              <p><a href="#">Begin</a></p>
+            </div>
+          </div>
+      </div>
+        
     </div>
     
-    <div id="begin">
-      <p><a href="#">Begin</a></p>
-    </div>
+    
       
     <div class="progress">
       <div class="progress-dots"></div>

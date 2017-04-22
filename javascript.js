@@ -36,17 +36,28 @@ $('#first-next').on('click', function() {
     $('#onboarding2').css('display', 'block');
 });
 
-// swiping left is also an acceptable way to navigate
-$('#onboarding1').on('swipeleft', function(){
-    this.hide('slide', {direction: 'left'}, 1000);
-    $('#onboarding2').show('slide', {direction: 'right'}, 1000);
+// enable swiping left
+$('#onboarding1').on('swipeleft', function() {
+    $('#onboarding1').hide();
+    $('#onboarding2').show();
 });
-
 
 // 2nd user onboarding screen, moving to 3rd user onboarding screen
 $('#second-next').on('click', function() {
     $('#onboarding2').css('display', 'none');
     $('#onboarding3').css('display', 'block');
+});
+
+// enable swiping right
+$('#onboarding2').on('swiperight', function() {
+    $('#onboarding2').hide();
+    $('#onboarding1').show();
+});
+
+// enable swiping left
+$('#onboarding2').on('swipeleft', function() {
+    $('#onboarding2').hide();
+    $('#onboarding3').show();
 });
 
 // 3rd user onboarding screen, moving to 4th (and final) user onboarding screen
@@ -55,12 +66,33 @@ $('#third-next').on('click', function() {
     $('#onboarding4').css('display', 'block');
 });
 
+// enable swiping right
+$('#onboarding3').on('swiperight', function() {
+    $('#onboarding3').hide();
+    $('#onboarding2').show();
+});
+
+// enable swiping left
+$('#onboarding3').on('swipeleft', function() {
+    $('#onboarding3').hide();
+    $('#onboarding4').show();
+});
+
 // when the begin button is selected, the last onboarding screen fades out
-$('#begin').on('click touchstart', function() {
+$('#begin').on('click', function() {
     $('#onboarding4').fadeOut();
     $('body').removeClass('redwine-gradient');
     $('body').removeClass('gold-gradient');
-	$('#home').css('display', 'block');
+    $('button').removeClass('ui-btn');
+    $('button').removeClass('ui-shadow');
+    $('button').removeClass('ui-corner-all'); // to remove jquery mobile css styling
+    $('#home').css('display', 'block');
+});
+
+// enable swiping right
+$('#onboarding4').on('swiperight', function() {
+    $('#onboarding4').hide();
+    $('#onboarding3').show();
 });
 
 
