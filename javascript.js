@@ -120,7 +120,14 @@ $('.js-menu').on('click', function() {
 // Bottom Navigation Grace
 
 var $li = $('.bottom-menu li').click(function() {
-    $li.removeClass('selected');
+	$(this).toggleClass('selected', 'addOrRemove'); // toggles fill, but doesn't remove when another menu elements are clicked
+    $li.removeClass('selected'); //this changes when another element is clicked, but doesn't toggle fill
     $(this).addClass('selected');
+});
 
+
+//Building and Architecture
+
+$('.building').click(function(){
+    $('#building-info').toggle();
 });

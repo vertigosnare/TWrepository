@@ -249,6 +249,9 @@ div#begin {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc3976', endColorstr='#8f1b47', GradientType=1 );
 	width: 100%;
 	height: 8rem;
+	position: fixed;
+	overflow:hidden;
+	z-index:99;
 }
 
 .burger img {
@@ -268,7 +271,7 @@ div#begin {
     margin: 4rem 3rem 3rem;
     height: 4rem;
     width: 4rem;
-    z-index: 2;
+    z-index: 3;
     outline: 0;
     padding: 0;
     border: 0;
@@ -327,17 +330,18 @@ nav {
   right: 0;
   height: 100%;
   background: #363636;
-  position: absolute;
+  position: fixed;
   display: none;
   padding-top: 10rem;
-  z-index: 1;
+  z-index: 2;
 }
 
 nav ul {
   margin: 0;
   list-style: none;
   padding-left: 5rem;
-}
+  z-index: 2;
+  }
 
 nav ul li {
     padding: 2rem 2rem 2rem 0;
@@ -443,6 +447,70 @@ img .dark-icon.selected {
     display: none; 
 }
  
+/* ------------------------- 7. The Building ----------------------------- */
+
+#building-info {
+	display: none;
+	margin-bottom: 9rem;
+	z-index: 1;
+}
+ 
+#building-info ul {
+	list-style-type: none;
+	padding: 0;
+	border-bottom: 1px solid #CBC9C9;
+	width: 100%;
+	background-color: #E6E6E6;
+	position:fixed;
+	z-index: 1;
+	margin-top: 5.5rem;
+}
+
+#building-info li {
+	 width: 48%;
+	 display: inline-block;
+	 align-content:center;
+     margin: 0;
+	 height: 100%;
+     padding-bottom: 1.5rem;
+	 padding-top: 1.5rem;
+	 text-transform:uppercase;
+	 font-size: 1.5rem;
+	 letter-spacing: 1px;
+	 text-align: center;
+}
+
+#building-info li a {
+	text-decoration: none;
+	color: #91732b;
+}
+
+@media screen and (max-width: 768px) and (min-width: 700px) {
+	
+	#building-info ul {
+		margin-top: 7.5rem;
+	}
+	
+	#building-overview p {
+		font-size: 2rem;
+	}
+}
+
+#building-overview img {
+	max-width: 100%;
+	margin-top: 10.5rem;
+}
+
+.architecture {
+	border-left: 1px solid #CBC9C9;
+}
+
+#building-overview p {
+	
+	margin: 2em;
+	overflow:scroll;
+}
+
 
 
 
