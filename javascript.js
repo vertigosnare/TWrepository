@@ -33,8 +33,8 @@ $(function(){
 
 // 1st user onboarding screen, moving to 2nd user onboarding screen
 $('#first-next').on('click', function() {
-    $('#onboarding1').css('display', 'none');
-    $('#onboarding2').css('display', 'block');
+    $('#onboarding1').hide();
+    $('#onboarding2').show();
 });
 
 // enable swiping left
@@ -45,8 +45,8 @@ $('#onboarding1').on('swipeleft', function() {
 
 // 2nd user onboarding screen, moving to 3rd user onboarding screen
 $('#second-next').on('click', function() {
-    $('#onboarding2').css('display', 'none');
-    $('#onboarding3').css('display', 'block');
+    $('#onboarding2').hide();
+    $('#onboarding3').show();
 });
 
 // enable swiping right
@@ -63,8 +63,8 @@ $('#onboarding2').on('swipeleft', function() {
 
 // 3rd user onboarding screen, moving to 4th (and final) user onboarding screen
 $('#third-next').on('click', function() {
-    $('#onboarding3').css('display', 'none');
-    $('#onboarding4').css('display', 'block');
+    $('#onboarding3').hide();
+    $('#onboarding4').show();
 });
 
 // enable swiping right
@@ -84,7 +84,7 @@ $('#begin').on('click', function() {
     $('#onboarding4').fadeOut('fast');
     $('body').removeClass('redwine-gradient');
     $('body').removeClass('gold-gradient');
-    $('#home').css('display', 'block');
+    $('#home').show();
 });
 
 // enable swiping right
