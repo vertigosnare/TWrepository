@@ -359,12 +359,12 @@ nav ul {
   }
 
 nav ul li {
-    padding: 2rem 2rem 2rem 0;
+    padding: 3rem 3rem 3rem 0;
     font-size: 2rem;
     border-bottom: 1px solid #a6a6a6;
 }
 
-    nav ul li:nth-child(5),
+    nav ul li:nth-child(4),
     nav ul li:last-child {
         border-bottom: none;
     }
@@ -659,7 +659,7 @@ img#floorplan {
     }
     
     nav ul li {
-        padding: 1.5rem 1.5rem 1.5rem 0;
+        padding: 1.9rem 1.9rem 1.9rem 0;
         font-size: 1.4rem;
     }
     
