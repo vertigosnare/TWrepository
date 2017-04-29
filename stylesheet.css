@@ -2,10 +2,12 @@
 
     1. Default styles
     2. Wrong device message
-    3. Launch screen (Caitlin)
-    4. User onboarding (Steph)
+    3. Launch screen
+    4. User onboarding
 	5. Hamburger Menu
 	6. Bottom Navigation
+    7. The building
+    8. The map
 
     X. General media queries
 */
@@ -18,6 +20,7 @@
 html {
     /* http://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats */
     height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -54,6 +57,18 @@ body {
     background: -o-linear-gradient(45deg, #f9c430 0%,#91732b 60%, #91732b 100%); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(45deg, #f9c430 0%,#91732b 60%, #91732b 100%); /* For Firefox 3.6 to 15 */
     background: linear-gradient(45deg, #f9c430 0%,#91732b 60%, #91732b 100%); /* Standard syntax */
+}
+
+/* for all content that needs to sit under the hamburger menu strip */
+.margin-top {
+    margin-top: 5.5rem;
+}
+
+@media screen and (max-width: 768px) and (min-width: 700px) {
+	
+	.extra-margin-top {
+		margin-top: 8rem;
+	}
 }
 
 
@@ -230,7 +245,7 @@ div#begin {
 
 
 
-
+/* Div that holds all the content */
 #home {
 	display: none;
 	height: 100vh;
@@ -446,7 +461,10 @@ nav ul li a {
 img .dark-icon.selected {
     display: none; 
 }
- 
+
+
+
+
 /* ------------------------- 7. The Building ----------------------------- */
 
 #building-info {
@@ -463,21 +481,19 @@ img .dark-icon.selected {
 	background-color: #E6E6E6;
 	position:fixed;
 	z-index: 1;
-	margin-top: 5.5rem;
+    height: 6rem;
+    display: table;
+    table-layout: fixed;
 }
 
 #building-info li {
-	 width: 48%;
-	 display: inline-block;
-	 align-content:center;
-     margin: 0;
-	 height: 100%;
-     padding-bottom: 1.5rem;
-	 padding-top: 1.5rem;
-	 text-transform:uppercase;
-	 font-size: 1.5rem;
-	 letter-spacing: 1px;
-	 text-align: center;
+    height: 100%;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    display: table-cell;
+    vertical-align: middle;
+     text-align: center;
 }
 
 #building-info li a {
@@ -487,10 +503,6 @@ img .dark-icon.selected {
 
 @media screen and (max-width: 768px) and (min-width: 700px) {
 	
-	#building-info ul {
-		margin-top: 7.5rem;
-	}
-	
 	#building-overview p {
 		font-size: 2rem;
 	}
@@ -498,7 +510,7 @@ img .dark-icon.selected {
 
 #building-overview img {
 	max-width: 100%;
-	margin-top: 10.5rem;
+	margin-top: 11.5rem;
 }
 
 .architecture {
@@ -506,9 +518,50 @@ img .dark-icon.selected {
 }
 
 #building-overview p {
-	
 	margin: 2em;
-	overflow:scroll;
+	overflow: scroll;
+    line-height: 1.5;
+}
+
+
+
+/* ------------------------- 7. The map ----------------------------- */
+
+div#build-map {
+    width: 100%;
+}
+
+div#wrap {
+    display: table;
+    margin: 0 auto;
+    padding-top: 15rem;
+}
+
+    div#wrap img {
+        width: 4.5rem;
+        margin-right: 2rem;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    div#wrap p {
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 2.3rem;
+    }
+
+
+
+img#floorplan {
+    position: fixed;
+    margin-top: 10rem;
+    width: 70rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    
 }
 
 
@@ -587,15 +640,17 @@ img .dark-icon.selected {
     .bar {
       margin-top: -0.2rem;
     }
+    
     .bar::before {
       top: -1rem;
     }
+    
     .bar::after {
       top: 1rem;
     }
 
     nav {
-      width: 60%;
+        width: 60%;
         padding-top: 4rem;
     }
     
@@ -625,5 +680,36 @@ img .dark-icon.selected {
     .bottom-menu li img {
         height: 30px; 
     }
+    
+    /* ----- building info ----- */
+    #building-info ul {
+        height: 5rem;
+    }
+    
+    #building-info li {
+        font-size: 1.3rem;
+    }
+    
+    #building-overview img {
+        margin-top: 10.5rem;
+    }
 
+    /* ----- the map ----- */
+    div#wrap {
+        padding-top: 9.5rem;
+    }
+    
+    div#wrap img {
+        width: 3rem;
+    }
+    
+    div#wrap p {
+        font-size: 1.5rem;
+    }
+    
+    img#floorplan {
+        margin-top: 4rem;
+        width: 45rem;
+    }
+    
 }

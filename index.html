@@ -5,11 +5,10 @@
   <title>These Walls</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500" rel="stylesheet">
-  <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
   <link rel="stylesheet" href="skeleton.css">
   <link rel="stylesheet" href="stylesheet.css">
   <script src="jquery-2.2.3.min.js"></script>
-  <script src="jquery.mobile-1.4.5.min.js"></script>
+  <script src="jquery.mobile.custom.min.js"></script>
   <script src="javascript.js" defer></script>
 </head>
     
@@ -162,7 +161,7 @@
 
 <div class="burger">  
 <containter>
-<a href="#"><img src="images/tw-logo.svg" alt="These Walls Logo"></a>
+<a id="home-link" href="#"><img src="images/tw-logo.svg" alt="These Walls logo - home"></a>
 </containter>
  <button class="js-menu menu" type="button">
 	<span class="bar"></span>
@@ -173,7 +172,7 @@
 		<li><a href="#">Arc Cinema</a></li>
 		<li><a href="#">Ghost Tour</a></li>
 		<li><a href="#">Help</a></li>
-		<li><a href="#">About The NFSA</a></li>
+		<li><a href="#">About the NFSA</a></li>
         <li><a href="#">Contact</a></li>
         <li class="nav-logo"><img src="images/nfsa-logo-white.png" alt="NFSA Logo"></li>
 	</ul>
@@ -185,31 +184,40 @@
 
 <div class="bottom-menu">
       <ul>
-<li class="building"><a href="#"><img class="dark-icon" src="images/building-icon.svg" alt=""><img class="icon-white" src="images/building-icon-white.svg" alt=""><p>The Building</p></a></li>
-<li class="map"><a href="#"><img class="dark-icon" src="images/map-icon.svg" alt=""><img class="icon-white" src="images/map-icon-white.svg" alt=""><p>Map</p></a></li>
-<li class="favourites"><a href="#"><img class="dark-icon" src="images/favourites-icon.svg" alt=""><img class="icon-white" src="images/favourites-icon-white.svg" alt=""><p>Favourites</p></a></li>
-</ul>
-
+        <li class="building"><a href="#"><img class="dark-icon" src="images/building-icon.svg" alt=""><img class="icon-white" src="images/building-icon-white.svg" alt=""><p>The Building</p></a></li>
+          
+        <li class="map"><a href="#"><img class="dark-icon" src="images/map-icon.svg" alt=""><img class="icon-white" src="images/map-icon-white.svg" alt=""><p>Map</p></a></li>
+          
+        <li class="favourites"><a href="#"><img class="dark-icon" src="images/favourites-icon.svg" alt=""><img class="icon-white" src="images/favourites-icon-white.svg" alt=""><p>Favourites</p></a></li>
+      </ul>
 </div>
 
 <!---- History and Architecture ---->
 
 <div id="building-info">
-<ul>
-<li><a href="#">History</a></li>
-<li class="architecture"><a href="#">Architecture</a></li>
-</ul>
-<div id="building-overview">
-<img src="images/building-photo.jpg" alt="Photo of the building">
-<p>The building is a combination of two styles: an inter-war stripped classical form with extensive Australian Art Deco detailing and decorative elements. The building is faced in sandstone and has a symmetrical U-shaped layout enclosing a four-sided courtyard.</p>
+  <ul class="margin-top extra-margin-top">
+    <li><a href="#">History</a></li>
+    <li class="architecture"><a href="#">Architecture</a></li>
+  </ul>
+  <div id="building-overview">
+    <img src="images/building-photo.jpg" alt="Outside of the NFSA building">
+    <p>The building is a combination of two styles: an inter-war stripped classical form with extensive Australian Art Deco detailing and decorative elements. The building is faced in sandstone and has a symmetrical U-shaped layout enclosing a four-sided courtyard.</p>
 
-<p>What makes the building so eye-catching (aside from its superb condition) are the strong and consistent use of motifs to reflect the building’s original use as the Australian Institute of Anatomy.</p>
-
-</div>  
-
-
-  
+    <p>What makes the building so eye-catching (aside from its superb condition) are the strong and consistent use of motifs to reflect the building’s original use as the Australian Institute of Anatomy.</p>
+  </div>  
 </div>
+      
+      
+      <!-------- Map (Steph) -------->
+      <div id="build-map" class="hide">
+        <div id="wrap" class="margin-top extra-margin-top" aria-hidden="true">
+          <img src="images/cross.svg" alt="">
+          <p>Areas off limits</p>
+        </div>
+        
+        <img id="floorplan" src="images/map.svg" alt="The library and offices opposite the toilets are off limits">
+      </div>
+      
     
   </div>
 </body>

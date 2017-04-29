@@ -83,9 +83,6 @@ $('#begin').on('click', function() {
     $('#onboarding4').fadeOut();
     $('body').removeClass('redwine-gradient');
     $('body').removeClass('gold-gradient');
-    $('button').removeClass('ui-btn');
-    $('button').removeClass('ui-shadow');
-    $('button').removeClass('ui-corner-all'); // to remove jquery mobile css styling
     $('#home').css('display', 'block');
 });
 
@@ -120,14 +117,36 @@ $('.js-menu').on('click', function() {
 // Bottom Navigation Grace
 
 var $li = $('.bottom-menu li').click(function() {
-	$(this).toggleClass('selected', 'addOrRemove'); // toggles fill, but doesn't remove when another menu elements are clicked
+	$(this).toggleClass('selected'); // toggles fill
     $li.removeClass('selected'); //this changes when another element is clicked, but doesn't toggle fill
     $(this).addClass('selected');
 });
 
 
-//Building and Architecture
+// Building and Architecture - bottom nav
 
 $('.building').click(function(){
+    $('.map').removeClass('selected'); // ensure map tab isn't selected
+    $('#build-map').hide(); // hide map content
+    $('.favourites').removeClass('selected'); // ensure favourites tab isn't selected
     $('#building-info').toggle();
+    
+    if ($('#building-info').css('display') === 'none') {
+        $(this).removeClass('selected');
+    }
+    
 });
+
+// Building map - bottom nav
+$('.map').click(function(){
+    $('.building').removeClass('selected');
+    $('#building-info').hide();
+    $('.favourites').removeClass('selected');
+    $('#build-map').toggle();
+    
+    if ($('#build-map').css('display') === 'none') {
+        $(this).removeClass('selected');
+    }
+    
+});
+
