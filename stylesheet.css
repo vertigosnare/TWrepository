@@ -20,7 +20,6 @@
 html {
     /* http://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats */
     height: 100%;
-    overflow: hidden;
 }
 
 body {
@@ -65,8 +64,7 @@ body {
     margin-top: 5.5rem;
 }
 
-@media screen and (max-width: 768px) and (min-width: 700px) {
-	
+@media screen and (max-width: 768px) and (min-width: 415px) {
 	.extra-margin-top {
 		margin-top: 8rem;
 	}
@@ -503,7 +501,6 @@ img .dark-icon.selected {
 
 #building-info {
 	display: none;
-	margin-bottom: 9rem;
 	z-index: 1;
 }
  
@@ -518,6 +515,7 @@ img .dark-icon.selected {
     height: 6rem;
     display: table;
     table-layout: fixed;
+    margin-bottom: 0;
 }
 
 #building-info li {
@@ -527,7 +525,7 @@ img .dark-icon.selected {
     letter-spacing: 1px;
     display: table-cell;
     vertical-align: middle;
-     text-align: center;
+    text-align: center;
 }
 
 #building-info li a {
@@ -535,16 +533,20 @@ img .dark-icon.selected {
 	color: #91732b;
 }
 
-@media screen and (max-width: 768px) and (min-width: 700px) {
+@media screen and (max-width: 768px) and (min-width: 415px) {
 	
 	#building-overview p {
 		font-size: 2rem;
 	}
 }
 
+div#building-overview {
+    overflow-y: scroll;
+}
+
 #building-overview img {
 	max-width: 100%;
-	margin-top: 11.5rem;
+	margin-top: 10rem;
 }
 
 .architecture {
@@ -553,8 +555,11 @@ img .dark-icon.selected {
 
 #building-overview p {
 	margin: 2em;
-	overflow: scroll;
     line-height: 1.5;
+}
+
+div#building-overview p:last-child {
+    margin-bottom: 15rem;
 }
 
 
