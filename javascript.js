@@ -131,9 +131,11 @@ $('.building').click(function(){
     $('#build-map').hide(); // hide map content
     $('.favourites').removeClass('selected'); // ensure favourites tab isn't selected
     $('#building-info').toggle();
+	$('#main-screen').hide();
     
     if ($('#building-info').css('display') === 'none') {
         $(this).removeClass('selected');
+		$('#main-screen').show();
     }
     
 });
@@ -144,10 +146,89 @@ $('.map').click(function(){
     $('#building-info').hide();
     $('.favourites').removeClass('selected');
     $('#build-map').toggle();
-    
+    $('#main-screen').hide();
+	
     if ($('#build-map').css('display') === 'none') {
         $(this).removeClass('selected');
+		$('#main-screen').show();
     }
     
 });
+
+//Quest
+var screenWidth = window.innerWidth; // used to scale with different resolutions
+
+$(document).ready(function(){
+	$("#right-button").click(function(){
+	    $(".quest-gallery").animate({
+			scrollLeft: "+=" + screenWidth
+			}, "slow");
+	});
+});
+		
+$(document).ready(function(){
+    $("#left-button").click(function(){
+        $(".quest-gallery").animate({
+			scrollLeft: "-=" + screenWidth
+			}, "slow");	  
+	});
+});
+
+// using jquery-scrollsnap-plugin for chrome compatibility. Source:https://github.com/benoitpointet/jquery-scrollsnap-plugin */		
+$(document).ready(function() {
+	$('.quest-gallery').scrollsnap({
+		direction: 'x',
+		snaps: 'img',
+		proximity: screenWidth*0.5
+	});
+});
+
+    $(".quest-gallery").scroll(function(){
+		if ($(".quest-gallery").scrollLeft() < 0.25*window.innerWidth){
+		$('#quest1-dot').css('background-color', 'red');
+		$('#quest2-dot').css('background-color', 'blue');
+		$('#quest3-dot').css('background-color', 'blue');
+		$('#quest4-dot').css('background-color', 'blue');
+		$('#quest5-dot').css('background-color', 'blue');
+		}
+		
+		if ($(".quest-gallery").scrollLeft() > 0.75*window.innerWidth){
+		$('#quest1-dot').css('background-color', 'blue');
+		$('#quest2-dot').css('background-color', 'red');
+		$('#quest3-dot').css('background-color', 'blue');
+		$('#quest4-dot').css('background-color', 'blue');
+		$('#quest5-dot').css('background-color', 'blue');
+		}
+		
+		if ($(".quest-gallery").scrollLeft() > 1.75*window.innerWidth){
+		$('#quest1-dot').css('background-color', 'blue');
+		$('#quest2-dot').css('background-color', 'blue');
+		$('#quest3-dot').css('background-color', 'red');
+		$('#quest4-dot').css('background-color', 'blue');
+		$('#quest5-dot').css('background-color', 'blue');
+		}
+		
+		if ($(".quest-gallery").scrollLeft() > 2.75*window.innerWidth){
+		$('#quest1-dot').css('background-color', 'blue');
+		$('#quest2-dot').css('background-color', 'blue');
+		$('#quest3-dot').css('background-color', 'blue');
+		$('#quest4-dot').css('background-color', 'red');
+		$('#quest5-dot').css('background-color', 'blue');
+		}
+		
+		if ($(".quest-gallery").scrollLeft() > 3.75*window.innerWidth){
+		$('#quest1-dot').css('background-color', 'blue');
+		$('#quest2-dot').css('background-color', 'blue');
+		$('#quest3-dot').css('background-color', 'blue');
+		$('#quest4-dot').css('background-color', 'blue');
+		$('#quest5-dot').css('background-color', 'red');
+		}
+		
+    });
+
+	//Quest - click to open feature ~ WORK IN PROGRESS 
+$('#quest1-open').click(function(){
+	$('#main-screen').hide();    
+});
+
 

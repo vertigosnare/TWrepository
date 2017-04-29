@@ -1,5 +1,6 @@
 /* TABLE OF CONTENTS
 
+	0. Quest styles
     1. Default styles
     2. Wrong device message
     3. Launch screen
@@ -12,6 +13,98 @@
     X. General media queries
 */
 
+/* ------------------------- 0. Quest styles ----------------------------- */
+
+.circle-text { 
+   position: absolute; 
+   top: 10vh; 
+   text-align: center;
+   width: 100%; 
+}
+
+/* should use margin-top class instead */
+#spacer {
+height: 5.5rem;
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+	
+	#spacer {
+		height: 8rem;
+	}
+}
+
+#main-screen-text{
+	text-align: center;
+}
+
+.quest-wrapper {
+    width: 100vw; /*for fitting to width. This works for different resolutions*/
+    height: 50vh;
+    overflow: hidden;
+	margin: 0 auto;
+}
+
+.quest-gallery {
+    width:100vw;
+	height: 50vh;
+	overflow-x: auto; /*horizontal scroll*/
+    overflow-y: hidden;
+
+    /* avoid spaces */
+    white-space: nowrap;
+    font-size: 0px;
+
+	/*css scrollsnap, using jquery-scrollsnap-plugin for chrome compatibility. Source:https://github.com/benoitpointet/jquery-scrollsnap-plugin */
+    -webkit-scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    -webkit-scroll-snap-type: mandatory;
+    scroll-snap-type: mandatory;
+	-webkit-scroll-snap-points-x: repeat(100%);
+    scroll-snap-points-x: repeat(100%);
+}
+
+.quest {
+    font-size: 14px;
+	display: inline-block;
+    white-space: normal;
+}
+
+.quest img {
+    display: block;
+	width: 100vw;
+	height: 50vh;
+}
+
+#quest-left-right{
+	margin: 0 auto;
+	width: 65px;
+}
+
+.demo {
+	border-radius: 50%;
+	background-color: pink;
+	width: 30px;
+}
+
+#quest1-dot{
+	background-color:red;
+}
+
+.quest-progress {
+	width: 87px;
+	display:block;
+    margin: 0 auto;
+}
+
+.quest-progress-dots {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+}
 
 
 
