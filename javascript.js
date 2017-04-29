@@ -22,6 +22,7 @@ $(function(){
     if ($('.launch').css('display') === 'block') { // only if the launch screen is displayed - don't want it to fade in if wrong device message is displayed
         setTimeout (function() {
             $("#onboarding1").fadeIn("slow");
+            $('body').removeClass('redwine-gradient');
             $('body').addClass('gold-gradient'); // use gold gradient background for onboarding screens
         }, 5300);
     }
@@ -80,7 +81,7 @@ $('#onboarding3').on('swipeleft', function() {
 
 // when the begin button is selected, the last onboarding screen fades out
 $('#begin').on('click', function() {
-    $('#onboarding4').fadeOut();
+    $('#onboarding4').fadeOut('fast');
     $('body').removeClass('redwine-gradient');
     $('body').removeClass('gold-gradient');
     $('#home').css('display', 'block');
