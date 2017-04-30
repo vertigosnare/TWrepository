@@ -193,6 +193,7 @@ $(".quest-gallery").scroll(function(){
     if ($(".quest-gallery").scrollLeft() < 0.25*window.innerWidth){
         $('#quest1-dot').addClass('low-opacity');
         $('#quest2-dot').removeClass('low-opacity');
+        $('#left-button').show();
     }
 		
     if ($(".quest-gallery").scrollLeft() > 0.75*window.innerWidth){
@@ -233,6 +234,7 @@ $(".quest-gallery").scroll(function(){
     if ($(".quest-gallery").scrollLeft() > 7.75*window.innerWidth){
         $('#quest8-dot').addClass('low-opacity');
         $('#quest9-dot').removeClass('low-opacity');
+        $('#right-button').hide();
     }
 });
 

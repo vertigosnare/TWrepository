@@ -132,6 +132,7 @@ height: 5.5rem;
 
 button#left-button {
     margin-left: 10rem;
+    display: none;
 }
 
 button#right-button {
