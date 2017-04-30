@@ -159,7 +159,7 @@ $('.map').click(function(){
     
 });
 
-//Quest
+// Circle (feature) navigation
 var screenWidth = window.innerWidth; // used to scale with different resolutions
 
 $(document).ready(function(){
@@ -187,50 +187,58 @@ $(document).ready(function() {
 	});
 });
 
-    $(".quest-gallery").scroll(function(){
-		if ($(".quest-gallery").scrollLeft() < 0.25*window.innerWidth){
-		$('#quest1-dot').css('background-color', 'red');
-		$('#quest2-dot').css('background-color', 'blue');
-		$('#quest3-dot').css('background-color', 'blue');
-		$('#quest4-dot').css('background-color', 'blue');
-		$('#quest5-dot').css('background-color', 'blue');
-		}
+$(".quest-gallery").scroll(function(){
+        
+    // for scrollLeft 
+    if ($(".quest-gallery").scrollLeft() < 0.25*window.innerWidth){
+        $('#quest1-dot').addClass('low-opacity');
+        $('#quest2-dot').removeClass('low-opacity');
+    }
 		
-		if ($(".quest-gallery").scrollLeft() > 0.75*window.innerWidth){
-		$('#quest1-dot').css('background-color', 'blue');
-		$('#quest2-dot').css('background-color', 'red');
-		$('#quest3-dot').css('background-color', 'blue');
-		$('#quest4-dot').css('background-color', 'blue');
-		$('#quest5-dot').css('background-color', 'blue');
-		}
+    if ($(".quest-gallery").scrollLeft() > 0.75*window.innerWidth){
+        $('#quest1-dot').addClass('low-opacity');
+        $('#quest2-dot').removeClass('low-opacity');
+	}
 		
-		if ($(".quest-gallery").scrollLeft() > 1.75*window.innerWidth){
-		$('#quest1-dot').css('background-color', 'blue');
-		$('#quest2-dot').css('background-color', 'blue');
-		$('#quest3-dot').css('background-color', 'red');
-		$('#quest4-dot').css('background-color', 'blue');
-		$('#quest5-dot').css('background-color', 'blue');
-		}
+    if ($(".quest-gallery").scrollLeft() > 1.75*window.innerWidth){
+        $('#quest2-dot').addClass('low-opacity');
+        $('#quest3-dot').removeClass('low-opacity');
+    }
 		
-		if ($(".quest-gallery").scrollLeft() > 2.75*window.innerWidth){
-		$('#quest1-dot').css('background-color', 'blue');
-		$('#quest2-dot').css('background-color', 'blue');
-		$('#quest3-dot').css('background-color', 'blue');
-		$('#quest4-dot').css('background-color', 'red');
-		$('#quest5-dot').css('background-color', 'blue');
-		}
+    if ($(".quest-gallery").scrollLeft() > 2.75*window.innerWidth){
+        $('#quest3-dot').addClass('low-opacity');
+        $('#quest4-dot').removeClass('low-opacity');
+    }
 		
-		if ($(".quest-gallery").scrollLeft() > 3.75*window.innerWidth){
-		$('#quest1-dot').css('background-color', 'blue');
-		$('#quest2-dot').css('background-color', 'blue');
-		$('#quest3-dot').css('background-color', 'blue');
-		$('#quest4-dot').css('background-color', 'blue');
-		$('#quest5-dot').css('background-color', 'red');
-		}
-		
-    });
+    if ($(".quest-gallery").scrollLeft() > 3.75*window.innerWidth){
+        $('#quest4-dot').addClass('low-opacity');
+        $('#quest5-dot').removeClass('low-opacity');
+    }
+        
+    if ($(".quest-gallery").scrollLeft() > 4.75*window.innerWidth){
+        $('#quest5-dot').addClass('low-opacity');
+        $('#quest6-dot').removeClass('low-opacity');
+    }
+        
+    if ($(".quest-gallery").scrollLeft() > 5.75*window.innerWidth){
+        $('#quest6-dot').addClass('low-opacity');
+        $('#quest7-dot').removeClass('low-opacity');
+    }
+        
+    if ($(".quest-gallery").scrollLeft() > 6.75*window.innerWidth){
+        $('#quest7-dot').addClass('low-opacity');
+        $('#quest8-dot').removeClass('low-opacity');
+    }
+        
+    if ($(".quest-gallery").scrollLeft() > 7.75*window.innerWidth){
+        $('#quest8-dot').addClass('low-opacity');
+        $('#quest9-dot').removeClass('low-opacity');
+    }
+});
 
-	//Quest - click to open feature ~ WORK IN PROGRESS 
+
+
+// Circle feature - touch to open ~ WORK IN PROGRESS 
 $('#quest1-open').click(function(){
 	$('#main-screen').hide();    
 });
