@@ -115,6 +115,10 @@ $('.js-menu').on('click', function() {
 	isActive = !isActive;
 });
 
+$('#home-link').click(function() {
+	$('#main-screen').css('display', 'block');
+});
+
 // Bottom Navigation Grace
 
 var $li = $('.bottom-menu li').click(function() {
@@ -137,7 +141,7 @@ $('.building').click(function(){
         $(this).removeClass('selected');
 		$('#main-screen').show();
     }
-    
+
 });
 
 // Building map - bottom nav

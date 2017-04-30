@@ -20,7 +20,19 @@
    top: 10vh; 
    text-align: center;
    width: 100%; 
+   color: #fff;
+   font-size: 2rem;
+   font-weight: 300;
+   align-content:center;
+   letter-spacing: 2px;
+   margin-top: 2rem;
+ }
+
+.circle-text h1 {
+	font-size: 10rem;
+	font-weight: 400;
 }
+
 
 /* should use margin-top class instead */
 #spacer {
@@ -34,8 +46,23 @@ height: 5.5rem;
 	}
 }
 
-#main-screen-text{
+#main-screen-text {
 	text-align: center;
+	margin: 3rem;
+}
+
+#main-screen-text h2 {
+	color: #91732b;
+	font-weight: 400;
+	letter-spacing: 1px;
+	font-size: 1.5rem;
+	margin: 2rem;
+}
+
+#main-screen-text p {
+	color: #363636;
+	font-size: 2rem;
+    letter-spacing: 1px;
 }
 
 .quest-wrapper {
@@ -65,7 +92,6 @@ height: 5.5rem;
 }
 
 .quest {
-    font-size: 14px;
 	display: inline-block;
     white-space: normal;
 }
@@ -82,25 +108,26 @@ height: 5.5rem;
 }
 
 .demo {
-	border-radius: 50%;
+    border-radius: 50%;
 	background-color: pink;
-	width: 30px;
-}
+	width: 30px;}
 
 #quest1-dot{
-	background-color:red;
+	background-color:#363636;
 }
 
 .quest-progress {
-	width: 87px;
+	width: 160px;
 	display:block;
     margin: 0 auto;
+	margin-top: 3rem;
 }
 
 .quest-progress-dots {
     width: 10px;
     height: 10px;
-    background-color: blue;
+    background-color: #363636;
+	opacity: 0.3;
     border-radius: 50%;
     display: inline-block;
     margin: 0 2px;
