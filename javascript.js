@@ -14,7 +14,7 @@ $(document).ready(function() {
 // hide launch screen after 5 seconds
 setTimeout (function() {
 	$(".launch").fadeOut("slow"); 
-}, 5000); // <-- time in milliseconds
+}, 500); // <-- time in milliseconds (was 5000)
 	  
 
 // fade in user onboarding screen after 5.3 seconds
@@ -24,7 +24,7 @@ $(function(){
             $("#onboarding1").fadeIn("slow");
             $('body').removeClass('redwine-gradient');
             $('body').addClass('gold-gradient'); // use gold gradient background for onboarding screens
-        }, 5300);
+        }, 700); //(was 5300)
     }
 });
 

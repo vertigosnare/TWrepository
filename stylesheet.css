@@ -1,170 +1,19 @@
 /* TABLE OF CONTENTS
 
-	0. Circle styles
     1. Default styles
     2. Wrong device message
     3. Launch screen
     4. User onboarding
 	5. Hamburger Menu
-	6. Bottom Navigation
-    7. The building
-    8. The map
-	9. Feature Clues
+    6. Circle feature navigation
+	7. Bottom Navigation
+    8. The building
+    9. The map
+	10. Feature Clues
 
     X. General media queries
+
 */
-
-/* ------------------------- 0. Circle styles ----------------------------- */
-
-.circle-text { 
-   position: absolute; 
-   top: 10vh; 
-   text-align: center;
-   width: 100%; 
-   color: #fff;
-   font-size: 2.5rem;
-   font-weight: 300;
-   align-content:center;
-   letter-spacing: 2px;
-   margin-top: 2rem;
- }
-
-.circle-text h1 {
-	font-size: 14rem;
-	font-weight: 400;
-}
-
-
-/* should use margin-top class instead */
-#spacer {
-height: 5.5rem;
-}
-
-@media screen and (max-width: 768px) and (min-width: 415px) {
-	
-	#spacer {
-		height: 8rem;
-	}
-}
-
-#main-screen-text {
-	text-align: center;
-	margin: 3rem;
-}
-
-#main-screen-text h2 {
-	color: #91732b;
-	font-weight: 400;
-	letter-spacing: 2px;
-	font-size: 2.5rem;
-    text-transform: uppercase;
-    padding-top: 8%;
-}
-
-#main-screen-text p {
-	color: #363636;
-	font-size: 2.4rem;
-    letter-spacing: 1px;
-    padding: 5% 0;
-}
-
-.quest-wrapper {
-    width: 100vw; /*for fitting to width. This works for different resolutions*/
-    height: 50vh;
-    overflow: hidden;
-	margin: 0 auto;
-}
-
-.quest-gallery {
-    width: 100vw;
-	height: 40vh;
-	overflow-x: auto; /*horizontal scroll*/
-    overflow-y: hidden;
-
-    /* avoid spaces */
-    white-space: nowrap;
-    font-size: 0px;
-
-	/*css scrollsnap, using jquery-scrollsnap-plugin for chrome compatibility. Source:https://github.com/benoitpointet/jquery-scrollsnap-plugin */
-    -webkit-scroll-behavior: smooth;
-    scroll-behavior: smooth;
-    -webkit-scroll-snap-type: mandatory;
-    scroll-snap-type: mandatory;
-	-webkit-scroll-snap-points-x: repeat(100%);
-    scroll-snap-points-x: repeat(100%);
-}
-
-.quest {
-	display: inline-block;
-    white-space: normal;
-}
-
-.quest::after {
-    width: 100%;
-    height: 2rem;
-    background: #7f143c;
-    position: fixed;
-    content: "";
-    margin-top: -26%;
-    z-index: -1;
-}
-
-
-.quest img {
-    display: block;
-	width: 100vw;
-	height: 40vh;
-}
-
-.quest img::after {
-    width: 30rem;
-    height: 1rem;
-    background: #7f143c;
-    position: absolute;
-    content: "";
-    top: 30px;
-    left: -50px;
-}
-
-#quest-left-right{
-	margin: 0 auto;
-    margin-top: -5%;
-}
-
-button#left-button {
-    margin-left: 10rem;
-    display: none;
-}
-
-button#right-button {
-    float: right;
-    margin-right: 10rem;
-}
-
-button.demo img {
-    height: 40px;
-}
-
-#quest1-dot {
-	background-color:#363636;
-}
-
-div.quest-progress {
-    width: 162px;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    margin: 0 0 18% -81px;
-}
-
-.quest-progress-dots {
-    width: 10px;
-    height: 10px;
-    background-color: #363636;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 2px;
-}
 
 
 
@@ -225,11 +74,14 @@ body {
 
 /* override user agent stylesheet */
 button {
-    color: none;
+    color: transparent;
     background: none;
     box-sizing: inherit;
     padding: 0;
     border-width: 0;
+    border-style: none;
+    border-color: transparent;
+    border-image: none;
 }
 
 
@@ -358,6 +210,7 @@ div.onboarding-screens::after {
     z-index: -1; 
 }
 
+/* background images for onboarding screens */
 div#onboarding1::after {
     background: url(images/onboarding1.jpg) top center no-repeat;
     background-size: cover;
@@ -378,7 +231,7 @@ div#onboarding4::after {
     background-size: cover;
 }
 
-
+/* icons for each onboarding screen */
 img.ob-icons {
     height: 90px;
     margin-bottom: 2rem;
@@ -575,7 +428,166 @@ nav ul li a {
     padding: 0;
 }
 
-/* ------------------------- 6. Bottom Navigation ----------------------------- */
+
+
+
+/* ------------------------- 6. Circle feature navigation ----------------------------- */
+
+.circle-text { 
+   position: absolute; 
+   top: 24%; 
+   text-align: center;
+   width: 100%; 
+   color: #fff;
+   font-size: 2.5rem;
+   font-weight: 300;
+   align-content:center;
+   letter-spacing: 2px;
+   margin-top: 2rem;
+ }
+
+.circle-text h1 {
+	font-size: 14rem;
+	font-weight: 400;
+}
+
+
+/* should use margin-top class instead */
+#spacer {
+height: 5.5rem;
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+	
+	#spacer {
+		height: 8rem;
+	}
+}
+
+#main-screen-text {
+	text-align: center;
+}
+
+#main-screen-text h2 {
+	color: #91732b;
+	font-weight: 400;
+	letter-spacing: 2px;
+	font-size: 2.5rem;
+    text-transform: uppercase;
+    padding-top: 8%;
+}
+
+#main-screen-text p {
+	color: #363636;
+	font-size: 2.4rem;
+    letter-spacing: 1px;
+    padding: 3% 0;
+}
+
+.quest-wrapper {
+    width: 100vw; /*for fitting to width. This works for different resolutions*/
+    height: 50vh;
+    overflow: hidden;
+	margin: 0 auto;
+}
+
+.quest-gallery {
+    width: 100vw;
+	height: 40vh;
+	overflow-x: auto; /*horizontal scroll*/
+    overflow-y: hidden;
+
+    /* avoid spaces */
+    white-space: nowrap;
+    font-size: 0px;
+
+	/*css scrollsnap, using jquery-scrollsnap-plugin for chrome compatibility. Source:https://github.com/benoitpointet/jquery-scrollsnap-plugin */
+    -webkit-scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    -webkit-scroll-snap-type: mandatory;
+    scroll-snap-type: mandatory;
+	-webkit-scroll-snap-points-x: repeat(100%);
+    scroll-snap-points-x: repeat(100%);
+}
+
+.quest {
+	display: inline-block;
+    white-space: normal;
+}
+
+.quest::after {
+    width: 100%;
+    height: 2rem;
+    background: #7f143c;
+    position: fixed;
+    content: "";
+    margin-top: -26%;
+    z-index: -1;
+}
+
+
+.quest img {
+    display: block;
+	width: 100vw;
+	height: 40vh;
+}
+
+.quest img::after {
+    width: 30rem;
+    height: 1rem;
+    background: #7f143c;
+    position: absolute;
+    content: "";
+    top: 30px;
+    left: -50px;
+}
+
+#quest-left-right {
+    position: fixed;
+    bottom: 24%;
+}
+
+button#left-button {
+    position: fixed;
+    margin-left: 10rem;
+    display: none;
+}
+
+button#right-button {
+    position: fixed;
+    right: 0;
+    margin-right: 10rem;
+}
+
+button.demo img {
+    height: 40px;
+}
+
+#quest1-dot {
+	background-color:#363636;
+}
+
+div.quest-progress {
+    width: 162px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    margin: 0 0 18% -81px;
+}
+
+.quest-progress-dots {
+    width: 10px;
+    height: 10px;
+    background-color: #363636;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+
+
+
+/* ------------------------- 7. Bottom Navigation ----------------------------- */
 
 .bottom-menu {
 	width: 100%;
@@ -658,7 +670,7 @@ img .dark-icon.selected {
 
 
 
-/* ------------------------- 7. The Building ----------------------------- */
+/* ------------------------- 8. The Building ----------------------------- */
 
 #building-info {
 	display: none;
@@ -725,7 +737,7 @@ div#building-overview p:last-child {
 
 
 
-/* ------------------------- 7. The map ----------------------------- */
+/* ------------------------- 9. The map ----------------------------- */
 
 div#build-map {
     width: 100%;
@@ -764,7 +776,7 @@ img#floorplan {
     
 }
 
-/* ------------------------- 9. Feature Clues ----------------------------- */
+/* ------------------------- 10. Feature Clues ----------------------------- */
 
 #clue-1, #clue-2, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9 {
 		display: none;
@@ -790,7 +802,7 @@ img#floorplan {
 	text-align: center;
 	color: #fff;
 	height: 5.5rem;
-	overflow:hidden;
+	overflow: hidden;
 }
 
 .clue-header ul {
@@ -813,55 +825,6 @@ img#floorplan {
 	font-size: 1.5rem;
     font-weight: 100;
     letter-spacing: 3px;
-}
-
-@media screen and (max-width: 320px) {
-	
-	.clue-content {
-		margin: 2rem;
-	}
-	
-	.clue-header li p {
-		font-size: 1.3rem;
-	}
-	
-	.clue-content h2 {
-		font-size: 1rem;
-		margin: 1rem;
-	}
-	
-	.hints li a {
-		font-size: 1rem;
-	}
-}
-
-@media screen and (max-width: 768px) and (min-width: 415px) {
-	
-	.clue-header {
-		
-		height: 6.5rem;
-	}
-	
-	.clue-content {
-		margin: 6rem;
-	}
-	
-	.clue-header li p {
-		font-size: 2.5rem;
-	}
-	
-	.clue-content h2{
-		font-size: 3rem;
-	}
-	
-	.clue-content p {
-		font-size: 3rem;
-	}
-	
-	.hints li a {
-		font-size: 3rem;
-		width: 70%;
-	}
 }
 
 .clue-header li img {
@@ -913,9 +876,9 @@ img#floorplan {
 }
 
 .hints li {
-	 padding: 1.3rem 0;
-     line-height: 1.4;
-	 margin-bottom: 2rem;
+    padding: 1.3rem 0;
+    line-height: 1.4;
+    margin-bottom: 2rem;
 }
 
 .hints li a {
@@ -955,8 +918,76 @@ img#floorplan {
     margin: 0 auto;	
 }
 
+@media screen and (max-width: 768px) and (min-width: 415px) {
+	
+	.clue-header {
+		height: 8rem;
+	}
+	
+	.clue-content {
+		margin: 6rem;
+	}
+    
+    .clue-header ul {
+        margin-top: 0.5rem;
+    }
+	
+	.clue-header li p {
+		font-size: 2.5rem;
+	}
+	
+	.clue-content h2{
+		font-size: 2.7rem;
+	}
+	
+	.clue-content p {
+		font-size: 3rem;
+	}
+    
+    .hints li {
+        padding: 2rem 0;
+        margin-bottom: 3rem;
+        width: 70%;
+        border-radius: 60px
+    }
+    
+	.hints li a {
+		font-size: 3rem;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	
+	.clue-content {
+		margin: 2rem;
+	}
+	
+	.clue-header li p {
+		font-size: 1.3rem;
+	}
+	
+	.clue-content h2 {
+		font-size: 1.5rem;
+		margin: 3rem 0;
+	}
+	
+	.hints li a {
+		font-size: 1.5rem;
+	}
+}
+
 
 /* ------------------------- X. General media queries ----------------------------- */
+
+/* design breakpoint for progress dots */
+@media screen and (max-width: 590px) {
+    
+    div.quest-progress {
+        margin: 0 0 27% -81px;
+    }
+    
+}
+
 
 /* Phone size */
 @media screen and (max-width: 414px) {
@@ -1060,10 +1091,9 @@ img#floorplan {
     
     
     
-    /* ----- feature circles ------ */
-    
+    /* ----- Circle feature navigation ------ */
     #main-screen-text {
-        margin: 1rem;
+        margin-bottom: 10%;
     }
     
     #main-screen-text h2 {
@@ -1084,13 +1114,8 @@ img#floorplan {
         height: 38vh;
     }
     
-    div.quest-progress {
-        margin: 0 0 27% -81px;
-    }
-    
     .circle-text {
         font-size: 1.5rem;
-        margin-top: 0;
     }
     
     .circle-text h1 {
@@ -1098,7 +1123,7 @@ img#floorplan {
     }
     
     #quest-left-right{
-        margin-top: -18%;
+        bottom: 30%;
     }
     
     button#right-button {
@@ -1152,6 +1177,14 @@ img#floorplan {
     img#floorplan {
         margin-top: 4rem;
         width: 45rem;
+    }
+    
+}
+
+@media screen and (max-width: 320px) {
+
+    .circle-text {
+        top: 17%;
     }
     
 }
