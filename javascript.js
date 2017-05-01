@@ -198,143 +198,43 @@ $(document).ready(function() {
 	});
 });
 
+// dark dot indicates visible quest
 $(".quest-gallery").scroll(function(){
-        
-    // for scrollLeft 
-    if ($(".quest-gallery").scrollLeft() < 0.25*window.innerWidth) {
-        $('#quest1-dot').css('opacity', '1');
-        $('#quest2-dot').css('opacity', '0.3');
-        $('#quest3-dot').css('opacity', '0.3');
-        $('#quest4-dot').css('opacity', '0.3');
-        $('#quest5-dot').css('opacity', '0.3');
-        $('#quest6-dot').css('opacity', '0.3');
-        $('#quest7-dot').css('opacity', '0.3');
-        $('#quest8-dot').css('opacity', '0.3');
-        $('#quest9-dot').css('opacity', '0.3');
-        $('#left-button').hide();
-        $('#white-box-left').show();
-    }
-    
-    /* for feature 2 */
-    if ($(".quest-gallery").scrollLeft() > 0.25*window.innerWidth){
-        $('#quest1-dot').css('opacity', '1');
-        $('#quest2-dot').css('opacity', '0.3');
-        $('#quest3-dot').css('opacity', '0.3');
-        $('#quest4-dot').css('opacity', '0.3');
-        $('#quest5-dot').css('opacity', '0.3');
-        $('#quest6-dot').css('opacity', '0.3');
-        $('#quest7-dot').css('opacity', '0.3');
-        $('#quest8-dot').css('opacity', '0.3');
-        $('#quest9-dot').css('opacity', '0.3');
-        $('#left-button').show();
-        $('#white-box-left').hide();
-    }
-		
-    if ($(".quest-gallery").scrollLeft() > 0.75*window.innerWidth){
-        $('#quest1-dot').css('opacity', '0.3');
-        $('#quest2-dot').css('opacity', '1');
-        $('#quest3-dot').css('opacity', '0.3');
-        $('#quest4-dot').css('opacity', '0.3');
-        $('#quest5-dot').css('opacity', '0.3');
-        $('#quest6-dot').css('opacity', '0.3');
-        $('#quest7-dot').css('opacity', '0.3');
-        $('#quest8-dot').css('opacity', '0.3');
-        $('#quest9-dot').css('opacity', '0.3');
-        $('#right-button').show();
+	
+	var dotCount = $('.quest-progress').children().length;
+	// applies styles to hide buttons and darken dots based on scroll distance
+	jQuery.fn.darkDot = function(parameter) {
+		$('.quest-progress > div').css('opacity', '0.3');	
+		$('div.quest-progress div:nth-child(' + parameter + ')').css('opacity', '1');	
+		if (parameter < dotCount && parameter > 0) {$('#right-button').show();	$('#left-button').show();}
+		if (parameter == dotCount) {
+			$('#right-button').hide(); 
+		}
 	}
-		
-    if ($(".quest-gallery").scrollLeft() > 1.75*window.innerWidth){
-        $('#quest1-dot').css('opacity', '0.3');
-        $('#quest2-dot').css('opacity', '0.3');
-        $('#quest3-dot').css('opacity', '1');
-        $('#quest4-dot').css('opacity', '0.3');
-        $('#quest5-dot').css('opacity', '0.3');
-        $('#quest6-dot').css('opacity', '0.3');
-        $('#quest7-dot').css('opacity', '0.3');
-        $('#quest8-dot').css('opacity', '0.3');
-        $('#quest9-dot').css('opacity', '0.3');
-        $('#right-button').show();
+	
+    // for first feature
+    if ($(".quest-gallery").scrollLeft() < 0.25*window.innerWidth) {      
+    $().darkDot(1);
+	$('#left-button').hide();
+	$('#white-box-left').show();	
     }
-		
-    if ($(".quest-gallery").scrollLeft() > 2.75*window.innerWidth){
-        $('#quest1-dot').css('opacity', '0.3');
-        $('#quest2-dot').css('opacity', '0.3');
-        $('#quest3-dot').css('opacity', '0.3');
-        $('#quest4-dot').css('opacity', '1');
-        $('#quest5-dot').css('opacity', '0.3');
-        $('#quest6-dot').css('opacity', '0.3');
-        $('#quest7-dot').css('opacity', '0.3');
-        $('#quest8-dot').css('opacity', '0.3');
-        $('#quest9-dot').css('opacity', '0.3');
-        $('#right-button').show();
+	
+	//white boxs covering line left of first quest cirle and right of last quest circle
+	if ($(".quest-gallery").scrollLeft() > 0.25*window.innerWidth && $(".quest-gallery").scrollLeft() < ((dotCount-1.25)*window.innerWidth)) {      
+	$('#white-box-left').hide();
+	$('#white-box-right').hide();	
     }
-		
-    if ($(".quest-gallery").scrollLeft() > 3.75*window.innerWidth){
-        $('#quest1-dot').css('opacity', '0.3');
-        $('#quest2-dot').css('opacity', '0.3');
-        $('#quest3-dot').css('opacity', '0.3');
-        $('#quest4-dot').css('opacity', '0.3');
-        $('#quest5-dot').css('opacity', '1');
-        $('#quest6-dot').css('opacity', '0.3');
-        $('#quest7-dot').css('opacity', '0.3');
-        $('#quest8-dot').css('opacity', '0.3');
-        $('#quest9-dot').css('opacity', '0.3');
-        $('#right-button').show();
+	if ($(".quest-gallery").scrollLeft() > ((dotCount-1.25)*window.innerWidth)) {      
+	$('#white-box-right').show();	
     }
-        
-    if ($(".quest-gallery").scrollLeft() > 4.75*window.innerWidth){
-        $('#quest1-dot').css('opacity', '0.3');
-        $('#quest2-dot').css('opacity', '0.3');
-        $('#quest3-dot').css('opacity', '0.3');
-        $('#quest4-dot').css('opacity', '0.3');
-        $('#quest5-dot').css('opacity', '0.3');
-        $('#quest6-dot').css('opacity', '1');
-        $('#quest7-dot').css('opacity', '0.3');
-        $('#quest8-dot').css('opacity', '0.3');
-        $('#quest9-dot').css('opacity', '0.3');
-        $('#right-button').show();
-    }
-        
-    if ($(".quest-gallery").scrollLeft() > 5.75*window.innerWidth){
-        $('#quest1-dot').css('opacity', '0.3');
-        $('#quest2-dot').css('opacity', '0.3');
-        $('#quest3-dot').css('opacity', '0.3');
-        $('#quest4-dot').css('opacity', '0.3');
-        $('#quest5-dot').css('opacity', '0.3');
-        $('#quest6-dot').css('opacity', '0.3');
-        $('#quest7-dot').css('opacity', '1');
-        $('#quest8-dot').css('opacity', '0.3');
-        $('#quest9-dot').css('opacity', '0.3');
-        $('#right-button').show();
-    }
-        
-    if ($(".quest-gallery").scrollLeft() > 6.75*window.innerWidth){
-        $('#quest1-dot').css('opacity', '0.3');
-        $('#quest2-dot').css('opacity', '0.3');
-        $('#quest3-dot').css('opacity', '0.3');
-        $('#quest4-dot').css('opacity', '0.3');
-        $('#quest5-dot').css('opacity', '0.3');
-        $('#quest6-dot').css('opacity', '0.3');
-        $('#quest7-dot').css('opacity', '0.3');
-        $('#quest8-dot').css('opacity', '1');
-        $('#quest9-dot').css('opacity', '0.3');
-        $('#right-button').show();
-        $('#white-box-right').hide();
-    }
-        
-    if ($(".quest-gallery").scrollLeft() > 7.75*window.innerWidth){
-        $('#quest1-dot').css('opacity', '0.3');
-        $('#quest2-dot').css('opacity', '0.3');
-        $('#quest3-dot').css('opacity', '0.3');
-        $('#quest4-dot').css('opacity', '0.3');
-        $('#quest5-dot').css('opacity', '0.3');
-        $('#quest6-dot').css('opacity', '0.3');
-        $('#quest7-dot').css('opacity', '0.3');
-        $('#quest8-dot').css('opacity', '0.3');
-        $('#quest9-dot').css('opacity', '1');
-        $('#right-button').hide();
-        $('#white-box-right').show();
-    }
+	
+	// scroll to next feature travels window.innerWidth pixels.
+	// eg. scroll to third feature takes 3 * window.innerWidth pixels
+	for (i = 0; i < dotCount; i++) { 
+		if ($(".quest-gallery").scrollLeft() > (i+0.75)*window.innerWidth){       
+		$().darkDot(2+i);
+		}
+	}	
 });
 
 
