@@ -189,6 +189,10 @@
 	<div class="quest-wrapper">
 		<div class="quest-gallery">
             
+            <!-- need these white box divs to fudge the red line ending at 1st and 9th feature -->
+            <div id="white-box-left"></div>
+            <div id="white-box-right"></div>
+            
 			<div id="quest1-open" class="quest"><img src="images/circle.svg" alt="" width="auto" height="200"><h2 class ="circle-text"><span>FEATURE <h1>1</h1></span></h2></div>
             
 			<div id="quest2-open" class="quest"><img src="images/circle.svg" alt="" width="auto" height="200"><h2 class ="circle-text"><span>FEATURE <h1>2</h1></span></h2></div>
@@ -271,7 +275,9 @@
           <p>Areas off limits</p>
         </div>
         
-        <img id="floorplan" src="images/map.svg" alt="The library and offices opposite the toilets are off limits">
+        <div id="map-wrap">
+          <img id="floorplan" src="images/map.svg" alt="The library and offices opposite the toilets are off limits">
+        </div>
       </div>
       
     
