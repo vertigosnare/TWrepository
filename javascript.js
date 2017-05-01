@@ -201,50 +201,134 @@ $(document).ready(function() {
 $(".quest-gallery").scroll(function(){
         
     // for scrollLeft 
-    if ($(".quest-gallery").scrollLeft() < 0.25*window.innerWidth){
-        $('#quest1-dot').addClass('low-opacity');
-        $('#quest2-dot').removeClass('low-opacity');
+    if ($(".quest-gallery").scrollLeft() < 0.25*window.innerWidth) {
+        $('#quest1-dot').css('opacity', '1');
+        $('#quest2-dot').css('opacity', '0.3');
+        $('#quest3-dot').css('opacity', '0.3');
+        $('#quest4-dot').css('opacity', '0.3');
+        $('#quest5-dot').css('opacity', '0.3');
+        $('#quest6-dot').css('opacity', '0.3');
+        $('#quest7-dot').css('opacity', '0.3');
+        $('#quest8-dot').css('opacity', '0.3');
+        $('#quest9-dot').css('opacity', '0.3');
+        $('#left-button').hide();
+    }
+    
+    /* for feature 2 */
+    if ($(".quest-gallery").scrollLeft() > 0.25*window.innerWidth){
+        $('#quest1-dot').css('opacity', '1');
+        $('#quest2-dot').css('opacity', '0.3');
+        $('#quest3-dot').css('opacity', '0.3');
+        $('#quest4-dot').css('opacity', '0.3');
+        $('#quest5-dot').css('opacity', '0.3');
+        $('#quest6-dot').css('opacity', '0.3');
+        $('#quest7-dot').css('opacity', '0.3');
+        $('#quest8-dot').css('opacity', '0.3');
+        $('#quest9-dot').css('opacity', '0.3');
         $('#left-button').show();
     }
 		
     if ($(".quest-gallery").scrollLeft() > 0.75*window.innerWidth){
-        $('#quest1-dot').addClass('low-opacity');
-        $('#quest2-dot').removeClass('low-opacity');
+        $('#quest1-dot').css('opacity', '0.3');
+        $('#quest2-dot').css('opacity', '1');
+        $('#quest3-dot').css('opacity', '0.3');
+        $('#quest4-dot').css('opacity', '0.3');
+        $('#quest5-dot').css('opacity', '0.3');
+        $('#quest6-dot').css('opacity', '0.3');
+        $('#quest7-dot').css('opacity', '0.3');
+        $('#quest8-dot').css('opacity', '0.3');
+        $('#quest9-dot').css('opacity', '0.3');
+        $('#right-button').show();
 	}
 		
     if ($(".quest-gallery").scrollLeft() > 1.75*window.innerWidth){
-        $('#quest2-dot').addClass('low-opacity');
-        $('#quest3-dot').removeClass('low-opacity');
+        $('#quest1-dot').css('opacity', '0.3');
+        $('#quest2-dot').css('opacity', '0.3');
+        $('#quest3-dot').css('opacity', '1');
+        $('#quest4-dot').css('opacity', '0.3');
+        $('#quest5-dot').css('opacity', '0.3');
+        $('#quest6-dot').css('opacity', '0.3');
+        $('#quest7-dot').css('opacity', '0.3');
+        $('#quest8-dot').css('opacity', '0.3');
+        $('#quest9-dot').css('opacity', '0.3');
+        $('#right-button').show();
     }
 		
     if ($(".quest-gallery").scrollLeft() > 2.75*window.innerWidth){
-        $('#quest3-dot').addClass('low-opacity');
-        $('#quest4-dot').removeClass('low-opacity');
+        $('#quest1-dot').css('opacity', '0.3');
+        $('#quest2-dot').css('opacity', '0.3');
+        $('#quest3-dot').css('opacity', '0.3');
+        $('#quest4-dot').css('opacity', '1');
+        $('#quest5-dot').css('opacity', '0.3');
+        $('#quest6-dot').css('opacity', '0.3');
+        $('#quest7-dot').css('opacity', '0.3');
+        $('#quest8-dot').css('opacity', '0.3');
+        $('#quest9-dot').css('opacity', '0.3');
+        $('#right-button').show();
     }
 		
     if ($(".quest-gallery").scrollLeft() > 3.75*window.innerWidth){
-        $('#quest4-dot').addClass('low-opacity');
-        $('#quest5-dot').removeClass('low-opacity');
+        $('#quest1-dot').css('opacity', '0.3');
+        $('#quest2-dot').css('opacity', '0.3');
+        $('#quest3-dot').css('opacity', '0.3');
+        $('#quest4-dot').css('opacity', '0.3');
+        $('#quest5-dot').css('opacity', '1');
+        $('#quest6-dot').css('opacity', '0.3');
+        $('#quest7-dot').css('opacity', '0.3');
+        $('#quest8-dot').css('opacity', '0.3');
+        $('#quest9-dot').css('opacity', '0.3');
+        $('#right-button').show();
     }
         
     if ($(".quest-gallery").scrollLeft() > 4.75*window.innerWidth){
-        $('#quest5-dot').addClass('low-opacity');
-        $('#quest6-dot').removeClass('low-opacity');
+        $('#quest1-dot').css('opacity', '0.3');
+        $('#quest2-dot').css('opacity', '0.3');
+        $('#quest3-dot').css('opacity', '0.3');
+        $('#quest4-dot').css('opacity', '0.3');
+        $('#quest5-dot').css('opacity', '0.3');
+        $('#quest6-dot').css('opacity', '1');
+        $('#quest7-dot').css('opacity', '0.3');
+        $('#quest8-dot').css('opacity', '0.3');
+        $('#quest9-dot').css('opacity', '0.3');
+        $('#right-button').show();
     }
         
     if ($(".quest-gallery").scrollLeft() > 5.75*window.innerWidth){
-        $('#quest6-dot').addClass('low-opacity');
-        $('#quest7-dot').removeClass('low-opacity');
+        $('#quest1-dot').css('opacity', '0.3');
+        $('#quest2-dot').css('opacity', '0.3');
+        $('#quest3-dot').css('opacity', '0.3');
+        $('#quest4-dot').css('opacity', '0.3');
+        $('#quest5-dot').css('opacity', '0.3');
+        $('#quest6-dot').css('opacity', '0.3');
+        $('#quest7-dot').css('opacity', '1');
+        $('#quest8-dot').css('opacity', '0.3');
+        $('#quest9-dot').css('opacity', '0.3');
+        $('#right-button').show();
     }
         
     if ($(".quest-gallery").scrollLeft() > 6.75*window.innerWidth){
-        $('#quest7-dot').addClass('low-opacity');
-        $('#quest8-dot').removeClass('low-opacity');
+        $('#quest1-dot').css('opacity', '0.3');
+        $('#quest2-dot').css('opacity', '0.3');
+        $('#quest3-dot').css('opacity', '0.3');
+        $('#quest4-dot').css('opacity', '0.3');
+        $('#quest5-dot').css('opacity', '0.3');
+        $('#quest6-dot').css('opacity', '0.3');
+        $('#quest7-dot').css('opacity', '0.3');
+        $('#quest8-dot').css('opacity', '1');
+        $('#quest9-dot').css('opacity', '0.3');
+        $('#right-button').show();
     }
         
     if ($(".quest-gallery").scrollLeft() > 7.75*window.innerWidth){
-        $('#quest8-dot').addClass('low-opacity');
-        $('#quest9-dot').removeClass('low-opacity');
+        $('#quest1-dot').css('opacity', '0.3');
+        $('#quest2-dot').css('opacity', '0.3');
+        $('#quest3-dot').css('opacity', '0.3');
+        $('#quest4-dot').css('opacity', '0.3');
+        $('#quest5-dot').css('opacity', '0.3');
+        $('#quest6-dot').css('opacity', '0.3');
+        $('#quest7-dot').css('opacity', '0.3');
+        $('#quest8-dot').css('opacity', '0.3');
+        $('#quest9-dot').css('opacity', '1');
         $('#right-button').hide();
     }
 });
