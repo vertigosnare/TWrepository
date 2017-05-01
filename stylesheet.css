@@ -9,6 +9,7 @@
 	6. Bottom Navigation
     7. The building
     8. The map
+	9. Feature Clues
 
     X. General media queries
 */
@@ -763,7 +764,196 @@ img#floorplan {
     
 }
 
+/* ------------------------- 9. Feature Clues ----------------------------- */
 
+#clue-1, #clue-2, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9 {
+		display: none;
+		width: 100%;
+}
+
+.clue-content {
+	margin: 4rem;
+	align-content:center;
+    line-height: 1.5;
+}
+
+.clue-header {
+    background: rgba(204,57,118,1);
+    background: -moz-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(204,57,118,1)), color-stop(19%, rgba(176,43,96,1)), color-stop(41%, rgba(143,27,71,1)), color-stop(100%, rgba(143,27,71,1)));
+    background: -webkit-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    background: linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc3976', endColorstr='#8f1b47', GradientType=1 );
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	height: 5.5rem;
+	overflow:hidden;
+}
+
+.clue-header ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.clue-header li {
+	display: inline-block;
+	text-transform: uppercase;
+	text-align: center;
+	width: 32%;
+	vertical-align:middle;
+}
+
+.clue-header li p {
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	font-size: 1.5rem;
+    font-weight: 100;
+    letter-spacing: 3px;
+}
+
+@media screen and (max-width: 320px) {
+	
+	.clue-content {
+		margin: 2rem;
+	}
+	
+	.clue-header li p {
+		font-size: 1.3rem;
+	}
+	
+	.clue-content h2 {
+		font-size: 1rem;
+		margin: 1rem;
+	}
+	
+	.hints li a {
+		font-size: 1rem;
+	}
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+	
+	.clue-header {
+		
+		height: 6.5rem;
+	}
+	
+	.clue-content {
+		margin: 6rem;
+	}
+	
+	.clue-header li p {
+		font-size: 2.5rem;
+	}
+	
+	.clue-content h2{
+		font-size: 3rem;
+	}
+	
+	.clue-content p {
+		font-size: 3rem;
+	}
+	
+	.hints li a {
+		font-size: 3rem;
+		width: 70%;
+	}
+}
+
+.clue-header li img {
+	float: left;
+	width: 1.5rem;
+	padding-left: 1rem;
+	padding-bottom: 0.5rem;
+	padding-top: 1.5rem;
+	vertical-align:middle;
+}
+
+.clue-content h2 {
+	text-transform: uppercase;
+	text-align:center;
+	font-weight: 400;
+	color: #91732b;
+	margin: 4rem;
+	letter-spacing: 3px;
+	font-size: 2rem;
+}
+
+.binoculars {
+	width: 100%;
+	align-content:center;
+}
+
+.binoculars img {
+	
+	display: block;
+	margin: 0 auto;
+	width: 30%;
+	align-content:center;
+	padding-bottom: 2rem;
+}
+
+.clue-content p {
+	padding-bottom: 3rem;
+	padding-top: 2rem;
+	text-align:center;
+	letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.clue-content ul {
+	list-style-type: none;
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 2rem;
+}
+
+.hints li {
+	 padding: 1.3rem 0;
+     line-height: 1.4;
+	 margin-bottom: 2rem;
+}
+
+.hints li a {
+	  font-size: 1.5rem;
+      font-weight: 300;
+      text-decoration: none;
+      letter-spacing: 3px;
+	  width: 80%;
+}
+
+.hint {
+    border: 2px solid #7f143c;
+    border-radius: 30px;
+    margin: 0 auto;
+}
+
+.hint a {
+	color: #7f143c
+}
+
+.found-it {
+	background-color: #7f143c;
+    border: 2px solid #7f143c;
+    border-radius: 30px;
+    margin: 0 auto;	
+	color: #fff;
+}
+
+.found-it a, .show-me a {
+	color: #fff;
+}
+
+.show-me {
+	background-color: #363636;
+    border: 2px solid #363636;
+    border-radius: 30px;
+    margin: 0 auto;	
+}
 
 
 /* ------------------------- X. General media queries ----------------------------- */
