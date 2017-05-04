@@ -330,3 +330,15 @@ $('#quest9-open').click(function(){
 });  
 });
 
+// menu Caitlin
+$('#arc-cinema-open').click(function(){
+	$('#home').hide(); 
+	$('#arc-cinema').css('display', 'block');  
+	
+	$('.menu-header img').click(function() {
+	$('#arc-cinema').css('display', 'none');
+	$('#home').css('display', 'block');
+}); 
+});
+
+
