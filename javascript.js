@@ -239,9 +239,11 @@ $(".quest-gallery").scroll(function(){
 
 
 
+
+
 //Quest - click to open feature 
 $('#quest1-open').click(function(){
-	$('#home').hide(); 
+	$('#home').css('display', 'none'); 
 	$('#clue-1').css('display', 'block');  
 	
 	$('.clue-header li img').click(function() {
@@ -251,7 +253,7 @@ $('#quest1-open').click(function(){
 });
 
 $('#quest2-open').click(function(){
-	$('#home').hide(); 
+	$('#home').css('display', 'none'); 
 	$('#clue-2').css('display', 'block');   
 	
 	$('.clue-header li img').click(function() {
@@ -329,6 +331,127 @@ $('#quest9-open').click(function(){
 	$('#home').css('display', 'block');
 });  
 });
+
+// hints
+
+$('#clue-1 .hint').click(function() {
+	$('#clue-1').hide();
+	$('#hint-1').show();
+	
+$('.hint-header li img').click(function() {
+	$('#hint-1').hide();
+	$('#clue-1').show();
+	$('#clue-2, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').css('display', 'none');
+// previously selected divs were appearing when clicking on the 'back' image
+// not a great solution but only one I could get to work 
+});  
+});
+
+
+$('#clue-2 .hint').click(function() {
+	$('#clue-2').hide();
+	$('#hint-2').show();
+	
+$('.hint-header li img').click(function() {
+	$('#hint-2').hide();
+	$('#clue-2').show();
+	$('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').css('display', 'none');
+});  
+});
+
+
+$('#clue-3 .hint').click(function() {
+	$('#clue-3').hide();
+	$('#hint-3').show();
+	
+$('.hint-header li img').click(function() {
+	$('#hint-3').hide();
+	$('#clue-3').show();
+	$('#clue-1, #clue-2, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').css('display', 'none');
+});  
+});
+
+
+$('#clue-4 .hint').click(function() {
+	$('#hint-4').show();
+	$('#clue-4').hide();
+	
+$('.hint-header li img').click(function() {
+	$('#hint-4').hide();
+	$('#clue-4').show();
+	$('#clue-1, #clue-3, #clue-2, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').css('display', 'none');
+});  
+});
+
+
+$('#clue-5 .hint').click(function() {
+	$('#hint-5').show();
+	$('#clue-5').hide();
+	
+$('.hint-header li img').click(function() {
+	$('#hint-5').hide();
+	$('#clue-5').show();
+	$('#clue-1, #clue-3, #clue-4, #clue-2, #clue-6, #clue-7, #clue-8, #clue-9').css('display', 'none');
+});  
+});
+
+
+$('#clue-6 .hint').click(function() {
+	$('#hint-6').show();
+	$('#clue-6').hide();
+	
+$('.hint-header li img').click(function() {
+	$('#hint-6').hide();
+	$('#clue-6').show();
+	$('#clue-1, #clue-3, #clue-4, #clue-5, #clue-2, #clue-7, #clue-8, #clue-9').css('display', 'none');
+
+});  
+});
+
+
+$('#clue-7 .hint').click(function() {
+	$('#hint-7').show();
+	$('#clue-7').hide();
+	
+$('.hint-header li img').click(function() {
+	$('#hint-7').hide();
+	$('#clue-7').show();
+	$('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-2, #clue-8, #clue-9').css('display', 'none');
+});  
+});
+
+
+$('#clue-8 .hint').click(function() {
+	$('#hint-8').show();
+	$('#clue-8').hide();
+	
+$('.hint-header li img').click(function() {
+	$('#hint-8').hide();
+	$('#clue-8').show();
+	$('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-2, #clue-9').css('display', 'none');
+});  
+});
+
+
+$('#clue-9 .hint').click(function() {
+	$('#hint-9').show();
+	$('#clue-9').hide();
+	
+$('.hint-header li img').click(function() {
+	$('#hint-9').hide();
+	$('#clue-9').show();
+	$('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-2').css('display', 'none');
+});  
+});
+
+$('.distance').click(function() {
+	$('.distance-image').slideToggle('swing');
+});
+
+$('.room').click(function() {
+	$('.hint-room').slideToggle('swing');
+});
+// above are just placeholder text/examples for content 
 
 // menu Caitlin
 $('#arc-cinema-open').click(function(){

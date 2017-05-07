@@ -997,6 +997,168 @@ img#floorplan {
 	}
 }
 
+/* ------------------------- 11. Feature Hints ----------------------------- */
+
+
+#hint-1, #hint-2, #hint-3, #hint-4, #hint-5, #hint-6, #hint-7, #hint-8, #hint-9 {
+		display: none;
+		width: 100%;
+		height: 100vh;
+		background: rgba(204,57,118,1);
+    background: -moz-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(204,57,118,1)), color-stop(19%, rgba(176,43,96,1)), color-stop(41%, rgba(143,27,71,1)), color-stop(100%, rgba(143,27,71,1)));
+    background: -webkit-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    background: linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc3976', endColorstr='#8f1b47', GradientType=1 );
+}
+
+.hint-header {
+    background-color: #fff;
+	width: 100%;
+	text-align: center;
+	color: #363636;
+	height: 5.5rem;
+	overflow: hidden;
+}
+
+.hint-header ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.hint-header li {
+	display: inline-block;
+	text-transform: uppercase;
+	text-align: center;
+	width: 32%;
+	vertical-align:middle;
+}
+
+.hint-header li p {
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	font-size: 1.5rem;
+    font-weight: 100;
+    letter-spacing: 3px;
+}
+
+.hint-header li img {
+	float: left;
+	width: 1.5rem;
+	padding-left: 1rem;
+	padding-bottom: 0.5rem;
+	padding-top: 1.5rem;
+	vertical-align:middle;
+}
+
+#hints h2 {
+	text-transform: uppercase;
+	text-align:center;
+	font-weight: 400;
+	color: #fff;
+	margin-top: 8rem;
+	margin-bottom: 4rem;
+	letter-spacing: 3px;
+	font-size: 2rem;
+}
+
+.hint-options ul {
+	list-style-type: none;
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 3rem;
+}
+
+.hint-options ul li {
+    padding: 1.5rem 0;
+    line-height: 1.4;
+    margin-bottom: 3rem;
+}
+
+.hint-options ul li a {
+	  font-size: 1.5rem;
+      font-weight: 300;
+      text-decoration: none;
+      letter-spacing: 3px;
+	  color: #fff;
+}
+
+.distance, .photo, .room {
+	  border: 2px solid #fff;
+      border-radius: 30px;
+      margin: 0 auto;	  	  
+	  width: 80%;
+}
+
+.distance-image {
+	display: none;
+	background: #fff;
+	color: black;
+	width: 80%;
+	align-content:center;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+.hint-room {
+	display: none;
+	background: #fff;
+	color: black;
+	width: 80%;
+	align-content:center;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+	
+	.hint-header {
+		height: 8rem;
+	}
+	
+    .hint-header ul {
+        margin-top: 0.5rem;
+    }
+	
+	.hint-header li p {
+		font-size: 2.5rem;
+	}
+	
+	#hints h2{
+		font-size: 2.7rem;
+	}
+	    
+    .hint-options li {
+        padding: 2rem 0;
+        margin-bottom: 3rem;
+        width: 70%;
+        border-radius: 60px
+    }
+    
+	.hint-options li a {
+		font-size: 3rem;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	
+
+	.hint-header li p {
+		font-size: 1.3rem;
+	}
+	
+    #hints h2 {
+		font-size: 1.5rem;
+		margin: 3rem 0;
+	}
+	
+	.hint-options li a {
+		font-size: 1.5rem;
+	}
+}
 /* ------------------------- 11. Menu Content ----------------------------- */
 
 	/* ----- header ----- */
