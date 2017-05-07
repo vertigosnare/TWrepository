@@ -119,6 +119,20 @@ $('#home-link').click(function() {
 	$('#main-screen').css('display', 'block');
 });
 
+
+// Close opened hamburger menu when clicking outside of it - Rob
+$(document).ready(function() {
+    $('body').click(function(event){ //click event
+        if ( ($(event.target).parents('#main-screen').length > 0) && (isActive == true) ){ // open burger menu, click on main-screen div and all children 
+			$('.js-menu').removeClass('active');
+			$('body').removeClass('menu-open');
+			$('nav').slideToggle('swing');
+			isActive = false; // returns to correct state
+        } 
+ });   
+});
+
+
 // Bottom Navigation Grace
 
 var $li = $('.bottom-menu li').click(function() {
@@ -170,7 +184,7 @@ $('.map').click(function(){
 });
 	
 
-// Circle (feature) navigation
+// Circle (feature) navigation - Rob
 var screenWidth = window.innerWidth; // used to scale with different resolutions
 
 $(document).ready(function(){
@@ -236,7 +250,6 @@ $(".quest-gallery").scroll(function(){
 		}
 	}	
 });
-
 
 
 
@@ -445,6 +458,9 @@ $('.hint-header li img').click(function() {
 });
 
 $('.distance').click(function() {
+	//add this to generate distance
+	getLocation();
+	coordA[1]; // using 1 as test. feature 1 is array[0] so fix when adding more 
 	$('.distance-image').slideToggle('swing');
 });
 
@@ -463,5 +479,61 @@ $('#arc-cinema-open').click(function(){
 	$('#home').css('display', 'block');
 }); 
 });
+
+// Geolocation
+
+
+var myCoordAB = document.getElementById("distance-calculation");
+// coordinates for features - replace these and add the coordinatates of the 9 features to this array 
+var coordA = [-35.192001999999995, -35.1813205, -35.1813467];
+var coordB = [149.1149054, 149.0901401, 149.0900963];
+
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        myCoordAB.innerHTML = "Geolocation is unavailable.";
+    }
+}
+
+// formula from http://www.geodatasource.com/developers/javascript under LGPLv3 licence
+// tested coordA[1] coordB[1] & coordA[2] coordB[2], 5 meters within my house. checked on online calculator aswell
+function showPosition(position) {
+	
+	var radlat1 = Math.PI * position.coords.latitude/180
+	var radlat2 = Math.PI * coordA[1]/180
+	var theta = position.coords.longitude-coordB[1]
+	var radtheta = Math.PI * theta/180
+	var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+	dist = Math.acos(dist)
+	dist = dist * 180/Math.PI
+	dist = dist * 60 * 1.1515 * 1.609344 * 1000
+	// math.round can be applied here	
+	myCoordAB.innerHTML = dist + "meters"; 
+}
+	
+// http://andrew.hedges.name/experiments/haversine/
+// Haversine Formula. will try this formula as an alternative
+/*
+function showPosition(position) {
+	
+var dlon = position.coords.longitude - coordB[1]
+var dlat = position.coords.latitude - coordA[1]
+var a = Math.pow((Math.sin(dlat*0.5)), 2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow((Math.sin(dlon*0.5)), 2)
+var c = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a) )
+var d = 6373 * c
+
+myCoordAB.innerHTML = d;
+
+}
+*/
+
+	
+
+
+
+
+
 
 
