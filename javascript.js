@@ -510,7 +510,7 @@ function showPosition(position) {
 	dist = dist * 180/Math.PI
 	dist = dist * 60 * 1.1515 * 1.609344 * 1000
 	// math.round can be applied here	
-	myCoordAB.innerHTML = dist + "meters"; 
+	myCoordAB.innerHTML = Math.round(dist) + " meters"; 
 }
 	
 // http://andrew.hedges.name/experiments/haversine/
