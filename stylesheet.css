@@ -1159,14 +1159,21 @@ img#floorplan {
 		font-size: 1.5rem;
 	}
 }
+
+
+
+
+
+
 /* ------------------------- 11. Menu Content ----------------------------- */
 
-	/* ----- header ----- */
 
+/* --------------- Arc Cinema ----------------- */
+
+/* ----- header ----- */
 #arc-cinema {
 	display: none;
 	width: 100%;
-	
 }
 
 .menu-header {
@@ -1179,8 +1186,6 @@ img#floorplan {
     background: linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc3976', endColorstr='#8f1b47', GradientType=1 );
 	width: 100%;
-	text-align: center;
-	color: #fff;
 	height: 5.5rem;
 	overflow: hidden;
 }
@@ -1193,8 +1198,7 @@ img#floorplan {
 }
 
 .menu-content {
-	margin: 4rem;
-	align-content:center;
+	margin: 3rem;
     line-height: 1.5;
 }
 
@@ -1247,15 +1251,63 @@ img#floorplan {
 .screening-description p {
     line-height: 1.5;
 }
+
 .screening-description span {
 	font-weight: 400;
 }
 
-.screening-description img {
-	max-width: 100%;
-	margin-top: 25px;
-	
+div#cinema-img1 {
+    background: url(images/back-to-the-blast.jpg) center bottom no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 20rem;
+	margin-top: 5rem;
 }
+
+div#cinema-img2 {
+    background: url(images/silent-storm.jpg) center bottom no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 20rem;
+	margin-top: 5rem;
+}
+
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+    
+    .menu-header {
+        height: 8rem;
+    }
+    
+    .menu-header img {
+        width: 7rem;
+    }
+    
+    .menu-content {
+        width: 70%;
+        margin: 5rem auto;
+    }
+    
+    .menu-content h1,
+    .arc-cinema-date,
+    .arc-cinema-top-content span,
+    .screening-description p {
+        font-size: 2rem;
+    }
+    
+    .menu-content h2,
+    .menu-content h3 {
+        font-size: 3rem;
+    }
+    
+    div#cinema-img1,
+    div#cinema-img2 {
+        height: 35rem;
+        margin-top: 8rem;
+    }
+
+}
+
 
 
 
