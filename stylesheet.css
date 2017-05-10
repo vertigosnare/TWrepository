@@ -42,14 +42,16 @@ body {
     opacity: 0.3;
 }
 
-/* background applied using Javascript */
+/* for anytime the redwine coloured background gradient is needed */
 .redwine-gradient {
-    /* http://colorzilla.com/gradient-editor/ */
-    background: #7f143c; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(45deg, #c01e59 0%,#7f143c 60%, #7f143c 100%); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(45deg, #c01e59 0%,#7f143c 60%, #7f143c 100%); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(45deg, #c01e59 0%,#7f143c 60%, #7f143c 100%); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(45deg, #c01e59 0%,#7f143c 60%, #7f143c 100%); /* Standard syntax */
+    background: rgba(143,27,71,1); /* For browsers that do not support gradients */
+    background: -moz-linear-gradient(45deg, rgba(192,30,89,1) 0%, rgba(127,20,60,1) 60%, rgba(127,20,60,1) 100%); /* For Firefox 3.6 to 15 */
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(192,30,89,1)), color-stop(60%, rgba(127,20,60,1)), color-stop(100%, rgba(127,20,60,1))); /* For Safari 5.1 to 6.0 */
+    background: -webkit-linear-gradient(45deg, rgba(192,30,89,1) 0%, rgba(127,20,60,1) 60%, rgba(127,20,60,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(192,30,89,1) 0%, rgba(127,20,60,1) 60%, rgba(127,20,60,1) 100%); /* For Opera 11.1 to 12.0 */
+    background: -ms-linear-gradient(45deg, rgba(192,30,89,1) 0%, rgba(127,20,60,1) 60%, rgba(127,20,60,1) 100%);
+    background: linear-gradient(45deg, rgba(192,30,89,1) 0%, rgba(127,20,60,1) 60%, rgba(127,20,60,1) 100%); /* Standard syntax */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c01e59', endColorstr='#7f143c', GradientType=1 );
 }
 
 /* background applied using Javascript */
@@ -62,6 +64,10 @@ body {
     background: linear-gradient(45deg, rgba(249,196,48,1) 0%, rgba(145,115,43,1) 60%, rgba(145,115,43,1) 100%);
 }
 
+.gold {
+    background-color: #91732b;
+}
+
 /* for all content that needs to sit under the hamburger menu strip */
 .margin-top {
     margin-top: 5.5rem;
@@ -71,6 +77,11 @@ body {
 	.extra-margin-top {
 		margin-top: 8rem;
 	}
+    
+    .large-text {
+        font-size: 2rem;
+    }
+
 }
 
 /* override user agent stylesheet */
@@ -294,21 +305,12 @@ div#begin {
 
 /* Div that holds all the content */
 #home {
-	display: none;
 	height: 100vh;
 }
 
 /* ------------------------- 5. Hamburger Menu ----------------------------- */
 
 .burger {
-    background: rgba(204,57,118,1);
-    background: -moz-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(204,57,118,1)), color-stop(19%, rgba(176,43,96,1)), color-stop(41%, rgba(143,27,71,1)), color-stop(100%, rgba(143,27,71,1)));
-    background: -webkit-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: -ms-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc3976', endColorstr='#8f1b47', GradientType=1 );
 	width: 100%;
 	height: 8rem;
 	position: fixed;
@@ -552,18 +554,6 @@ height: 5.5rem;
     display: none;
 }
 
-/* think I put this in and forgot to remove it but won't delete
-just yet in case it turns out we need it :) Steph*/
-/*.quest img::after {
-    width: 30rem;
-    height: 1rem;
-    background: #7f143c;
-    position: absolute;
-    content: "";
-    top: 30px;
-    left: -50px;
-}*/
-
 #quest-left-right {
     position: fixed;
     bottom: 24%;
@@ -572,7 +562,6 @@ just yet in case it turns out we need it :) Steph*/
 button#left-button {
     position: fixed;
     margin-left: 10rem;
-    display: none;
 }
 
 button#right-button {
@@ -691,11 +680,10 @@ img .dark-icon.selected {
 /* ------------------------- 8. The Building ----------------------------- */
 
 #building-info {
-	display: none;
 	z-index: 1;
 }
  
-#building-info ul {
+ul#building-nav {
 	list-style-type: none;
 	padding: 0;
 	border-bottom: 1px solid #CBC9C9;
@@ -709,7 +697,7 @@ img .dark-icon.selected {
     margin-bottom: 0;
 }
 
-#building-info li {
+ul#building-nav li {
     height: 100%;
     text-transform: uppercase;
     font-size: 1.5rem;
@@ -719,16 +707,9 @@ img .dark-icon.selected {
     text-align: center;
 }
 
-#building-info li a {
+ul#building-nav li a {
 	text-decoration: none;
 	color: #91732b;
-}
-
-@media screen and (max-width: 768px) and (min-width: 415px) {
-	
-	#building-overview p {
-		font-size: 2rem;
-	}
 }
 
 div#building-overview {
@@ -740,7 +721,7 @@ div#building-overview {
 	margin-top: 10rem;
 }
 
-.architecture {
+#architecture {
 	border-left: 1px solid #CBC9C9;
 }
 
@@ -750,8 +731,36 @@ div#building-overview {
 }
 
 div#building-overview p:last-child {
-    margin-bottom: 15rem;
+    margin-bottom: 12rem;
 }
+
+
+/* ---------- Building - architecture -------------- */
+
+div#architecture-content {
+    width: 85%;
+    margin: 0 auto;
+    line-height: 1.5;
+    padding: 14rem 0 12rem 0;
+}
+
+    div#architecture-content h2 {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        
+    }
+
+div.arch-imgs {
+    margin-bottom: 2.5rem;
+}
+
+div#arch-img1 {
+    background: url(images/architecture.jpg) center bottom no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 20rem;
+}
+
 
 
 
@@ -800,8 +809,8 @@ img#floorplan {
 /* ------------------------- 10. Feature Clues ----------------------------- */
 
 #clue-1, #clue-2, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9 {
-		display: none;
-		width: 100%;
+    width: 100%;
+    height: 100vh;
 }
 
 .clue-content {
@@ -811,14 +820,6 @@ img#floorplan {
 }
 
 .clue-header {
-    background: rgba(204,57,118,1);
-    background: -moz-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(204,57,118,1)), color-stop(19%, rgba(176,43,96,1)), color-stop(41%, rgba(143,27,71,1)), color-stop(100%, rgba(143,27,71,1)));
-    background: -webkit-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: -ms-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc3976', endColorstr='#8f1b47', GradientType=1 );
 	width: 100%;
 	text-align: center;
 	color: #fff;
@@ -997,21 +998,15 @@ img#floorplan {
 	}
 }
 
+
+
+
+
 /* ------------------------- 11. Feature Hints ----------------------------- */
 
-
 #hint-1, #hint-2, #hint-3, #hint-4, #hint-5, #hint-6, #hint-7, #hint-8, #hint-9 {
-		display: none;
-		width: 100%;
-		height: 100vh;
-		background: rgba(204,57,118,1);
-    background: -moz-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(204,57,118,1)), color-stop(19%, rgba(176,43,96,1)), color-stop(41%, rgba(143,27,71,1)), color-stop(100%, rgba(143,27,71,1)));
-    background: -webkit-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: -ms-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc3976', endColorstr='#8f1b47', GradientType=1 );
+    width: 100%;
+    height: 100vh; /* important otherwise gradient doesn't reach to bottom */   
 }
 
 .hint-header {
@@ -1168,23 +1163,13 @@ img#floorplan {
 /* ------------------------- 11. Menu Content ----------------------------- */
 
 
-/* --------------- Arc Cinema ----------------- */
+/* ------------ Arc Cinema page -------------- */
 
-/* ----- header ----- */
 #arc-cinema {
-	display: none;
 	width: 100%;
 }
 
 .menu-header {
-    background: rgba(204,57,118,1);
-    background: -moz-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(204,57,118,1)), color-stop(19%, rgba(176,43,96,1)), color-stop(41%, rgba(143,27,71,1)), color-stop(100%, rgba(143,27,71,1)));
-    background: -webkit-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: -ms-linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    background: linear-gradient(45deg, rgba(204,57,118,1) 0%, rgba(176,43,96,1) 19%, rgba(143,27,71,1) 41%, rgba(143,27,71,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc3976', endColorstr='#8f1b47', GradientType=1 );
 	width: 100%;
 	height: 5.5rem;
 	overflow: hidden;
@@ -1489,11 +1474,11 @@ div#cinema-img2 {
     }
     
     /* ----- building info ----- */
-    #building-info ul {
+    ul#building-nav {
         height: 5rem;
     }
     
-    #building-info li {
+    ul#building-nav li {
         font-size: 1.3rem;
     }
     

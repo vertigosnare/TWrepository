@@ -146,21 +146,29 @@ var $li = $('.bottom-menu li').click(function() {
 
 $('.building').click(function(){
     $('.map').removeClass('selected'); // ensure map tab isn't selected
-    $('#build-map').hide(); // hide map content
     $('.favourites').removeClass('selected'); // ensure favourites tab isn't selected
-    $('#building-info').toggle();
-	$('#main-screen').hide();
+    $('#build-map').hide(); // hide map content
+    $('#main-screen').hide();
     
+    $('#architecture-content').hide(); // hide the architecture content
+    // the following 'resets' the architecture tab within the building tab
+    $('#architecture').removeClass('gold'); // remove gold background from architecture button
+    $('#architecture-button').css('color', '#91732b'); // change architecture button text to black
+    
+    $('#building-overview').show(); // ensures main building overview content is shown (not history/architecture content)
+    $('#building-info').toggle(); // toggles the building info div (which holds the history/architecture content)
+    
+    // if the building info isn't displayed anymore due to toggle above
     if ($('#building-info').css('display') === 'none') {
-        $(this).removeClass('selected');
-		$('#main-screen').show();
+        $(this).removeClass('selected'); // hide the building info
+		$('#main-screen').show(); // show the main screen
     }
 
 $('#home-link').click(function() {
 	$('#building-info').css('display', 'none');
 	$('#main-screen').css('display', 'block');
 	$('.building').removeClass('selected');
-});
+    });
 });
 
 // Building map - bottom nav
@@ -177,13 +185,31 @@ $('.map').click(function(){
     }
     
 	$('#home-link').click(function() {
-	$('#build-map').css('display', 'none');
-	$('#main-screen').css('display', 'block');
-	$('.map').removeClass('selected');
+	   $('#build-map').css('display', 'none');
+	   $('#main-screen').css('display', 'block');
+	   $('.map').removeClass('selected');
+    });
 });
-});
-	
 
+
+// Architecture - within building tab
+$('#architecture-button').click(function() {
+    $('#building-overview').hide(); // hide building overview section
+    $('#architecture').addClass('gold'); // change architecture background tab colour to dark gold
+    $(this).css('color', '#fff'); // change the button text to white
+    $('#architecture-content').toggle();
+    
+    // if architecture content is not shown
+    if ($('#architecture-content').css('display') === 'none') {
+        $('#building-overview').show(); // show the main building content
+        // the following 'resets' the architecture tab
+        $('#architecture').removeClass('gold');
+        $('#architecture-button').css('color', '#91732b');
+    }                         
+});
+
+
+	
 // Circle (feature) navigation - Rob
 var screenWidth = window.innerWidth; // used to scale with different resolutions
 
@@ -469,15 +495,15 @@ $('.room').click(function() {
 });
 // above are just placeholder text/examples for content 
 
-// menu Caitlin
+// Arc Cinema page - menu Caitlin
 $('#arc-cinema-open').click(function(){
 	$('#home').hide(); 
-	$('#arc-cinema').css('display', 'block');  
+	$('#arc-cinema').show();  
 	
 	$('.menu-header img').click(function() {
-	$('#arc-cinema').css('display', 'none');
-	$('#home').css('display', 'block');
-}); 
+	   $('#arc-cinema').hide();
+	   $('#home').show();
+    }); 
 });
 
 // Geolocation

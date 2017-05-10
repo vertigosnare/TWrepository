@@ -157,9 +157,9 @@
   
   
   <!---- Top Navigation ---->
-  <div id="home">
+  <div id="home" class="hide">
 
-<div class="burger">  
+<div class="burger redwine-gradient">  
 <containter>
 <a id="home-link" href="#"><img src="images/tw-logo.svg" alt="These Walls logo - home"></a>
 </containter>
@@ -191,7 +191,7 @@
             
             <!-- need these white box divs to fudge the red line ending at 1st and 9th feature -->
             <div id="white-box-left"></div>
-            <div id="white-box-right"></div>
+            <div id="white-box-right" class="hide"></div>
             
 			<div id="quest1-open" class="quest"><img src="images/circle.svg" alt="" width="auto" height="200"><h2 class ="circle-text"><span>FEATURE <h1>1</h1></span></h2></div>
             
@@ -215,8 +215,8 @@
 	</div>
     
 	<div id="quest-left-right">
-		<button id="left-button" class="demo"><img src="images/left-arrow-grey.svg" alt=""></button>
-		<button id="right-button" class="demo"><img src="images/right-arrow-grey.svg" alt=""></button>
+		<button id="left-button" class="demo hide"><img src="images/left-arrow-grey.svg" alt="Navigate left"></button>
+		<button id="right-button" class="demo"><img src="images/right-arrow-grey.svg" alt="Navigate right"></button>
 	</div>
     
 	<div class="quest-progress">
@@ -252,23 +252,68 @@
       </ul>
 </div>
 
-<!---- History and Architecture ---->
+<!---- The building ---->
 
-<div id="building-info">
-  <ul class="margin-top extra-margin-top">
-    <li><a href="#">History</a></li>
-    <li class="architecture"><a href="#">Architecture</a></li>
+<div id="building-info" class="hide">
+    
+  <ul id="building-nav" class="margin-top extra-margin-top">
+    <li id="history"><a href="#" id="history-button">History</a></li>
+    <li id="architecture"><a href="#" id="architecture-button">Architecture</a></li>
   </ul>
-  <div id="building-overview">
-    <img src="images/building-photo.jpg" alt="Outside of the NFSA building">
-    <p>The building is a combination of two styles: an inter-war stripped classical form with extensive Australian Art Deco detailing and decorative elements. The building is faced in sandstone and has a symmetrical U-shaped layout enclosing a four-sided courtyard.</p>
+    
+        <div id="building-overview">
+          <img src="images/building-photo.jpg" alt="Outside of the NFSA building">
+          <p class="large-text">The building is a combination of two styles: an inter-war stripped classical form with extensive Australian Art Deco detailing and decorative elements. The building is faced in sandstone and has a symmetrical U-shaped layout enclosing a four-sided courtyard.</p>
 
-    <p>What makes the building so eye-catching (aside from its superb condition) are the strong and consistent use of motifs to reflect the building’s original use as the Australian Institute of Anatomy.</p>
-  </div>  
+          <p class="large-text">What makes the building so eye-catching (aside from its superb condition) are the strong and consistent use of motifs to reflect the building’s original use as the Australian Institute of Anatomy.</p>
+        </div>
+  
+    
+        <!---- Building 'history' tab ---->
+        <div id="architecture-content" class="hide">
+        
+          <h2>The building</h2>
+          <div id="arch-img1" class="arch-imgs"></div>
+          
+          <p class="large-text">The building is a combination of two styles: an inter-war stripped classical form with extensive Australian Art Deco detailing and decorative elements. The building is faced in sandstone and has a symmetrical U-shaped layout enclosing a four-sided courtyard.</p>
+          <p class="large-text">What makes the building so eye-catching (aside from its superb condition) are the strong and consistent use of motifs to reflect the building’s original use as the Australian Institute of Anatomy.</p>
+          
+          <h2>Inter-war Art Deco architecture</h2>
+          
+          <p class="large-text">The emergence of the modern movement was the most significant architectural development during the years between the two World Wars. However, it was a time of intellectual and aesthetic tension between Tradition and Modernism, between people nostalgic for the visual symbols of a pre-industrial past and those who favoured the clean but stark lines and new technologies that characterised Modernism.</p>
+          <p class="large-text">The inter-war Art Deco style celebrated the exciting and dynamic aspects of the Machine Age, in an inclusive style that embraced new materials and incorporated graphic decorative elements and modern, eye-catching materials from the past. This approach appealed to more people on an emotional level. So, while not strictly a style of Modernism, there are similarities in influence.</p>
+          
+          <h2>What is Art Deco?</h2>
+          
+          <p class="large-text">The term comes from a French exhibition in 1925 of ‘Arts Decoratifs’ but did not enter general use until the 1960s to describe a range of inter-war styles. As a term, it captures the spirit of an age when people wanted to put the tragedies and hardships of World War I behind them, to embrace a glamorous, adventurous and elegant future. Art Deco encapsulates changes in style, aesthetics and technology that influenced every visual medium in the 1920s and 1930s.</p>
+        
+          <p class="large-text">The style is characterised by a marriage between form and function; by symmetery and balance; by simple, clean lines in buildings, transport, household items and industrial design; and by distinctive decorative embellishments.</p>
+        
+          <p class="large-text">Art Deco celebrated the benefits of the Machine Age: industrialisation, mass production, new technologies, quality materials and vibrant colours. It was an era of sky scrapers, ocean liners, railways, motor cars, electricity, bright lights, film, radio and mass entertainment. It marked the beginnings of consumerism.</p>
+          
+          <h3>Key features of Art Deco</h3>
+        
+          <ul class="large-text">
+            <li>Symmetry and balance</li>
+            <li>Both vertical and horizontal elements</li>
+            <li>Stepped (also known as ziggurat) forms, both externally and internally</li>
+            <li>Curved or 'streamlined' brickwork and 'eyebrows'</li>
+            <li>New industrial techniques and building materials</li>
+            <li>Decorative motifs symbolic of a building's function</li>
+            <li>Nationalistic Australian Art Deco motifs</li>
+            <li>The principles that decorative elements should be grouped in threes ('the rule of three')</li>
+            <li>Geometric patterning including chevrons, octagons and hexagons</li>
+          </ul>
+            
+      </div>
+    
+    
 </div>
       
       
-      <!-------- Map (Steph) -------->
+      
+      
+      <!-------- Map  -------->
       <div id="build-map" class="hide">
         <div id="wrap" class="margin-top extra-margin-top" aria-hidden="true">
           <img src="images/cross.svg" alt="">
@@ -283,12 +328,14 @@
     
   </div>
   
-  <!-------- Clues -------->
- <!-------- Clues -------->
+    
+<!----------------- Clues ----------------->
 <div id="feature-clues">  
 
-  <div id="clue-1">
-  <div class="clue-header">
+    
+  <!--------- Clue 1 -------->
+  <div id="clue-1" class="hide">
+  <div class="clue-header redwine-gradient">
   <ul>
   <li><img src="images/back-arrow-white.svg" align="left"></li>
   <li><p>Feature 1</p></li>
@@ -310,9 +357,9 @@
 </div>
   </div>
   
-  
-    <div id="clue-2">
-  <div class="clue-header">
+    <!--------- Clue 2 -------->
+    <div id="clue-2" class="hide">
+  <div class="clue-header redwine-gradient">
   <ul>
   <li><img src="images/back-arrow-white.svg" align="left"></li>
   <li><p>Feature 2</p></li>
@@ -333,8 +380,10 @@
 </div>
   </div>
   
-    <div id="clue-3">
-  <div class="clue-header">
+    
+    <!--------- Clue 3 -------->
+    <div id="clue-3" class="hide">
+  <div class="clue-header redwine-gradient">
   <ul>
   <li><img src="images/back-arrow-white.svg" align="left"></li>
   <li><p>Feature 3</p></li>
@@ -355,8 +404,10 @@
 </div>
   </div> 
    
-       <div id="clue-4">
-  <div class="clue-header">
+    
+    <!--------- Clue 4 -------->
+       <div id="clue-4" class="hide">
+  <div class="clue-header redwine-gradient">
   <ul>
   <li><img src="images/back-arrow-white.svg" align="left"></li>
   <li><p>Feature 4</p></li>
@@ -377,8 +428,10 @@
 </div>
   </div> 
   
-         <div id="clue-5">
-  <div class="clue-header">
+    
+    <!--------- Clue 5 -------->
+         <div id="clue-5" class="hide">
+  <div class="clue-header redwine-gradient">
   <ul>
   <li><img src="images/back-arrow-white.svg" align="left"></li>
   <li><p>Feature 5</p></li>
@@ -399,8 +452,10 @@
 </div>
   </div> 
   
-           <div id="clue-6">
-  <div class="clue-header">
+    
+    <!--------- Clue 6 -------->
+           <div id="clue-6" class="hide">
+  <div class="clue-header redwine-gradient">
   <ul>
   <li><img src="images/back-arrow-white.svg" align="left"></li>
   <li><p>Feature 6</p></li>
@@ -420,9 +475,11 @@
 </ul>
 </div>
   </div>
-  
-             <div id="clue-7">
-  <div class="clue-header">
+    
+    
+  <!--------- Clue 7 -------->
+             <div id="clue-7" class="hide">
+  <div class="clue-header redwine-gradient">
   <ul>
   <li><img src="images/back-arrow-white.svg" align="left"></li>
   <li><p>Feature 7</p></li>
@@ -443,8 +500,10 @@
 </div>
   </div>  
   
-               <div id="clue-8">
-  <div class="clue-header">
+    
+    <!--------- Clue 8 -------->
+               <div id="clue-8" class="hide">
+  <div class="clue-header redwine-gradient">
   <ul>
   <li><img src="images/back-arrow-white.svg" align="left"></li>
   <li><p>Feature 8</p></li>
@@ -465,8 +524,10 @@
 </div>
   </div>  
   
-  <div id="clue-9">
-  <div class="clue-header">
+    
+  <!--------- Clue 9 -------->
+  <div id="clue-9" class="hide">
+  <div class="clue-header redwine-gradient">
   <ul>
   <li><img src="images/back-arrow-white.svg" align="left"></li>
   <li><p>Feature 9</p></li>
@@ -489,10 +550,12 @@
    
 </div>
 
-  <!-------- Hints -------->
+  <!--------------- Hints -------------->
   
   <div id="hints">
-  <div id="hint-1">
+  
+      <!--------- Clue 1 hint -------->
+      <div id="hint-1" class="hide redwine-gradient">
   <div class="hint-header">
   <ul>
   <li><img src="images/back-arrow-dark.svg" align="left"></li>
@@ -512,7 +575,8 @@
 </div>
 </div>
 
-<div id="hint-2">
+      <!--------- Clue 2 hint -------->
+<div id="hint-2" class="hide redwine-gradient">
   <div class="hint-header">
   <ul>
   <li><img src="images/back-arrow-dark.svg" align="left"></li>
@@ -532,7 +596,8 @@
 </div>
 </div>
 
-<div id="hint-3">
+      <!--------- Clue 3 hint -------->
+<div id="hint-3" class="hide redwine-gradient">
   <div class="hint-header">
   <ul>
   <li><img src="images/back-arrow-dark.svg" align="left"></li>
@@ -552,7 +617,8 @@
 </div>
 </div>
 
-<div id="hint-4">
+      <!--------- Clue 4 hint -------->
+<div id="hint-4" class="hide redwine-gradient">
   <div class="hint-header">
   <ul>
   <li><img src="images/back-arrow-dark.svg" align="left"></li>
@@ -572,7 +638,8 @@
 </div>
 </div>
 
-<div id="hint-5">
+      <!--------- Clue 5 hint -------->
+<div id="hint-5" class="hide redwine-gradient">
   <div class="hint-header">
   <ul>
   <li><img src="images/back-arrow-dark.svg" align="left"></li>
@@ -592,7 +659,8 @@
 </div>
 </div>
 
-<div id="hint-6">
+      <!--------- Clue 6 hint -------->
+<div id="hint-6" class="hide redwine-gradient">
   <div class="hint-header">
   <ul>
   <li><img src="images/back-arrow-dark.svg" align="left"></li>
@@ -612,7 +680,8 @@
 </div>
 </div>
   
-  <div id="hint-7">
+      <!--------- Clue 7 hint -------->
+  <div id="hint-7" class="hide redwine-gradient">
   <div class="hint-header">
   <ul>
   <li><img src="images/back-arrow-dark.svg" align="left"></li>
@@ -632,7 +701,8 @@
 </div>
 </div>
 
-<div id="hint-8">
+      <!--------- Clue 8 hint -------->
+<div id="hint-8" class="hide redwine-gradient">
   <div class="hint-header">
   <ul>
   <li><img src="images/back-arrow-dark.svg" align="left"></li>
@@ -652,7 +722,8 @@
 </div>
 </div>
 
-<div id="hint-9">
+      <!--------- Clue 9 hint -------->
+<div id="hint-9" class="hide redwine-gradient">
   <div class="hint-header">
   <ul>
   <li><img src="images/back-arrow-dark.svg" align="left"></li>
@@ -675,16 +746,16 @@
   
   
   
-  <!-------- Menu Content -------->
+  <!------------------- Menu Content -------------------------->
  
-  <!-------- Arc Cinema -------->
+    <!-------- Arc Cinema page -------->
 
-<div id="arc-cinema">
-	<div class="menu-header">
+    <div id="arc-cinema" class="hide">
+	<div class="menu-header redwine-gradient">
  		<img src="images/cross-icon-white.svg">
 	</div>
 	
-	<div class="menu-content">
+	  <div class="menu-content">
 		<h1>Arc Cinema</h1>
 		<h2>March Program</h2>
 		
@@ -711,8 +782,8 @@
 		<p><span>Daily screenings:</span> 10:40am, 1:30pm, 4:00pm</p>
 		</div>
 	
-	</div>
-</div>
+	  </div>
+    </div>
 
 
 </body>
