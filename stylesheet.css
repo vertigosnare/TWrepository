@@ -310,6 +310,9 @@ div#begin {
 	height: 100vh;
 }
 
+
+
+
 /* ------------------------- 5. Hamburger Menu ----------------------------- */
 
 .burger {
@@ -686,7 +689,6 @@ img .dark-icon.selected {
 ul#building-nav {
 	list-style-type: none;
 	padding: 0;
-	border-bottom: 1px solid #CBC9C9;
 	width: 100%;
 	background-color: #E6E6E6;
 	position:fixed;
@@ -735,7 +737,188 @@ div#building-overview p:last-child {
 }
 
 
-/* ---------- Building - architecture -------------- */
+/* ---------- Building - history timeline ----------- */
+
+div.timeline-container {
+    padding-top: 10.5rem;
+}
+
+div.image-container {
+    height: 20rem;
+    background-color: #363636;
+    width: 100%;
+}
+
+div.portrait-image {
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+div.landscape-image {
+    width: 100%;
+    height: 100%;
+}
+
+div#timeline-image1 {
+    background: url(images/timeline1-colin-mackenzie.jpg) center top no-repeat;
+    background-size: cover;
+}
+
+div#timeline-image2 {
+    background: url(images/timeline2-zoological.png) center top no-repeat;
+    background-size: cover;
+}
+
+div#timeline-image3 {
+    background: url(images/timeline3-foundation.jpg) center top no-repeat;
+    background-size: cover;
+}
+
+div#timeline-image4 {
+    background: url(images/timeline4-institute.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div#timeline-image5 {
+    background: url(images/timeline5-pharlap.jpg) center bottom no-repeat;
+    background-size: cover;
+}
+
+div#timeline-image6 {
+    background: url(images/timeline6-nfsa-opening.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div#timeline-image7 {
+    background: url(images/timeline7-courtyard.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div#timeline-image8 {
+    background: url(images/timeline8-annex.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div#timeline-image9 {
+    background: url(images/timeline9-heritage.jpg) center top no-repeat;
+    background-size: cover;
+}
+
+div#timeline-image10 {
+    background: url(images/timeline10-arc-cinema.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div.timeline-text {
+    width: 80%;
+    margin: 0 auto;
+    line-height: 1.5;
+    margin-top: 2rem;
+    text-align: center; /* need to center span */
+}
+
+    div.timeline-text p {
+        text-align: left;
+        margin-top: 1rem;
+    }    
+
+div.timeline-text h2 {
+    display: inline;
+    margin: 0 5rem 0;
+}
+
+img.timeline-arrows {
+    height: 2.5rem;
+}
+
+div.timeline-progress {
+    width: 182px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    margin: 0 0 23% -91px;
+}
+
+div.timeline-progress-dots {
+    width: 10px;
+    height: 10px;
+    background-color: #363636;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+@media screen and (max-width: 360px) {
+    
+    div.image-container {
+        height: 16rem;
+    }
+    
+    div.timeline-text {
+        margin-top: 1.3rem;
+    }
+    
+    div.timeline-text h2 {
+        font-size: 2rem;
+    }
+    
+    img.timeline-arrows {
+        height: 2rem;
+    }
+    
+    div.timeline-text p {
+        font-size: 1.3rem;
+    }    
+}
+
+@media screen and (max-width: 414px) and (min-width: 376px) {
+    
+    div.image-container {
+        height: 23rem;
+    }
+    
+    div.timeline-text {
+        margin-top: 3rem;
+    }
+    
+    div.timeline-text p {
+        margin-top: 3rem;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+    
+    div.timeline-container {
+        padding-top: 14rem;
+    }
+    
+    div.image-container {
+        height: 38rem;
+    }
+    
+    div.timeline-text {
+        margin-top: 4rem;
+    }
+    
+    div.timeline-text h2 {
+        font-size: 3.5rem;
+    }
+    
+    img.timeline-arrows {
+        height: 3.3rem;
+    }
+    
+    div.timeline-text p {
+        margin-top: 3rem;
+    }
+    
+    div.timeline-progress {
+        margin: 0 0 17% -91px;
+    }
+}
+
+/* ---------- Building - architecture ----------- */
 
 div#architecture-content {
     width: 85%;
@@ -750,15 +933,46 @@ div#architecture-content {
         
     }
 
+    div#architecture-content ul {
+        list-style: disc outside none;
+        padding-left: 2rem;
+    }
+
 div.arch-imgs {
     margin-bottom: 2.5rem;
+    width: 100%;
+    height: 20rem;
 }
 
 div#arch-img1 {
     background: url(images/architecture.jpg) center bottom no-repeat;
     background-size: cover;
-    width: 100%;
-    height: 20rem;
+}
+
+div#arch-img2 {
+    background: url(images/art-deco.jpeg) center bottom no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+    
+    div#architecture-content {
+        width: 70%;
+        padding: 19rem 0 12rem 0;
+    }
+    
+    div#architecture-content h2 {
+        font-size: 2.7rem;
+    }
+    
+    div#architecture-content h3 {
+        font-size: 2.3rem;
+    }
+    
+    div.arch-imgs {
+        height: 30rem;
+    }
+
 }
 
 
@@ -954,16 +1168,19 @@ img#floorplan {
         margin-top: 0.5rem;
     }
 	
-	.clue-header li p {
-		font-size: 2.5rem;
-	}
-	
 	.clue-content h2{
 		font-size: 2.7rem;
 	}
 	
-	.clue-content p {
-		font-size: 3rem;
+    .clue-content ul {
+        margin-top: 5rem;
+    }
+	
+    .clue-header li p,
+    .clue-content p,
+    .hints li a,
+    .hint-options ul li a {
+		font-size: 2.5rem;
 	}
     
     .hints li {
@@ -973,9 +1190,10 @@ img#floorplan {
         border-radius: 60px
     }
     
-	.hints li a {
-		font-size: 3rem;
-	}
+    .hint-options ul li {
+        margin-bottom: 4rem;
+    }
+    
 }
 
 @media screen and (max-width: 320px) {
@@ -1125,15 +1343,20 @@ img#floorplan {
 		font-size: 2.7rem;
 	}
 	    
-    .hint-options li {
+    .hint-options li:not(.distance-image):not(.hint-room) {
         padding: 2rem 0;
         margin-bottom: 3rem;
         width: 70%;
         border-radius: 60px
     }
     
-	.hint-options li a {
-		font-size: 3rem;
+    .distance-image,
+    .hint-room {
+        width: 70%;
+    }
+    
+	.hint-options ul li a {
+		font-size: 2rem;
 	}
 }
 
