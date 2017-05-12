@@ -10,7 +10,8 @@
     8. The building
     9. The map
 	10. Feature Clues
-	11. Menu Content
+	11. Confirmation Screens
+	12. Menu Content
 
     X. General media queries
 
@@ -1153,12 +1154,86 @@ img#floorplan {
 	}
 }
 
+/* ------------------------- 11. Confirmation - Found It ----------------------------- */
+
+#confirm-found, #confirm-show {
+	display: none;
+}
+
+.confirm{
+  z-index:2;
+  width:85%;
+  height: 60%;
+  border-radius: 15px;
+  -webkit-box-shadow: 9px 11px 5px -5px rgba(54,54,54,0.33);
+  -moz-box-shadow: 9px 11px 5px -5px rgba(54,54,54,0.33);
+  box-shadow: 9px 11px 5px -5px rgba(54,54,54,0.33);
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  margin:auto;
+  overflow: hidden;
+  background-image: url(images/confirm.svg);
+  background-size:cover;
+  font-size: 2rem;
+}
+
+.confirm p{
+  text-align:center;
+  color: #363636;
+  margin: 2rem;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+.confirm img {
+	width: 10%;
+	display: block;
+	align-content: center;
+	margin:auto;
+	margin-top: 4rem;
+}
+
+.yes, .no{
+  cursor:pointer;
+  color:#fff;
+  text-align:center;
+  text-transform: uppercase;
+  width: 60%;
+  border-radius: 30px;
+  display: block;
+  padding: 1.5rem;
+  margin: auto;
+}
+
+#confirm-found-it ul {
+	list-style-type:none;
+	margin-top: 2rem;
+}
+
+.yes {
+    left:0;
+	margin-bottom: 2rem;
+}
 
 
+.no {
+    right:0;
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+	.confirm {
+		width: 60%;
+		font-size: 3rem;
+		height: 40%;
+	}
+
+}
 
 
-
-/* ------------------------- 11. Menu Content ----------------------------- */
+/* ------------------------- 12. Menu Content ----------------------------- */
 
 
 /* ------------ Arc Cinema page -------------- */

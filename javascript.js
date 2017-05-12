@@ -555,7 +555,24 @@ myCoordAB.innerHTML = d;
 }
 */
 
+// Confirmation Screens
+
+$('.found-it').click(function() {
+	$('#confirm-found').show();
+});
+
+$('#confirm-found .no').click(function() {
+	$('#confirm-found').hide();
+}); 
+
+$('.show-me').click(function() {
+	$('#confirm-show').show();
+});
+
+$('#confirm-show .no').click(function(){
 	
+	$('#confirm-show').hide();
+});
 
 
 
