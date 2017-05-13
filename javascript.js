@@ -810,6 +810,7 @@ $('.room').click(function() {
 });
 // above are just placeholder text/examples for content 
 
+
 // Arc Cinema page - menu Caitlin
 $('#arc-cinema-open').click(function(){
 	$('#home').hide(); 
@@ -868,7 +869,6 @@ myCoordAB.innerHTML = d;
 
 }
 */
-
 
 // Confirmation Screens
 $('.found-it').click(function() {

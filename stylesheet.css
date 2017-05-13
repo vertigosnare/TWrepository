@@ -23,7 +23,7 @@
 
 html {
     /* http://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats */
-    height: 100%;
+    height: 100%; /* important, see link above */
 }
 
 body {
@@ -47,16 +47,16 @@ body {
 /* for anytime the redwine coloured background gradient is needed */
 .redwine-gradient {
     background: rgba(143,27,71,1); /* For browsers that do not support gradients */
-    background: -moz-linear-gradient(45deg, rgba(192,30,89,1) 0%, rgba(127,20,60,1) 60%, rgba(127,20,60,1) 100%); /* For Firefox 3.6 to 15 */
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(192,30,89,1)), color-stop(60%, rgba(127,20,60,1)), color-stop(100%, rgba(127,20,60,1))); /* For Safari 5.1 to 6.0 */
+    background: -moz-linear-gradient(45deg, rgba(192,30,89,1) 0%, rgba(127,20,60,1) 60%, rgba(127,20,60,1) 100%); /* Firefox 3.6 to 15 */
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(192,30,89,1)), color-stop(60%, rgba(127,20,60,1)), color-stop(100%, rgba(127,20,60,1))); /* Safari 5.1 to 6.0 */
     background: -webkit-linear-gradient(45deg, rgba(192,30,89,1) 0%, rgba(127,20,60,1) 60%, rgba(127,20,60,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(192,30,89,1) 0%, rgba(127,20,60,1) 60%, rgba(127,20,60,1) 100%); /* For Opera 11.1 to 12.0 */
+    background: -o-linear-gradient(45deg, rgba(192,30,89,1) 0%, rgba(127,20,60,1) 60%, rgba(127,20,60,1) 100%); /* Opera 11.1 to 12.0 */
     background: -ms-linear-gradient(45deg, rgba(192,30,89,1) 0%, rgba(127,20,60,1) 60%, rgba(127,20,60,1) 100%);
     background: linear-gradient(45deg, rgba(192,30,89,1) 0%, rgba(127,20,60,1) 60%, rgba(127,20,60,1) 100%); /* Standard syntax */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c01e59', endColorstr='#7f143c', GradientType=1 );
 }
 
-/* background applied using Javascript */
+/* for anytime the gold gradient coloured background is needed */
 .gold-gradient {
     background: rgba(145,115,43,1);
     background: -moz-linear-gradient(45deg, rgba(249,196,48,1) 0%, rgba(145,115,43,1) 60%, rgba(145,115,43,1) 100%);
@@ -64,6 +64,7 @@ body {
     background: -o-linear-gradient(45deg, rgba(249,196,48,1) 0%, rgba(145,115,43,1) 60%, rgba(145,115,43,1) 100%);
     background: -ms-linear-gradient(45deg, rgba(249,196,48,1) 0%, rgba(145,115,43,1) 60%, rgba(145,115,43,1) 100%);
     background: linear-gradient(45deg, rgba(249,196,48,1) 0%, rgba(145,115,43,1) 60%, rgba(145,115,43,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9c430', endColorstr='#91732b', GradientType=1 );
 }
 
 .gold {
@@ -83,7 +84,6 @@ body {
     .large-text {
         font-size: 2rem;
     }
-
 }
 
 /* override user agent stylesheet */
@@ -100,8 +100,8 @@ button {
 
 
 
-/* ------------------------- 2. Wrong device message ----------------------------- */
 
+/* ------------------------- 2. Wrong device message ----------------------------- */
 
 div.wrong-device {
     color: #fff;
@@ -147,7 +147,6 @@ div.wrong-device {
 
 /* ------------------------- 3. Launch screen ----------------------------- */
 
-
 div.launch {
     text-align: center;
     font-size: 1.9rem;
@@ -157,7 +156,6 @@ div.launch {
 }
 
 div#loading {
-    /* align vertically centered */
     position: fixed;
     top: 50%;
     left: 50%;
@@ -188,12 +186,10 @@ img#nfsa {
 
 /* ------------------------- 4. User onboarding ----------------------------- */
 
-
 div.onboarding {
     text-align: center;
     font-size: 2.1rem;
     color: #fff;
-    /* align vertically centered */
     position: fixed;
     top: 50%;
     left: 50%;
@@ -312,7 +308,6 @@ div#begin {
 
 
 
-
 /* ------------------------- 5. Hamburger Menu ----------------------------- */
 
 .burger {
@@ -348,49 +343,51 @@ div#begin {
 
 .bar, .bar::before, .bar::after {
     -webkit-transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s -webkit-transform linear;
-  transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s -webkit-transform linear;
-  transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s transform linear;
-  transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s transform linear, 0.2s -webkit-transform linear;
-  position: absolute;
-  background: #fff;
-  width: 100%;
-  height: 0.2rem;
-  content: '';
-  top: 6%;
-  right: 0;
+    transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s -webkit-transform linear;
+    transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s transform linear;
+    transition: 0.2s background linear 0.1s, 0.2s top linear 0.2s, 0.2s transform linear, 0.2s -webkit-transform linear;
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    height: 0.2rem;
+    content: '';
+    top: 6%;
+    right: 0;
 }
 .bar {
-  margin-top: -0.3rem;
+    margin-top: -0.3rem;
 }
 .bar::before {
-  top: -1.2rem;
+    top: -1.2rem;
 }
 .bar::after {
-  top: 1.2rem;
+    top: 1.2rem;
 }
 .bar::before, .bar::after {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
 }
 .active .bar {
-  background: 0;
+    background: 0;
 }
+
 .active .bar::before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 .active .bar::after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 .active .bar::before, .active .bar::after {
-  top: 0;
+    top: 0;
 }
+
 .active .bar, .active .bar::before, .active .bar::after {
-  -webkit-transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s -webkit-transform linear 0.2s;
-  transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s -webkit-transform linear 0.2s;
-  transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s;
-  transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s, 0.2s -webkit-transform linear 0.2s;
+    -webkit-transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s -webkit-transform linear 0.2s;
+    transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s -webkit-transform linear 0.2s;
+    transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s;
+    transition: 0.2s background linear 0.1s, 0.2s top linear, 0.2s transform linear 0.2s, 0.2s -webkit-transform linear 0.2s;
 }
 
 nav {
@@ -410,7 +407,7 @@ nav ul {
   list-style: none;
   padding-left: 5rem;
   z-index: 2;
-  }
+}
 
 nav ul li {
     padding: 3rem 3rem 3rem 0;
@@ -459,21 +456,9 @@ nav ul li a {
 	font-weight: 400;
 }
 
-
-/* should use margin-top class instead */
-#spacer {
-height: 5.5rem;
-}
-
-@media screen and (max-width: 768px) and (min-width: 415px) {
-	
-	#spacer {
-		height: 8rem;
-	}
-}
-
 #main-screen-text {
 	text-align: center;
+    padding-top: 5.5rem;
 }
 
 #main-screen-text h2 {
@@ -503,11 +488,9 @@ height: 5.5rem;
 	height: 40vh;
 	overflow-x: auto; /*horizontal scroll*/
     overflow-y: hidden;
-
     /* avoid spaces */
     white-space: nowrap;
     font-size: 0px;
-
 	/*css scrollsnap, using jquery-scrollsnap-plugin for chrome compatibility. Source:https://github.com/benoitpointet/jquery-scrollsnap-plugin */
     -webkit-scroll-behavior: smooth;
     scroll-behavior: smooth;
@@ -558,6 +541,7 @@ height: 5.5rem;
     display: none;
 }
 
+/* arrow navigation */
 #quest-left-right {
     position: fixed;
     bottom: 24%;
@@ -578,6 +562,7 @@ button.demo img {
     height: 40px;
 }
 
+/* progress dots */
 div.quest-progress {
     width: 162px;
     position: fixed;
@@ -593,6 +578,12 @@ div.quest-progress {
     border-radius: 50%;
     display: inline-block;
     margin: 0 2px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+	#main-screen-text {
+		padding-top: 8rem;
+	}
 }
 
 
@@ -760,6 +751,7 @@ div.landscape-image {
     height: 100%;
 }
 
+/* Timeline images */
 div#timeline-image1 {
     background: url(images/timeline1-colin-mackenzie.jpg) center top no-repeat;
     background-size: cover;
@@ -832,6 +824,7 @@ img.timeline-arrows {
     height: 2.5rem;
 }
 
+/* timeline progress dots */
 div.timeline-progress {
     width: 182px;
     position: fixed;
@@ -1074,7 +1067,7 @@ img#floorplan {
 
 .clue-content h2 {
 	text-transform: uppercase;
-	text-align:center;
+	text-align: center;
 	font-weight: 400;
 	color: #91732b;
 	margin: 4rem;
@@ -1084,11 +1077,10 @@ img#floorplan {
 
 .binoculars {
 	width: 100%;
-	align-content:center;
+	align-content: center;
 }
 
 .binoculars img {
-	
 	display: block;
 	margin: 0 auto;
 	width: 30%;
@@ -1155,7 +1147,6 @@ img#floorplan {
 }
 
 @media screen and (max-width: 768px) and (min-width: 415px) {
-	
 	.clue-header {
 		height: 8rem;
 	}
@@ -1202,17 +1193,14 @@ img#floorplan {
 		margin: 2rem;
 	}
 	
-	.clue-header li p {
-		font-size: 1.3rem;
-	}
-	
 	.clue-content h2 {
 		font-size: 1.5rem;
 		margin: 3rem 0;
 	}
 	
-	.hints li a {
-		font-size: 1.5rem;
+	.clue-header li p,
+    .hints li a {
+		font-size: 1.3rem;
 	}
 }
 
@@ -1326,7 +1314,6 @@ img#floorplan {
 }
 
 @media screen and (max-width: 768px) and (min-width: 415px) {
-	
 	.hint-header {
 		height: 8rem;
 	}
@@ -1339,7 +1326,7 @@ img#floorplan {
 		font-size: 2.5rem;
 	}
 	
-	#hints h2{
+	#hints h2 {
 		font-size: 2.7rem;
 	}
 	    
@@ -1362,26 +1349,25 @@ img#floorplan {
 
 @media screen and (max-width: 320px) {
 	
-
-	.hint-header li p {
-		font-size: 1.3rem;
-	}
-	
+    .hints li {
+        width: 24rem;
+    }
+    
     #hints h2 {
 		font-size: 1.5rem;
 		margin: 3rem 0;
 	}
 	
-	.hint-options li a {
-		font-size: 1.5rem;
+	.hint-header li p,
+    .hint-options ul li a {
+		font-size: 1.3rem;
 	}
 }
 
-/* ------------------------- 11. Confirmation - Found It ----------------------------- */
 
-#confirm-found, #confirm-show {
-	display: none;
-}
+
+
+/* ------------------------- 11. Confirmation - Found It ----------------------------- */
 
 .confirm{
   width:85%;
@@ -1402,8 +1388,8 @@ img#floorplan {
   font-size: 2rem;
 }
 
-.confirm p{
-  text-align:center;
+.confirm p {
+  text-align: center;
   margin: 2rem;
   letter-spacing: 2px;
   font-weight: 100;
@@ -1438,7 +1424,6 @@ img#floorplan {
 	margin-bottom: 2rem;
 }
 
-
 .no {
     right:0;
 }
@@ -1449,15 +1434,13 @@ img#floorplan {
 		font-size: 3rem;
 		height: 40%;
 	}
-
 }
+
 
 
 /* ------------------------- 12. Menu Content ----------------------------- */
 
-
-/* ------------ Arc Cinema page -------------- */
-
+/* ----- Arc Cinema page ----- */
 #arc-cinema {
 	width: 100%;
 }
@@ -1502,7 +1485,6 @@ img#floorplan {
 	margin-bottom: 0;
 	font-weight: bold;
 	font-size: 2rem;
-	
 }
 
 .arc-cinema-top-content {
@@ -1517,20 +1499,16 @@ img#floorplan {
 .arc-cinema-date {
 	font-weight: 400;
 	letter-spacing: 1px;
-	margin-bottom: 0;
-	
+	margin-bottom: 0;	
 }
 
-.arc-cinema-details {
+.arc-cinema-details,
+.screening-description span {
 	font-weight: 400;
 }
 
 .screening-description p {
     line-height: 1.5;
-}
-
-.screening-description span {
-	font-weight: 400;
 }
 
 div#cinema-img1 {
@@ -1549,9 +1527,7 @@ div#cinema-img2 {
 	margin-top: 5rem;
 }
 
-
 @media screen and (max-width: 768px) and (min-width: 415px) {
-    
     .menu-header {
         height: 8rem;
     }
@@ -1600,15 +1576,13 @@ div#cinema-img2 {
     
     /* --- building map ---- */
     img#floorplan {
-        width: 45rem;
+        width: 100%;
     }
-    
 }
 
 
 /* Phone size */
 @media screen and (max-width: 414px) {
-    
     
     /* ----- launch screen ----- */
     div#loading {
@@ -1654,7 +1628,6 @@ div#cinema-img2 {
     }
     
     /* ----- hamburger menu ----- */
-    
     .burger {
         height: 5.5rem;
     }
@@ -1705,8 +1678,6 @@ div#cinema-img2 {
         width: 7rem;
         padding: 0;
     }
-    
-    
     
     /* ----- Circle feature navigation ------ */
     #main-screen-text {
@@ -1790,13 +1761,85 @@ div#cinema-img2 {
     div#wrap p {
         font-size: 1.5rem;
     }
-    
 }
 
+/* For smaller phones */
 @media screen and (max-width: 320px) {
 
+    nav ul li a {
+        font-size: 1.3rem;
+    }
+    
+    nav ul li {
+        padding: 1.9rem 1.9rem 1rem 0;
+    }
+    
+    .burger,
+    .clue-header,
+    .hint-header {
+        height: 5rem;
+    }
+    
+    .burger img {
+        padding-top: 0.5rem;
+    }
+    
+    .menu {
+        margin: 2.3rem 1.5rem 0;
+    }
+    
     .circle-text {
         top: 17%;
     }
     
+    #main-screen-text {
+        padding-top: 5rem;
+        margin-bottom: 0;
+    }
+    
+    ul#building-nav {
+        height: 4.5rem;
+    }
+    
+    .margin-top {
+        margin-top: 5rem;
+    }
+    
+    .bottom-menu ul {
+        height: 6rem;
+    }
+    
+    #building-overview img {
+        margin-top: 9.5rem;
+    }
+    
+    div.timeline-container {
+        padding-top: 9.5rem;
+    }
+    
+    div.timeline-progress {
+        margin: 0 0 21% -91px;
+    }
+    
+    div.arch-imgs {
+        height: 14rem;
+    }
+    
+    .clue-header li img,
+    .hint-header li img {
+        padding-top: 1rem;
+    }
+    
+    .hint-options ul li {
+        margin-bottom: 2rem;
+    }
+    
+    .clue-content p {
+        padding: 0;
+        font-size: 1.3rem;
+    }
+    
+    .binoculars img {
+        width: 7rem;
+    }
 }
