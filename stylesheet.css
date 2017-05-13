@@ -12,6 +12,7 @@
 	10. Feature Clues
 	11. Confirmation Screens
 	12. Menu Content
+    13. Found features
 
     X. General media queries
 
@@ -624,6 +625,7 @@ div.quest-progress {
 	margin: 0;
     padding-top: 0.2rem;
     letter-spacing: 1px;
+    color: #363636;
  }
  
  .bottom-menu li.selected {
@@ -1449,6 +1451,8 @@ img#floorplan {
 	width: 100%;
 	height: 5.5rem;
 	overflow: hidden;
+    position: fixed;
+    top: 0;
 }
 
 .menu-header img {
@@ -1459,7 +1463,7 @@ img#floorplan {
 }
 
 .menu-content {
-	margin: 3rem;
+	margin: 10rem 3rem 5rem;
     line-height: 1.5;
 }
 
@@ -1538,7 +1542,7 @@ div#cinema-img2 {
     
     .menu-content {
         width: 70%;
-        margin: 5rem auto;
+        margin: 15rem auto;
     }
     
     .menu-content h1,
@@ -1561,6 +1565,123 @@ div#cinema-img2 {
 
 }
 
+
+
+
+/* ------------------------- 13. Found features ----------------------------- */
+
+div.found-header {
+    height: 5.5rem;
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+}
+
+    div.found-header h2 {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        padding-top: 2rem;
+    }
+
+img.close-found {
+    width: 2.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.6rem;
+}
+
+div.found-images {
+    position: relative;
+    width: 100%;
+    padding-top: 5.5rem;
+    z-index: -1;
+}
+
+img.feature-img {
+    width: 100%;
+}
+
+img.gold-tick {
+    height: 5rem;
+    position: absolute;
+    bottom: 0;
+    margin: 0 0 5% 5%;
+}
+
+.feature-found-content {
+    height: 100%;
+    width: 80%;
+    margin: 8% auto;
+}
+
+    /* Favourites button */
+    .feature-found-content button {
+        display: block;
+        margin: 1rem auto;
+        width: 3rem;
+    }
+
+    .feature-found-content h3 {
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .feature-found-content h4 {
+        margin: 2.5rem 0 0.5rem;
+        text-transform: uppercase;
+        color: #90722b;
+    }
+    .feature-found-content p {
+        line-height: 1.5;
+    }
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+    div.found-header {
+        height: 8rem;
+    }
+    
+    div.found-header h2 {
+        font-size: 2.5rem;
+        padding-top: 3rem;
+    }
+    
+    img.close-found {
+        width: 3rem;
+        padding: 2.6rem;
+    }
+    
+    img.gold-tick {
+        height: 7rem;
+        margin: 0 0 4% 4%;
+    }
+    
+    .feature-found-content h3 {
+        font-size: 2.7rem;
+    }
+    
+    .feature-found-content h4 {
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    div.found-header h2 {
+        padding-top: 1.7rem;
+    }
+    
+    img.close-found {
+        width: 2rem;
+        padding: 1.4rem
+    }
+    
+    div.found-images {
+        padding-top: 5rem;
+    }
+}
 
 
 
@@ -1776,7 +1897,8 @@ div#cinema-img2 {
     
     .burger,
     .clue-header,
-    .hint-header {
+    .hint-header,
+    div.found-header {
         height: 5rem;
     }
     

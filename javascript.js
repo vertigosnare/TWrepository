@@ -595,209 +595,258 @@ $(".quest-gallery").scroll(function(){
 
 
 
-// Quest - click to open feature 
-$('#quest1-open').click(function(){
-	$('#home').css('display', 'none'); 
-	$('#clue-1').css('display', 'block');  
+// Click to open features
+
+// Feature 1
+$('#quest1-open').click(function() {
+	$('#home').hide(); // hide the home screen
+	$('#clue-1').show(); // display feature 1 clue
 	
-	$('.clue-header li img').click(function() {
-	$('#clue-1').css('display', 'none');
-	$('#home').css('display', 'block');
-}); 
+	$('.clue-header li img').click(function() { // if back arrow is clicked
+        $('#clue-1').hide(); // hide the feature 1 clue
+        $('#confirm-show').hide(); // hide the 'are you sure you want to be shown the feature' screen
+        $('#confirm-found').hide(); // hide the 'are you sure you've found the feature' screen
+        $('#home').show(); // show the home screen
+    }); 
 });
 
-$('#quest2-open').click(function(){
-	$('#home').css('display', 'none'); 
-	$('#clue-2').css('display', 'block');   
-	
-	$('.clue-header li img').click(function() {
-	$('#clue-2').css('display', 'none');
-	$('#home').css('display', 'block');
-});
-});
-
-$('#quest3-open').click(function(){
+// Feature 2
+$('#quest2-open').click(function() {
 	$('#home').hide(); 
-	$('#clue-3').css('display', 'block');   
+	$('#clue-2').show();   
 	
 	$('.clue-header li img').click(function() {
-	$('#clue-3').css('display', 'none');
-	$('#home').css('display', 'block');
-});
-});
-
-$('#quest4-open').click(function(){
-	$('#home').hide(); 
-	$('#clue-4').css('display', 'block'); 
-	
-	$('.clue-header li img').click(function() {
-	$('#clue-4').css('display', 'none');
-	$('#home').css('display', 'block');
-});  
+        $('#clue-2').hide();
+        $('#confirm-show').hide();
+        $('#confirm-found').hide();
+        $('#home').show();
+    });
 });
 
-$('#quest5-open').click(function(){
+// Feature 3
+$('#quest3-open').click(function() {
 	$('#home').hide(); 
-	$('#clue-5').css('display', 'block'); 
+	$('#clue-3').show();   
 	
 	$('.clue-header li img').click(function() {
-	$('#clue-5').css('display', 'none');
-	$('#home').css('display', 'block');
-});  
+        $('#clue-3').hide();
+        $('#confirm-show').hide();
+        $('#confirm-found').hide();
+        $('#home').show();
+    });
 });
 
-$('#quest6-open').click(function(){
+// Feature 4
+$('#quest4-open').click(function() {
 	$('#home').hide(); 
-	$('#clue-6').css('display', 'block'); 
+	$('#clue-4').show(); 
 	
 	$('.clue-header li img').click(function() {
-	$('#clue-6').css('display', 'none');
-	$('#home').css('display', 'block');
-});  
+        $('#clue-4').hide();
+        $('#confirm-show').hide();
+        $('#confirm-found').hide();
+        $('#home').show();
+    });  
 });
 
-$('#quest7-open').click(function(){
+// Feature 5
+$('#quest5-open').click(function() {
 	$('#home').hide(); 
-	$('#clue-7').css('display', 'block'); 
+	$('#clue-5').show(); 
 	
 	$('.clue-header li img').click(function() {
-	$('#clue-7').css('display', 'none');
-	$('#home').css('display', 'block');
-});  
+        $('#clue-5').hide();
+        $('#confirm-show').hide();
+        $('#confirm-found').hide();
+        $('#home').show();
+    });  
 });
 
-$('#quest8-open').click(function(){
+// Feature 6
+$('#quest6-open').click(function() {
 	$('#home').hide(); 
-	$('#clue-8').css('display', 'block'); 
+	$('#clue-6').show(); 
 	
 	$('.clue-header li img').click(function() {
-	$('#clue-8').css('display', 'none');
-	$('#home').css('display', 'block');
-});  
+        $('#clue-6').hide();
+        $('#confirm-show').hide();
+        $('#confirm-found').hide();
+        $('#home').show();
+    });  
 });
 
-$('#quest9-open').click(function(){
+// Feature 7
+$('#quest7-open').click(function() {
 	$('#home').hide(); 
-	$('#clue-9').css('display', 'block'); 
+	$('#clue-7').show(); 
 	
 	$('.clue-header li img').click(function() {
-	$('#clue-9').css('display', 'none');
-	$('#home').css('display', 'block');
-});  
+        $('#clue-7').hide();
+        $('#confirm-show').hide();
+        $('#confirm-found').hide();
+        $('#home').show();
+    });  
+});
+
+// Feature 8
+$('#quest8-open').click(function() {
+	$('#home').hide(); 
+	$('#clue-8').show(); 
+	
+	$('.clue-header li img').click(function() {
+        $('#clue-8').hide();
+        $('#confirm-show').hide();
+        $('#confirm-found').hide();
+        $('#home').show();
+    });  
+});
+
+// Feature 9
+$('#quest9-open').click(function() {
+	$('#home').hide(); 
+	$('#clue-9').show(); 
+	
+	$('.clue-header li img').click(function() {
+        $('#clue-9').hide();
+        $('#confirm-show').hide();
+        $('#confirm-found').hide();
+        $('#home').show();
+    });  
 });
 
 
 // Hints
+
+// Hints for Feature 1
 $('#clue-1 .hint').click(function() {
 	$('#clue-1').hide();
 	$('#hint-1').show();
 	
-$('.hint-header li img').click(function() {
-	$('#hint-1').hide();
-	$('#clue-1').show();
-	$('#clue-2, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').css('display', 'none');
-// previously selected divs were appearing when clicking on the 'back' image
-// not a great solution but only one I could get to work 
-});  
+    $('.hint-header li img').click(function() {
+        $('#hint-1').hide();
+	    $('#clue-1').show();
+        $('.distance-image').hide(); // hide the distance hint if shown
+        $('.hint-room').hide(); // hide the location hint if shown
+	    $('#clue-2, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').hide();
+        // previously selected divs were appearing when clicking on the 'back' image
+        // not a great solution but only one I could get to work 
+    });  
 });
 
-
+// Hints for Feature 2
 $('#clue-2 .hint').click(function() {
 	$('#clue-2').hide();
 	$('#hint-2').show();
 	
-$('.hint-header li img').click(function() {
-	$('#hint-2').hide();
-	$('#clue-2').show();
-	$('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').css('display', 'none');
-});  
+    $('.hint-header li img').click(function() {
+        $('#hint-2').hide();
+        $('#clue-2').show();
+        $('.distance-image').hide();
+        $('.hint-room').hide();
+        $('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').hide();
+    });  
 });
 
-
+// Hints for Feature 3
 $('#clue-3 .hint').click(function() {
 	$('#clue-3').hide();
 	$('#hint-3').show();
 	
-$('.hint-header li img').click(function() {
-	$('#hint-3').hide();
-	$('#clue-3').show();
-	$('#clue-1, #clue-2, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').css('display', 'none');
-});  
+    $('.hint-header li img').click(function() {
+        $('#hint-3').hide();
+        $('#clue-3').show();
+        $('.distance-image').hide();
+        $('.hint-room').hide();
+        $('#clue-1, #clue-2, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').hide();
+    });  
 });
 
-
+// Hints for Feature 4
 $('#clue-4 .hint').click(function() {
 	$('#hint-4').show();
 	$('#clue-4').hide();
 	
-$('.hint-header li img').click(function() {
-	$('#hint-4').hide();
-	$('#clue-4').show();
-	$('#clue-1, #clue-3, #clue-2, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').css('display', 'none');
-});  
+    $('.hint-header li img').click(function() {
+        $('#hint-4').hide();
+        $('#clue-4').show();
+        $('.distance-image').hide();
+        $('.hint-room').hide();
+        $('#clue-1, #clue-3, #clue-2, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').hide();
+    });  
 });
 
-
+// Hints for Feature 5
 $('#clue-5 .hint').click(function() {
 	$('#hint-5').show();
 	$('#clue-5').hide();
 	
-$('.hint-header li img').click(function() {
-	$('#hint-5').hide();
-	$('#clue-5').show();
-	$('#clue-1, #clue-3, #clue-4, #clue-2, #clue-6, #clue-7, #clue-8, #clue-9').css('display', 'none');
-});  
+    $('.hint-header li img').click(function() {
+        $('#hint-5').hide();
+	    $('#clue-5').show();
+        $('.distance-image').hide();
+        $('.hint-room').hide();
+	    $('#clue-1, #clue-3, #clue-4, #clue-2, #clue-6, #clue-7, #clue-8, #clue-9').hide();
+    });  
 });
 
-
+// Hints for Feature 6
 $('#clue-6 .hint').click(function() {
 	$('#hint-6').show();
 	$('#clue-6').hide();
 	
-$('.hint-header li img').click(function() {
-	$('#hint-6').hide();
-	$('#clue-6').show();
-	$('#clue-1, #clue-3, #clue-4, #clue-5, #clue-2, #clue-7, #clue-8, #clue-9').css('display', 'none');
-
-});  
+    $('.hint-header li img').click(function() {
+        $('#hint-6').hide();
+        $('#clue-6').show();
+        $('.distance-image').hide();
+        $('.hint-room').hide();
+        $('#clue-1, #clue-3, #clue-4, #clue-5, #clue-2, #clue-7, #clue-8, #clue-9').hide();
+    });  
 });
 
-
+// Hints for Feature 7
 $('#clue-7 .hint').click(function() {
 	$('#hint-7').show();
 	$('#clue-7').hide();
 	
-$('.hint-header li img').click(function() {
-	$('#hint-7').hide();
-	$('#clue-7').show();
-	$('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-2, #clue-8, #clue-9').css('display', 'none');
-});  
+    $('.hint-header li img').click(function() {
+        $('#hint-7').hide();
+	    $('#clue-7').show();
+        $('.distance-image').hide();
+        $('.hint-room').hide();
+	    $('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-2, #clue-8, #clue-9').hide();
+    });  
 });
 
-
+// Hints for Feature 8
 $('#clue-8 .hint').click(function() {
 	$('#hint-8').show();
 	$('#clue-8').hide();
 	
-$('.hint-header li img').click(function() {
-	$('#hint-8').hide();
-	$('#clue-8').show();
-	$('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-2, #clue-9').css('display', 'none');
-});  
+    $('.hint-header li img').click(function() {
+        $('#hint-8').hide();
+        $('#clue-8').show();
+        $('.distance-image').hide();
+        $('.hint-room').hide();
+        $('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-2, #clue-9').hide();
+    });  
 });
 
-
+// Hints for Feature 9
 $('#clue-9 .hint').click(function() {
 	$('#hint-9').show();
 	$('#clue-9').hide();
 	
-$('.hint-header li img').click(function() {
-	$('#hint-9').hide();
-	$('#clue-9').show();
-	$('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-2').css('display', 'none');
-});  
+    $('.hint-header li img').click(function() {
+        $('#hint-9').hide();
+	    $('#clue-9').show();
+        $('.distance-image').hide();
+        $('.hint-room').hide();
+	    $('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-2').hide();
+    });  
 });
 
+
+// DISTANCE HINT
 $('.distance').click(function() {
 	//add this to generate distance
 	getLocation();
@@ -805,25 +854,44 @@ $('.distance').click(function() {
 	$('.distance-image').slideToggle('swing');
 });
 
+// LOCATION HINT
 $('.room').click(function() {
 	$('.hint-room').slideToggle('swing');
 });
 // above are just placeholder text/examples for content 
 
 
-// Arc Cinema page - menu Caitlin
-$('#arc-cinema-open').click(function(){
-	$('#home').hide(); 
-	$('#arc-cinema').show();  
+
+// HAMBURGER MENU PAGES
+
+// Arc Cinema page
+$('#arc-cinema-open').click(function() {
+	$('#home').hide(); // hide the home screen
+	$('#arc-cinema').show(); // show the arc cinema page
+    // hide the hamburger menu if item within it is clicked - IMPORTANT for user experience
+    $('.js-menu').removeClass('active');
+    $('body').removeClass('menu-open');
+    $('nav').slideToggle('swing');
+    isActive = false; // returns to correct state
 	
-	$('.menu-header img').click(function() {
-	   $('#arc-cinema').hide();
-	   $('#home').show();
+	$('.menu-header img').click(function() { // if cross is clicked
+	   $('#arc-cinema').hide(); // hide the arc cinema page
+	   $('#home').show(); // show the home screen
     }); 
 });
 
+// Ghost Tour page
 
-// Geolocation
+
+// About the NFSA page
+
+
+// Contact page
+
+
+
+// GEOLOCATION
+
 var myCoordAB = document.getElementById("distance-calculation");
 // coordinates for features - replace these and add the coordinatates of the 9 features to this array 
 var coordA = [-35.192001999999995, -35.1813205, -35.1813467];
@@ -870,26 +938,62 @@ myCoordAB.innerHTML = d;
 }
 */
 
-// Confirmation Screens
+
+// Confirmation Screens - 'are you sure' screens for found it and show me options
+
+
+// FOUND IT FROM THE CLUE SCREEN
+
 $('.found-it').click(function() {
-	$('#confirm-found').show();
+	$('#confirm-found').show(); // show confirmation screen
 });
 
+// if not found (answer 'no'), hide confirmation screen
 $('#confirm-found .no').click(function() {
 	$('#confirm-found').hide();
-}); 
-
-$('.show-me').click(function() {
-	$('#confirm-show').show();
 });
 
+// if confirm 'yes' found
+$('#confirm-found .yes').click(function() {
+    
+    // if clue for feature 1 is shown   
+    if ($('#clue-1').css('display') === 'block') {
+        $('#feature1-found').show();
+        $('#clue-1').hide();
+        $('#confirm-found').hide();
+    }
+})
+
+
+// SHOW ME FROM THE CLUE SCREEN
+
+$('.show-me').click(function() {
+	$('#confirm-show').show(); // show confirmation screen
+});
+
+// if don't want to be shown (answer 'no'), hide confirmation screen
 $('#confirm-show .no').click(function(){
 	$('#confirm-show').hide();
 });
 
+// if confirm 'yes' show me
+$('#confirm-show .yes').click(function() {
+    
+    // if clue for feature 1 is shown   
+    if ($('#clue-1').css('display') === 'block') {
+        $('#feature1-found').show();
+        $('#clue-1').hide();
+        $('#confirm-show').hide();
+    }
+});
 
 
+// CLOSE FEATURES FOUND PAGE using x
 
-
-
-
+$('.close-found').click(function() {
+    // Close 'feature 1 found' screen if shown
+    if ($('#feature1-found').css('display') === 'block') {
+        $('#feature1-found').hide();
+        $('#home').show();
+    }
+});
