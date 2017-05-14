@@ -1670,11 +1670,12 @@ img.dark-tick {
     }
 	
 	
-#NFSAfront {
-    margin: 1rem;
+#NFSAfront, #NFSAgeometric, #NFSAquarry, #NFSAluxfer, #NFSAcolin, #NFSAbronze, #NFSAred, #NFSAlady, #NFSAarch {
+    margin: 0 auto;
+    width: 90%;
 }
 
-#NFSAfront img {
+#NFSAfront img, #NFSAgeometric img, #NFSAquarry img, #NFSAluxfer img, #NFSAcolin img, #NFSAbronze img, #NFSAred img, #NFSAlady img, #NFSAarch img {
     
     display: inline-block;
     width: 44%;
@@ -1710,6 +1711,20 @@ img.dark-tick {
     .feature-found-content h4 {
         font-size: 2.2rem;
     }
+    
+   #NFSAfront, #NFSAgeometric, #NFSAquarry, #NFSAluxfer, #NFSAcolin, #NFSAbronze, #NFSAred, #NFSAlady, #NFSAarch {
+    margin: 0 auto;
+    width: 80%;
+    }
+       
+   #NFSAfront img, #NFSAgeometric img, #NFSAquarry img, #NFSAluxfer img, #NFSAcolin img, #NFSAbronze img, #NFSAred img, #NFSAlady img, #NFSAarch img {
+    
+    display: inline-block;
+    width: 46%;
+    margin: 0 auto;
+    padding: 1rem;
+    }  
+    
 }
 
 @media screen and (max-width: 320px) {
@@ -1725,6 +1740,15 @@ img.dark-tick {
     div.found-images {
         padding-top: 5rem;
     }
+    
+    #NFSAfront img, #NFSAgeometric img, #NFSAquarry img, #NFSAluxfer img, #NFSAcolin img, #NFSAbronze img, #NFSAred img, #NFSAlady img, #NFSAarch img {
+    
+    display: inline-block;
+    width: 45%;
+    margin: 0 auto;
+    padding: 0.5rem;
+}
+    
 }
 
 
