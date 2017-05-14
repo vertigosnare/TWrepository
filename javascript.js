@@ -641,8 +641,13 @@ $('#quest1-open').click(function() {
 
 // Feature 2
 $('#quest2-open').click(function() {
-	$('#home').hide(); 
-	$('#clue-2').show();   
+	if ($('#redwine-circle2').css('display') === 'none') {
+        $('#home').hide();
+        $('#feature2-found').show();
+    } else {
+        $('#home').hide();
+        $('#clue-2').show();
+    }  
 	
 	$('.clue-header li img').click(function() {
         $('#clue-2').hide();
@@ -1005,6 +1010,9 @@ $('#confirm-found .yes').click(function() {
         // update redwine circle feature to show as gold - 'unlocked'
         $('#redwine-circle1').hide();
         $('#gold-circle1').show();
+        $('#h2-feature1').html('1<br>Frilled neck lizards in boomerangs'); // update h2 text on the circle to read this instead of 'feature 1'
+        $('#h2-feature1').addClass('update-text'); // add new CSS to the h2 text
+        $('#encourage').html("That's it!"); // update the encourage <p> underneath 'make these walls talk'
     }
     
     // if clue for Feature 2 is shown
@@ -1012,6 +1020,12 @@ $('#confirm-found .yes').click(function() {
         $('#feature2-found').show();
         $('#clue-2').hide();
         $('#confirm-found').hide();
+        
+        $('#redwine-circle2').hide();
+        $('#gold-circle2').show();
+        $('#h2-feature2').html('2<br>Suspended light fittings');
+        $('#h2-feature2').addClass('update-text feature2-position-update');
+        $('#encourage').html('Well spotted!');
     }
     
     // if clue for Feature 3 is shown
@@ -1085,6 +1099,13 @@ $('#confirm-show .yes').click(function() {
         $('#feature1-found').show();
         $('#clue-1').hide();
         $('#confirm-show').hide();
+        
+        // update redwine circle feature to show as gold - 'unlocked'
+        $('#redwine-circle1').hide();
+        $('#gold-circle1').show();
+        $('#h2-feature1').html('1<br>Frilled neck lizards in boomerangs');
+        $('#h2-feature1').addClass('update-text');
+        $('#encourage').html("That's it!"); // update the encourage <p> underneath 'make these walls talk'
     }
     
     // if clue for Feature 2 is shown
@@ -1092,6 +1113,12 @@ $('#confirm-show .yes').click(function() {
         $('#feature2-found').show();
         $('#clue-2').hide();
         $('#confirm-show').hide();
+        
+        $('#redwine-circle2').hide();
+        $('#gold-circle2').show();
+        $('#h2-feature2').html('2<br>Suspended light fittings');
+        $('#h2-feature2').addClass('update-text feature2-position-update');
+        $('#encourage').html('Well spotted!');
     }
     
     // if clue for Feature 3 is shown
@@ -1536,7 +1563,6 @@ $('.close-found').click(function() {
         $('#feature9-found').hide();
         $('#home').show();
     }
-    
 });
 
 

@@ -531,6 +531,21 @@ nav ul li a {
 	height: 40vh;
 }
 
+/* For when the 'feature X' text changes to the feature description (once found) */
+.update-text {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    padding-top: 1.5%;
+    width: 50%;
+    left: 25%;
+    opacity: 0.8;
+}
+
+.feature2-position-update {
+    left: inherit;
+    right: -75%;
+}
+
 /* white boxes (left and right) to fudge the end of the red line at 1st and 9th features*/
 #white-box-left {
     background-color: #fff;
@@ -593,6 +608,12 @@ div.quest-progress {
 	#main-screen-text {
 		padding-top: 8rem;
 	}
+    
+    .update-text {
+        font-size: 2rem;
+        padding-top: 6%;
+        line-height: 1.5;
+    }
 }
 
 
@@ -2118,6 +2139,11 @@ img.dark-tick {
     
     .circle-text {
         top: 17%;
+    }
+    
+    .update-text {
+        font-size: 1.3rem;
+        padding-top: 5%;
     }
     
     #main-screen-text {
