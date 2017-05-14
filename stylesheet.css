@@ -9,10 +9,12 @@
 	7. Bottom tab Navigation
     8. The building
     9. The map
-	10. Feature Clues
-	11. Confirmation Screens
-	12. Menu Content
-    13. Found features
+    10. Favourites tab
+	11. Feature Clues
+    12. Feature hints
+	13. Confirmation -found it
+	14. Menu Content
+    15. Found features
 
     X. General media queries
 
@@ -607,6 +609,7 @@ div.quest-progress {
 	padding: 0;
     position: fixed;
     bottom: 0;
+    z-index: 1;
 }
 
 .bottom-menu ul {
@@ -616,7 +619,7 @@ div.quest-progress {
     height: 10rem;
     display: table; /* important to get even split */
     table-layout: fixed; /* important to get even split */
-    width: 100%;
+    width: 100%; /* important to get even split */
  }
  
  .bottom-menu li {
@@ -1023,8 +1026,96 @@ img#floorplan {
 
 
 
+/* ------------------------- 10. Favourites tab ----------------------------- */
 
-/* ------------------------- 10. Feature Clues ----------------------------- */
+div#favourites-content {
+    width: 100%;
+    padding-top: 5.5rem;
+}
+
+div#no-fav {
+    text-align: center;
+    margin-top: 10%;
+    font-size: 1.7rem;
+}
+
+div.favourite-item {
+    width: 100%;
+    height: 15rem;
+    position: relative;
+}
+
+    div.favourite-item:last-of-type {
+        margin-bottom: 7rem;
+    }
+
+    div.favourite-item h2 {
+        margin: 0;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 1.7rem;
+        letter-spacing: 1px;
+        font-weight: 400;
+        width: 80%;
+        padding: 3rem 0 0 3rem;
+    }
+
+    div.favourite-item button {
+        width: 2.8rem;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0 2.5rem 2.5rem 0;
+    }
+
+div#fav-feature1 {
+    background: url(images/feature1-dark.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div#fav-feature2 {
+    background: url(images/feature2-dark.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div#fav-feature3 {
+    background: url(images/feature3-dark.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div#fav-feature4 {
+    background: url(images/feature4-dark.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div#fav-feature5 {
+    background: url(images/feature5-dark.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div#fav-feature6 {
+    background: url(images/feature6-dark.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div#fav-feature7 {
+    background: url(images/feature7-dark.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div#fav-feature8 {
+    background: url(images/feature8-dark.jpg) center no-repeat;
+    background-size: cover;
+}
+
+div#fav-feature9 {
+    background: url(images/feature9-dark.jpg) center no-repeat;
+    background-size: cover;
+}
+
+
+
+/* ------------------------- 11. Feature Clues ----------------------------- */
 
 #clue-1, #clue-2, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9 {
     width: 100%;
@@ -1218,8 +1309,7 @@ img#floorplan {
 
 
 
-
-/* ------------------------- 11. Feature Hints ----------------------------- */
+/* ------------------------- 12. Feature Hints ----------------------------- */
 
 #hint-1, #hint-2, #hint-3, #hint-4, #hint-5, #hint-6, #hint-7, #hint-8, #hint-9 {
     width: 100%;
@@ -1398,7 +1488,7 @@ img#floorplan {
 
 
 
-/* ------------------------- 11. Confirmation - Found It ----------------------------- */
+/* ------------------------- 13. Confirmation - Found It ----------------------------- */
 
 .confirm{
   width:85%;
@@ -1469,7 +1559,7 @@ img#floorplan {
 
 
 
-/* ------------------------- 12. Menu Content ----------------------------- */
+/* ------------------------- 14. Menu Content ----------------------------- */
 
 /* ----- Arc Cinema page ----- */
 #arc-cinema {
@@ -1597,7 +1687,7 @@ div#cinema-img2 {
 
 
 
-/* ------------------------- 13. Found features ----------------------------- */
+/* ------------------------- 15. Found features ----------------------------- */
 
 div.found-header {
     height: 5.5rem;
@@ -1742,13 +1832,11 @@ img.dark-tick {
     }
     
     #NFSAfront img, #NFSAgeometric img, #NFSAquarry img, #NFSAluxfer img, #NFSAcolin img, #NFSAbronze img, #NFSAred img, #NFSAlady img, #NFSAarch img {
-    
-    display: inline-block;
-    width: 45%;
-    margin: 0 auto;
-    padding: 0.5rem;
-}
-    
+        display: inline-block;
+        width: 45%;
+        margin: 0 auto;
+        padding: 0.5rem;
+    } 
 }
 
 

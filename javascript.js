@@ -142,6 +142,7 @@ var $li = $('.bottom-menu li').click(function() {
 $('.building').click(function() {
     $('.map').removeClass('selected'); // ensure map tab isn't selected
     $('.favourites').removeClass('selected'); // ensure favourites tab isn't selected
+    $('#favourites-content').hide(); // hide favourites content
     $('#build-map').hide(); // hide map content
     $('#main-screen').hide();
     
@@ -163,13 +164,12 @@ $('.building').click(function() {
         $(this).removeClass('selected'); // hide the building info
 		$('#main-screen').show(); // show the main screen
     }
-});
-   
-
-$('#home-link').click(function() {
-	$('#building-info').css('display', 'none');
-	$('#main-screen').css('display', 'block');
-	$('.building').removeClass('selected');
+    
+    $('#home-link').click(function() {
+	   $('#building-info').css('display', 'none');
+	   $('#main-screen').css('display', 'block');
+	   $('.building').removeClass('selected');
+    });
 });
 
 
@@ -178,6 +178,7 @@ $('.map').click(function(){
     $('.building').removeClass('selected');
     $('#building-info').hide();
     $('.favourites').removeClass('selected');
+    $('#favourites-content').hide();
     $('#build-map').toggle();
     $('#main-screen').hide();
 	
@@ -190,6 +191,27 @@ $('.map').click(function(){
 	   $('#build-map').css('display', 'none');
 	   $('#main-screen').css('display', 'block');
 	   $('.map').removeClass('selected');
+    });
+});
+
+// FAVOURITES TAB - bottom nav
+$('.favourites').click(function() {
+    $('.building').removeClass('selected');
+    $('#building-info').hide();
+    $('.map').removeClass('selected');
+    $('#build-map').hide();
+    $('#favourites-content').toggle();
+    $('#main-screen').hide();
+    
+    if ($('#favourites-content').css('display') === 'none') {
+        $(this).removeClass('selected');
+		$('#main-screen').show();
+    }
+    
+    $('#home-link').click(function() {
+        $('#favourites-content').hide();
+        $('#main-screen').show();
+        $('.favourites').removeClass('selected');
     });
 });
 
@@ -1120,116 +1142,269 @@ $('#confirm-show .yes').click(function() {
 
 // FAVOURITING FEATURES
 
+var numberOfFav = 0; // variable to determine the number of favourited items
+
 // favourite Feature 1
 $('#favourite-no-fill-feature1').click(function() {
-    $(this).hide();
-    $('#favourite-fill-feature1').show();
+    $(this).hide(); // hide the heart with no fill
+    $('#favourite-fill-feature1').show(); // show the filled heart to indicate this has been favourited
+    $('#fav-feature1').show(); // add feature 1 to favourites list
+    numberOfFav++; // add one to number of favourites
+    noFav();
 });
 
 // favourite Feature 2
 $('#favourite-no-fill-feature2').click(function() {
     $(this).hide();
     $('#favourite-fill-feature2').show();
+    $('#fav-feature2').show();
+    numberOfFav++;
+    noFav();
 });
 
 // favourite Feature 3
 $('#favourite-no-fill-feature3').click(function() {
     $(this).hide();
     $('#favourite-fill-feature3').show();
+    $('#fav-feature3').show();
+    numberOfFav++;
+    noFav();
 });
 
 // favourite Feature 4
 $('#favourite-no-fill-feature4').click(function() {
     $(this).hide();
     $('#favourite-fill-feature4').show();
+    $('#fav-feature4').show();
+    numberOfFav++;
+    noFav();
 });
 
 // favourite Feature 5
 $('#favourite-no-fill-feature5').click(function() {
     $(this).hide();
     $('#favourite-fill-feature5').show();
+    $('#fav-feature5').show();
+    numberOfFav++;
+    noFav();
 });
 
 // favourite Feature 6
 $('#favourite-no-fill-feature6').click(function() {
     $(this).hide();
     $('#favourite-fill-feature6').show();
+    $('#fav-feature6').show();
+    numberOfFav++;
+    noFav();
 });
 
 // favourite Feature 7
 $('#favourite-no-fill-feature7').click(function() {
     $(this).hide();
     $('#favourite-fill-feature7').show();
+    $('#fav-feature7').show();
+    numberOfFav++;
+    noFav();
 });
 
 // favourite Feature 8
 $('#favourite-no-fill-feature8').click(function() {
     $(this).hide();
     $('#favourite-fill-feature8').show();
+    $('#fav-feature8').show();
+    numberOfFav++;
+    noFav();
 });
 
 // favourite Feature 9
 $('#favourite-no-fill-feature9').click(function() {
     $(this).hide();
     $('#favourite-fill-feature9').show();
+    $('#fav-feature9').show();
+    numberOfFav++;
+    noFav();
 });
 
 
 // UNFAVOURITING FEATURES
 
+// Unfavouriting from 'features found' page
+
 // unfavourite Feature 1
 $('#favourite-fill-feature1').click(function() {
     $(this).hide();
-    $('#favourite-no-fill-feature1').show(); 
+    $('#favourite-no-fill-feature1').show();
+    $('#fav-feature1').hide(); // hide feature 1 from favourites list
+    numberOfFav--; // subtract one from number of favourites
+    noFav(); // run no favourites function to see if there are now 0 favourites, if there are none, the function will show the 'no favourites' div
 });
 
 // unfavourite Feature 2
 $('#favourite-fill-feature2').click(function() {
     $(this).hide();
-    $('#favourite-no-fill-feature2').show(); 
+    $('#favourite-no-fill-feature2').show();
+    $('#fav-feature2').hide();
+    numberOfFav--;
+    noFav();
 });
 
 // unfavourite Feature 3
 $('#favourite-fill-feature3').click(function() {
     $(this).hide();
     $('#favourite-no-fill-feature3').show(); 
+    $('#fav-feature3').hide();
+    numberOfFav--;
+    noFav();
 });
 
 // unfavourite Feature 4
 $('#favourite-fill-feature4').click(function() {
     $(this).hide();
-    $('#favourite-no-fill-feature4').show(); 
+    $('#favourite-no-fill-feature4').show();
+    $('#fav-feature4').hide();
+    numberOfFav--;
+    noFav();
 });
 
 // unfavourite Feature 5
 $('#favourite-fill-feature5').click(function() {
     $(this).hide();
-    $('#favourite-no-fill-feature5').show(); 
+    $('#favourite-no-fill-feature5').show();
+    $('#fav-feature5').hide();
+    numberOfFav--;
+    noFav();
 });
 
 // unfavourite Feature 6
 $('#favourite-fill-feature6').click(function() {
     $(this).hide();
-    $('#favourite-no-fill-feature6').show(); 
+    $('#favourite-no-fill-feature6').show();
+    $('#fav-feature6').hide();
+    numberOfFav--;
+    noFav();
 });
 
 // unfavourite Feature 7
 $('#favourite-fill-feature7').click(function() {
     $(this).hide();
-    $('#favourite-no-fill-feature7').show(); 
+    $('#favourite-no-fill-feature7').show();
+    $('#fav-feature7').hide();
+    numberOfFav--;
+    noFav();
 });
 
 // unfavourite Feature 8
 $('#favourite-fill-feature8').click(function() {
     $(this).hide();
-    $('#favourite-no-fill-feature8').show(); 
+    $('#favourite-no-fill-feature8').show();
+    $('#fav-feature8').hide();
+    numberOfFav--;
+    noFav();
 });
 
 // unfavourite Feature 9
 $('#favourite-fill-feature9').click(function() {
     $(this).hide();
-    $('#favourite-no-fill-feature9').show(); 
+    $('#favourite-no-fill-feature9').show();
+    $('#fav-feature9').hide();
+    numberOfFav--;
+    noFav();
 });
+
+// Unfavouriting directly from favourites list
+
+// Unfavouriting Feature 1 from list
+$('#favourite-list-fill-feature1').click(function() {
+    $('#fav-feature1').hide(); // hide feature 1 from favourites list
+    $('#favourite-fill-feature1').hide(); // hide fill heart on 'features found' page
+    $('#favourite-no-fill-feature1').show(); // show no-fill heart on 'features found' page
+    numberOfFav--; // subtract one from number of favourites
+    noFav(); // run no favourites function to see if there are now 0 favourites, if there are none, the function will show the 'no favourites' div
+});
+
+// Unfavouriting Feature 2 from list
+$('#favourite-list-fill-feature2').click(function() {
+    $('#fav-feature2').hide();
+    $('#favourite-fill-feature2').hide();
+    $('#favourite-no-fill-feature2').show();
+    numberOfFav--;
+    noFav();
+});
+
+// Unfavouriting Feature 3 from list
+$('#favourite-list-fill-feature3').click(function() {
+    $('#fav-feature3').hide();
+    $('#favourite-fill-feature3').hide();
+    $('#favourite-no-fill-feature3').show();
+    numberOfFav--;
+    noFav();
+});
+
+// Unfavouriting Feature 4 from list
+$('#favourite-list-fill-feature4').click(function() {
+    $('#fav-feature4').hide();
+    $('#favourite-fill-feature4').hide();
+    $('#favourite-no-fill-feature4').show();
+    numberOfFav--;
+    noFav();
+});
+
+// Unfavouriting Feature 5 from list
+$('#favourite-list-fill-feature5').click(function() {
+    $('#fav-feature5').hide();
+    $('#favourite-fill-feature5').hide();
+    $('#favourite-no-fill-feature5').show();
+    numberOfFav--;
+    noFav();
+});
+
+// Unfavouriting Feature 6 from list
+$('#favourite-list-fill-feature6').click(function() {
+    $('#fav-feature6').hide();
+    $('#favourite-fill-feature6').hide();
+    $('#favourite-no-fill-feature6').show();
+    numberOfFav--;
+    noFav();
+});
+
+// Unfavouriting Feature 7 from list
+$('#favourite-list-fill-feature7').click(function() {
+    $('#fav-feature7').hide();
+    $('#favourite-fill-feature7').hide();
+    $('#favourite-no-fill-feature7').show();
+    numberOfFav--;
+    noFav();
+});
+
+// Unfavouriting Feature 8 from list
+$('#favourite-list-fill-feature8').click(function() {
+    $('#fav-feature8').hide();
+    $('#favourite-fill-feature8').hide();
+    $('#favourite-no-fill-feature8').show();
+    numberOfFav--;
+    noFav();
+});
+
+// Unfavouriting Feature 9 from list
+$('#favourite-list-fill-feature9').click(function() {
+    $('#fav-feature9').hide();
+    $('#favourite-fill-feature9').hide();
+    $('#favourite-no-fill-feature9').show();
+    numberOfFav--;
+    noFav();
+});
+
+
+// FAVOURITES FUNCTION
+
+// show 'no favourites' div if no features are favourited
+function noFav() {
+    if (numberOfFav === 0) {
+        $('#no-fav').show();    
+    } else {
+        $('#no-fav').hide();
+    }
+}
 
 
 // CLOSE FEATURES FOUND PAGE using x
@@ -1291,6 +1466,9 @@ $('.close-found').click(function() {
     }
     
 });
+
+
+
 //INSTAFEED FOR FEATURES FOUND
 
 //Feature 1
