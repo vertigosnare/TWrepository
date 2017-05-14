@@ -1291,3 +1291,14 @@ $('.close-found').click(function() {
     }
     
 });
+
+//INSTAFEED FOR FEATURES FOUND
+var NFSAfrontFeed = new Instafeed({
+    target: 'NFSAfront',
+    get: 'tagged',
+    tagName: 'NFSAfront',
+    clientId: '1cb4e751c51849d6b9c31feb243d0582',
+    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
+    limit: 10,
+});
+    NFSAfrontFeed.run();

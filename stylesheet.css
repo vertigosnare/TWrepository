@@ -1668,6 +1668,19 @@ img.dark-tick {
     .feature-found-content p {
         line-height: 1.5;
     }
+	
+	
+#NFSAfront {
+    margin: 1rem;
+}
+
+#NFSAfront img {
+    
+    display: inline-block;
+    width: 44%;
+    margin: 0 auto;
+    padding: 1rem;
+}
 
 @media screen and (max-width: 768px) and (min-width: 415px) {
     div.found-header {
