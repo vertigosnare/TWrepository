@@ -510,6 +510,7 @@ nav ul li a {
 
 /* red lines to 'connect' the circles */
 .quest::after {
+    display: block;
     width: 100%;
     height: 2rem;
     background: #7f143c;
@@ -528,10 +529,6 @@ nav ul li a {
 .quest img {
 	width: 100vw;
 	height: 40vh;
-}
-
-.inline-block {
-    display: inline-block;
 }
 
 /* white boxes (left and right) to fudge the end of the red line at 1st and 9th features*/

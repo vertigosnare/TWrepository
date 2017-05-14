@@ -621,15 +621,22 @@ $(".quest-gallery").scroll(function(){
 
 // Feature 1
 $('#quest1-open').click(function() {
-	$('#home').hide(); // hide the home screen
-	$('#clue-1').show(); // display feature 1 clue
+    
+    // determine whether to show clue or 'features found' page
+    if ($('#redwine-circle1').css('display') === 'none') { // if the red circle is not displaying (meaning the gold is showing because the features already been found)
+        $('#home').hide(); // hide home screen
+        $('#feature1-found').show(); // go straight to 'features found' page
+    } else {
+        $('#home').hide(); // hide the home screen
+        $('#clue-1').show(); // display feature 1 clue
+    }
 	
 	$('.clue-header li img').click(function() { // if back arrow is clicked
         $('#clue-1').hide(); // hide the feature 1 clue
         $('#confirm-show').hide(); // hide the 'are you sure you want to be shown the feature' screen
         $('#confirm-found').hide(); // hide the 'are you sure you've found the feature' screen
         $('#home').show(); // show the home screen
-    }); 
+    });
 });
 
 // Feature 2
@@ -996,9 +1003,8 @@ $('#confirm-found .yes').click(function() {
         $('#confirm-found').hide();
         
         // update redwine circle feature to show as gold - 'unlocked'
-        // the below doesn't work yet as it removes the red line that connects all the circles
-        //$('#redwine-circle1').hide();
-        //$('#gold-circle1').addClass('inline-block');
+        $('#redwine-circle1').hide();
+        $('#gold-circle1').show();
     }
     
     // if clue for Feature 2 is shown
