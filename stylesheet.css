@@ -1113,6 +1113,45 @@ div#fav-feature9 {
     background-size: cover;
 }
 
+@media screen and (max-width: 768px) and (min-width: 415px) {
+    div#favourites-content {
+        padding-top: 8rem;
+    }
+    
+    div.favourite-item {
+        height: 25rem;
+    }
+    
+    div.favourite-item button {
+        width: 4rem;
+        padding: 0 4rem 4rem 0;
+    }
+    
+    div.favourite-item h2 {
+        font-size: 2.5rem;
+        padding: 6rem 0 0 6rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    div#favourites-content {
+        padding-top: 4.5rem;
+    }
+    
+    div.favourite-item {
+        height: 12rem;
+    }
+    
+    div.favourite-item button {
+        padding: 0 1.8rem 1.8rem 0;
+    }
+    
+    div.favourite-item h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
 
 
 /* ------------------------- 11. Feature Clues ----------------------------- */
@@ -1557,6 +1596,16 @@ div#fav-feature9 {
 	}
 }
 
+@media screen and (max-width: 360px) {
+    .confirm {
+        font-size: 1.5rem;
+    }
+    
+    .confirm img {
+        margin-top: 2.8rem;
+    }
+}
+
 
 
 /* ------------------------- 14. Menu Content ----------------------------- */
@@ -1794,6 +1843,11 @@ img.dark-tick {
         margin: 0 0 4% 4%;
     }
     
+    .feature-found-content button {
+        margin: 2.5rem auto;
+        width: 4rem;
+    }
+    
     .feature-found-content h3 {
         font-size: 2.7rem;
     }
@@ -1802,17 +1856,16 @@ img.dark-tick {
         font-size: 2.2rem;
     }
     
-   #NFSAfront, #NFSAgeometric, #NFSAquarry, #NFSAluxfer, #NFSAcolin, #NFSAbronze, #NFSAred, #NFSAlady, #NFSAarch {
-    margin: 0 auto;
-    width: 80%;
+    #NFSAfront, #NFSAgeometric, #NFSAquarry, #NFSAluxfer, #NFSAcolin, #NFSAbronze, #NFSAred, #NFSAlady, #NFSAarch {
+        margin: 0 auto;
+        width: 80%;
     }
        
-   #NFSAfront img, #NFSAgeometric img, #NFSAquarry img, #NFSAluxfer img, #NFSAcolin img, #NFSAbronze img, #NFSAred img, #NFSAlady img, #NFSAarch img {
-    
-    display: inline-block;
-    width: 46%;
-    margin: 0 auto;
-    padding: 1rem;
+    #NFSAfront img, #NFSAgeometric img, #NFSAquarry img, #NFSAluxfer img, #NFSAcolin img, #NFSAbronze img, #NFSAred img, #NFSAlady img, #NFSAarch img {
+        display: inline-block;
+        width: 46%;
+        margin: 0 auto;
+        padding: 1rem;
     }  
     
 }
