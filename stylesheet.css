@@ -1214,7 +1214,8 @@ img#floorplan {
 
 #hint-1, #hint-2, #hint-3, #hint-4, #hint-5, #hint-6, #hint-7, #hint-8, #hint-9 {
     width: 100%;
-    height: 100vh; /* important otherwise gradient doesn't reach to bottom */   
+    height: 100vh; /* important otherwise gradient doesn't reach to bottom */ 
+    overflow: scroll;
 }
 
 .hint-header {
@@ -1271,7 +1272,7 @@ img#floorplan {
 	list-style-type: none;
 	text-align: center;
 	text-transform: uppercase;
-	margin-top: 3rem;
+	margin-top: 2rem;
 }
 
 .hint-options ul li {
@@ -1286,6 +1287,11 @@ img#floorplan {
       text-decoration: none;
       letter-spacing: 3px;
 	  color: #fff;
+}
+
+.hint-options ul li p {
+    
+    margin: 1rem;
 }
 
 .distance, .photo, .room {
@@ -1315,7 +1321,21 @@ img#floorplan {
 	border-radius: 10px;
 }
 
+.blurred-photo {
+    display: none;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.blurred-photo img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 768px) and (min-width: 415px) {
+	
 	.hint-header {
 		height: 8rem;
 	}
@@ -1328,7 +1348,7 @@ img#floorplan {
 		font-size: 2.5rem;
 	}
 	
-	#hints h2 {
+	#hints h2{
 		font-size: 2.7rem;
 	}
 	    
@@ -1351,18 +1371,18 @@ img#floorplan {
 
 @media screen and (max-width: 320px) {
 	
-    .hints li {
-        width: 24rem;
-    }
-    
+
+	.hint-header li p {
+		font-size: 1.3rem;
+	}
+	
     #hints h2 {
 		font-size: 1.5rem;
 		margin: 3rem 0;
 	}
 	
-	.hint-header li p,
-    .hint-options ul li a {
-		font-size: 1.3rem;
+	.hint-options li a {
+		font-size: 1.5rem;
 	}
 }
 

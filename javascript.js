@@ -858,8 +858,11 @@ $('.distance').click(function() {
 $('.room').click(function() {
 	$('.hint-room').slideToggle('swing');
 });
-// above are just placeholder text/examples for content 
 
+//BLURRED PHOTO HINT
+$('.photo').click(function() {
+    $('.blurred-photo').slideToggle('swing');
+});
 
 
 // HAMBURGER MENU PAGES
