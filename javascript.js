@@ -727,6 +727,7 @@ $('#clue-1 .hint').click(function() {
 	    $('#clue-1').show();
         $('.distance-image').hide(); // hide the distance hint if shown
         $('.hint-room').hide(); // hide the location hint if shown
+        $('.blurred-photo').hide(); // hide the blurred photo hint if shown
 	    $('#clue-2, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').hide();
         // previously selected divs were appearing when clicking on the 'back' image
         // not a great solution but only one I could get to work 
@@ -743,6 +744,7 @@ $('#clue-2 .hint').click(function() {
         $('#clue-2').show();
         $('.distance-image').hide();
         $('.hint-room').hide();
+        $('.blurred-photo').hide();
         $('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').hide();
     });  
 });
@@ -757,6 +759,7 @@ $('#clue-3 .hint').click(function() {
         $('#clue-3').show();
         $('.distance-image').hide();
         $('.hint-room').hide();
+        $('.blurred-photo').hide();
         $('#clue-1, #clue-2, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').hide();
     });  
 });
@@ -771,6 +774,7 @@ $('#clue-4 .hint').click(function() {
         $('#clue-4').show();
         $('.distance-image').hide();
         $('.hint-room').hide();
+        $('.blurred-photo').hide();
         $('#clue-1, #clue-3, #clue-2, #clue-5, #clue-6, #clue-7, #clue-8, #clue-9').hide();
     });  
 });
@@ -785,6 +789,7 @@ $('#clue-5 .hint').click(function() {
 	    $('#clue-5').show();
         $('.distance-image').hide();
         $('.hint-room').hide();
+        $('.blurred-photo').hide();
 	    $('#clue-1, #clue-3, #clue-4, #clue-2, #clue-6, #clue-7, #clue-8, #clue-9').hide();
     });  
 });
@@ -799,6 +804,7 @@ $('#clue-6 .hint').click(function() {
         $('#clue-6').show();
         $('.distance-image').hide();
         $('.hint-room').hide();
+        $('.blurred-photo').hide();
         $('#clue-1, #clue-3, #clue-4, #clue-5, #clue-2, #clue-7, #clue-8, #clue-9').hide();
     });  
 });
@@ -813,6 +819,7 @@ $('#clue-7 .hint').click(function() {
 	    $('#clue-7').show();
         $('.distance-image').hide();
         $('.hint-room').hide();
+        $('.blurred-photo').hide();
 	    $('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-2, #clue-8, #clue-9').hide();
     });  
 });
@@ -827,6 +834,7 @@ $('#clue-8 .hint').click(function() {
         $('#clue-8').show();
         $('.distance-image').hide();
         $('.hint-room').hide();
+        $('.blurred-photo').hide();
         $('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-2, #clue-9').hide();
     });  
 });
@@ -841,6 +849,7 @@ $('#clue-9 .hint').click(function() {
 	    $('#clue-9').show();
         $('.distance-image').hide();
         $('.hint-room').hide();
+        $('.blurred-photo').hide();
 	    $('#clue-1, #clue-3, #clue-4, #clue-5, #clue-6, #clue-7, #clue-8, #clue-2').hide();
     });  
 });
@@ -944,7 +953,6 @@ myCoordAB.innerHTML = d;
 
 // Confirmation Screens - 'are you sure' screens for found it and show me options
 
-
 // FOUND IT FROM THE CLUE SCREEN
 
 $('.found-it').click(function() {
@@ -959,13 +967,75 @@ $('#confirm-found .no').click(function() {
 // if confirm 'yes' found
 $('#confirm-found .yes').click(function() {
     
-    // if clue for feature 1 is shown   
+    // if clue for Feature 1 is shown   
     if ($('#clue-1').css('display') === 'block') {
         $('#feature1-found').show();
         $('#clue-1').hide();
         $('#confirm-found').hide();
+        
+        // update redwine circle feature to show as gold - 'unlocked'
+        // the below doesn't work yet as it removes the red line that connects all the circles
+        //$('#redwine-circle1').hide();
+        //$('#gold-circle1').addClass('inline-block');
     }
-})
+    
+    // if clue for Feature 2 is shown
+    if ($('#clue-2').css('display') === 'block') {
+        $('#feature2-found').show();
+        $('#clue-2').hide();
+        $('#confirm-found').hide();
+    }
+    
+    // if clue for Feature 3 is shown
+    if ($('#clue-3').css('display') === 'block') {
+        $('#feature3-found').show();
+        $('#clue-3').hide();
+        $('#confirm-found').hide();
+    }
+    
+    // if clue for Feature 4 is shown
+    if ($('#clue-4').css('display') === 'block') {
+        $('#feature4-found').show();
+        $('#clue-4').hide();
+        $('#confirm-found').hide();
+    }
+    
+    // if clue for Feature 5 is shown
+    if ($('#clue-5').css('display') === 'block') {
+        $('#feature5-found').show();
+        $('#clue-5').hide();
+        $('#confirm-found').hide();
+    }
+    
+    // if clue for Feature 6 is shown
+    if ($('#clue-6').css('display') === 'block') {
+        $('#feature6-found').show();
+        $('#clue-6').hide();
+        $('#confirm-found').hide();
+    }
+    
+    // if clue for Feature 7 is shown
+    if ($('#clue-7').css('display') === 'block') {
+        $('#feature7-found').show();
+        $('#clue-7').hide();
+        $('#confirm-found').hide();
+    }
+    
+    // if clue for Feature 8 is shown
+    if ($('#clue-8').css('display') === 'block') {
+        $('#feature8-found').show();
+        $('#clue-8').hide();
+        $('#confirm-found').hide();
+    }
+    
+    // if clue for Feature 9 is shown
+    if ($('#clue-9').css('display') === 'block') {
+        $('#feature9-found').show();
+        $('#clue-9').hide();
+        $('#confirm-found').hide();
+    }
+    
+});
 
 
 // SHOW ME FROM THE CLUE SCREEN
@@ -982,21 +1052,242 @@ $('#confirm-show .no').click(function(){
 // if confirm 'yes' show me
 $('#confirm-show .yes').click(function() {
     
-    // if clue for feature 1 is shown   
+    // if clue for Feature 1 is shown   
     if ($('#clue-1').css('display') === 'block') {
         $('#feature1-found').show();
         $('#clue-1').hide();
         $('#confirm-show').hide();
     }
+    
+    // if clue for Feature 2 is shown
+    if ($('#clue-2').css('display') === 'block') {
+        $('#feature2-found').show();
+        $('#clue-2').hide();
+        $('#confirm-show').hide();
+    }
+    
+    // if clue for Feature 3 is shown
+    if ($('#clue-3').css('display') === 'block') {
+        $('#feature3-found').show();
+        $('#clue-3').hide();
+        $('#confirm-show').hide();
+    }
+    
+    // if clue for Feature 4 is shown
+    if ($('#clue-4').css('display') === 'block') {
+        $('#feature4-found').show();
+        $('#clue-4').hide();
+        $('#confirm-show').hide();
+    }
+    
+    // if clue for Feature 5 is shown
+    if ($('#clue-5').css('display') === 'block') {
+        $('#feature5-found').show();
+        $('#clue-5').hide();
+        $('#confirm-show').hide();
+    }
+    
+    // if clue for Feature 6 is shown
+    if ($('#clue-6').css('display') === 'block') {
+        $('#feature6-found').show();
+        $('#clue-6').hide();
+        $('#confirm-show').hide();
+    }
+    
+    // if clue for Feature 7 is shown
+    if ($('#clue-7').css('display') === 'block') {
+        $('#feature7-found').show();
+        $('#clue-7').hide();
+        $('#confirm-show').hide();
+    }
+    
+    // if clue for Feature 8 is shown
+    if ($('#clue-8').css('display') === 'block') {
+        $('#feature8-found').show();
+        $('#clue-8').hide();
+        $('#confirm-show').hide();
+    }
+    
+    // if clue for Feature 9 is shown
+    if ($('#clue-9').css('display') === 'block') {
+        $('#feature9-found').show();
+        $('#clue-9').hide();
+        $('#confirm-show').hide();
+    }
+    
+});
+
+
+// FAVOURITING FEATURES
+
+// favourite Feature 1
+$('#favourite-no-fill-feature1').click(function() {
+    $(this).hide();
+    $('#favourite-fill-feature1').show();
+});
+
+// favourite Feature 2
+$('#favourite-no-fill-feature2').click(function() {
+    $(this).hide();
+    $('#favourite-fill-feature2').show();
+});
+
+// favourite Feature 3
+$('#favourite-no-fill-feature3').click(function() {
+    $(this).hide();
+    $('#favourite-fill-feature3').show();
+});
+
+// favourite Feature 4
+$('#favourite-no-fill-feature4').click(function() {
+    $(this).hide();
+    $('#favourite-fill-feature4').show();
+});
+
+// favourite Feature 5
+$('#favourite-no-fill-feature5').click(function() {
+    $(this).hide();
+    $('#favourite-fill-feature5').show();
+});
+
+// favourite Feature 6
+$('#favourite-no-fill-feature6').click(function() {
+    $(this).hide();
+    $('#favourite-fill-feature6').show();
+});
+
+// favourite Feature 7
+$('#favourite-no-fill-feature7').click(function() {
+    $(this).hide();
+    $('#favourite-fill-feature7').show();
+});
+
+// favourite Feature 8
+$('#favourite-no-fill-feature8').click(function() {
+    $(this).hide();
+    $('#favourite-fill-feature8').show();
+});
+
+// favourite Feature 9
+$('#favourite-no-fill-feature9').click(function() {
+    $(this).hide();
+    $('#favourite-fill-feature9').show();
+});
+
+
+// UNFAVOURITING FEATURES
+
+// unfavourite Feature 1
+$('#favourite-fill-feature1').click(function() {
+    $(this).hide();
+    $('#favourite-no-fill-feature1').show(); 
+});
+
+// unfavourite Feature 2
+$('#favourite-fill-feature2').click(function() {
+    $(this).hide();
+    $('#favourite-no-fill-feature2').show(); 
+});
+
+// unfavourite Feature 3
+$('#favourite-fill-feature3').click(function() {
+    $(this).hide();
+    $('#favourite-no-fill-feature3').show(); 
+});
+
+// unfavourite Feature 4
+$('#favourite-fill-feature4').click(function() {
+    $(this).hide();
+    $('#favourite-no-fill-feature4').show(); 
+});
+
+// unfavourite Feature 5
+$('#favourite-fill-feature5').click(function() {
+    $(this).hide();
+    $('#favourite-no-fill-feature5').show(); 
+});
+
+// unfavourite Feature 6
+$('#favourite-fill-feature6').click(function() {
+    $(this).hide();
+    $('#favourite-no-fill-feature6').show(); 
+});
+
+// unfavourite Feature 7
+$('#favourite-fill-feature7').click(function() {
+    $(this).hide();
+    $('#favourite-no-fill-feature7').show(); 
+});
+
+// unfavourite Feature 8
+$('#favourite-fill-feature8').click(function() {
+    $(this).hide();
+    $('#favourite-no-fill-feature8').show(); 
+});
+
+// unfavourite Feature 9
+$('#favourite-fill-feature9').click(function() {
+    $(this).hide();
+    $('#favourite-no-fill-feature9').show(); 
 });
 
 
 // CLOSE FEATURES FOUND PAGE using x
 
 $('.close-found').click(function() {
+    
     // Close 'feature 1 found' screen if shown
     if ($('#feature1-found').css('display') === 'block') {
         $('#feature1-found').hide();
         $('#home').show();
     }
+    
+    // Close 'feature 2 found' screen if shown
+    if ($('#feature2-found').css('display') === 'block') {
+        $('#feature2-found').hide();
+        $('#home').show();
+    }
+    
+    // Close 'feature 3 found' screen if shown
+    if ($('#feature3-found').css('display') === 'block') {
+        $('#feature3-found').hide();
+        $('#home').show();
+    }
+    
+    // Close 'feature 4 found' screen if shown
+    if ($('#feature4-found').css('display') === 'block') {
+        $('#feature4-found').hide();
+        $('#home').show();
+    }
+    
+    // Close 'feature 5 found' screen if shown
+    if ($('#feature5-found').css('display') === 'block') {
+        $('#feature5-found').hide();
+        $('#home').show();
+    }
+    
+    // Close 'feature 6 found' screen if shown
+    if ($('#feature6-found').css('display') === 'block') {
+        $('#feature6-found').hide();
+        $('#home').show();
+    }
+    
+    // Close 'feature 7 found' screen if shown
+    if ($('#feature7-found').css('display') === 'block') {
+        $('#feature7-found').hide();
+        $('#home').show();
+    }
+    
+    // Close 'feature 8 found' screen if shown
+    if ($('#feature8-found').css('display') === 'block') {
+        $('#feature8-found').hide();
+        $('#home').show();
+    }
+    
+    // Close 'feature 9 found' screen if shown
+    if ($('#feature9-found').css('display') === 'block') {
+        $('#feature9-found').hide();
+        $('#home').show();
+    }
+    
 });

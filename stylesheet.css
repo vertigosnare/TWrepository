@@ -517,10 +517,19 @@ nav ul li a {
     z-index: -2;
 }
 
-.quest img {
+/* only show the redwine circle */
+.quest img:first-of-type {
     display: block;
+}
+
+/* includes gold circle, as well as redwine */
+.quest img {
 	width: 100vw;
 	height: 40vh;
+}
+
+.inline-block {
+    display: inline-block;
 }
 
 /* white boxes (left and right) to fudge the end of the red line at 1st and 9th features*/
@@ -1625,7 +1634,8 @@ img.feature-img {
     width: 100%;
 }
 
-img.gold-tick {
+img.gold-tick,
+img.dark-tick {
     height: 5rem;
     position: absolute;
     bottom: 0;
@@ -1674,7 +1684,8 @@ img.gold-tick {
         padding: 2.6rem;
     }
     
-    img.gold-tick {
+    img.gold-tick,
+    img.dark-tick {
         height: 7rem;
         margin: 0 0 4% 4%;
     }
