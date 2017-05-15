@@ -1099,7 +1099,7 @@ $('#confirm-found .yes').click(function() {
         $('#gold-circle5').show();
         $('#h2-feature5').html('5<br>Sir Colin MacKenzie plaque');
         $('#h2-feature5').addClass('update-text feature5-position-update');
-        $('#encourage').html('Seems like this is too easy for you!');
+        $('#encourage').html('Too easy for you?');
     }
     
     // if clue for Feature 6 is shown
@@ -1125,7 +1125,7 @@ $('#confirm-found .yes').click(function() {
         $('#gold-circle7').show();
         $('#h2-feature7').html('7<br>Theatrette');
         $('#h2-feature7').addClass('update-text feature7-position-update');
-        $('#encourage').html("Didn't realise it was this cool, huh?");
+        $('#encourage').html("Pretty cool, huh?");
     }
     
     // if clue for Feature 8 is shown
@@ -1234,7 +1234,7 @@ $('#confirm-show .yes').click(function() {
         $('#gold-circle5').show();
         $('#h2-feature5').html('5<br>Sir Colin MacKenzie plaque');
         $('#h2-feature5').addClass('update-text feature5-position-update');
-        $('#encourage').html('Seems like this is too easy for you!');
+        $('#encourage').html('Too easy for you?');
     }
     
     // if clue for Feature 6 is shown
@@ -1260,7 +1260,7 @@ $('#confirm-show .yes').click(function() {
         $('#gold-circle7').show();
         $('#h2-feature7').html('7<br>Theatrette');
         $('#h2-feature7').addClass('update-text feature7-position-update');
-        $('#encourage').html("Didn't realise it was this cool, huh?");
+        $('#encourage').html("Pretty cool, huh?");
     }
     
     // if clue for Feature 8 is shown
