@@ -1,3 +1,32 @@
+/*
+		 Ahern 
+u3120296 Blaszkowski
+		 Brink
+		 Searson
+*/
+
+/* TABLE OF CONTENTS
+	1. LAUNCH SCREEN
+	2. USER ONBOARDING SCREENS
+	3. Top Navigation - hamburger menu 
+	4. Bottom Navigation - tab menu 
+	5. History timeline - within building tab 
+	6. Architecture - within building tab 
+	7. Circle (feature) navigation
+	8. Local Storage. Save/Clear Progress
+	9. Click to open features 
+	10. HAMBURGER MENU PAGES
+	11. Confirmation Screens
+	12. SHOW ME FROM THE CLUE SCREEN 
+	13. FAVOURITING FEATURES 
+	14. UNFAVOURITING FEATURES
+	15. CLOSE FEATURES FOUND PAGE using x
+	16. INSTAFEED FOR FEATURES FOUND		
+	17. REFERENCES
+*/
+
+
+
 $(document).ready(function() {
     if ($('.wrong-device').css('display') === 'block') {
         $('body').css('background-color', '#7f143c'); // uses plain redwine background for wrong device message
@@ -9,7 +38,12 @@ $(document).ready(function() {
 });
 
 
-// LAUNCH SCREEN
+
+
+////////////////////
+// LAUNCH SCREEN //
+//////////////////
+
 // hide launch screen after 5 seconds
 setTimeout (function() {
 	$(".launch").fadeOut("slow"); 
@@ -18,17 +52,24 @@ setTimeout (function() {
 
 // fade in user onboarding screen after 5.3 seconds
 $(function(){
-    if ($('.launch').css('display') === 'block') { // only if the launch screen is displayed - don't want it to fade in if wrong device message is displayed
-        setTimeout (function() {
-            $("#onboarding1").fadeIn("slow");
+    if ($('.launch').css('display') === 'block' && featureState[18] == 0) { // only if the launch screen is displayed 
+        setTimeout (function() {											// don't want it to fade in if wrong device message is displayed 
+            $("#onboarding1").fadeIn("slow");								// ADDED featureState check - by Rob
             $('body').removeClass('redwine-gradient');
             $('body').addClass('gold-gradient'); // use gold gradient background for onboarding screens
-        }, 700); //(was 5300)
+        }, 700); 
     }
+	else{
+		setTimeout (function() {
+            $("#home").fadeIn("slow");
+            $('body').removeClass('redwine-gradient');
+        }, 700);
+	}
 });
 
-
-// USER ONBOARDING SCREENS
+//////////////////////////////
+// USER ONBOARDING SCREENS //
+////////////////////////////
 
 // 1st user onboarding screen, moving to 2nd user onboarding screen
 $('#first-next').on('click', function() {
@@ -84,22 +125,26 @@ $('#begin').on('click', function() {
     $('body').removeClass('redwine-gradient');
     $('body').removeClass('gold-gradient');
     $('#home').show();
+	featureState[18] = 1;												 // ADDED - by Rob
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // enable swiping right
 $('#onboarding4').on('swiperight', function() {
     $('#onboarding4').hide();
     $('#onboarding3').show();
+	featureState[18] = 1;												 
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
-
-// Top Navigation - hamburger menu
+//////////////////////////////////////
+// Top Navigation - hamburger menu //
+////////////////////////////////////
 
 var isActive = false;
 
 // toggle display for menu and changing shape of bars when menu is open
 $('.js-menu').on('click', function() {
-    
 	if (isActive) {
 		$(this).removeClass('active');
 		$('body').removeClass('menu-open');
@@ -116,8 +161,7 @@ $('#home-link').click(function() {
 	$('#main-screen').css('display', 'block');
 });
 
-
-// Close opened hamburger menu when clicking outside of it - Rob
+// Close opened hamburger menu when clicking outside of it - by Rob 
 $(document).ready(function() {
     $('body').click(function(event){ //click event
         if ( ($(event.target).parents('#main-screen').length > 0) && (isActive == true) ){ // open burger menu, click on main-screen div and all children 
@@ -129,8 +173,10 @@ $(document).ready(function() {
  });   
 });
 
+///////////////////////////////////
+// Bottom Navigation - tab menu //
+/////////////////////////////////
 
-// Bottom Navigation - tab menu
 var $li = $('.bottom-menu li').click(function() {
 	$(this).toggleClass('selected'); // toggles fill
     $li.removeClass('selected'); //this changes when another element is clicked, but doesn't toggle fill
@@ -215,8 +261,10 @@ $('.favourites').click(function() {
     });
 });
 
+/////////////////////////////////////////////
+// History timeline - within building tab //
+///////////////////////////////////////////
 
-// History timeline - within building tab
 $('#history').click(function() {
     $('#building-overview').hide(); // hide building overview section
     $('#architecture-content').hide(); // hide architecture section if shown
@@ -519,11 +567,10 @@ $('#timeline10').on('swiperight', function() {
     $('#timeline10-dot').addClass('low-opacity');
     $('#timeline9-dot').removeClass('low-opacity');
 });
+/////////////////////////////////////////
+// Architecture - within building tab //
+///////////////////////////////////////
 
-
-
-
-// Architecture - within building tab
 $('#architecture').click(function() {
     $('#building-overview').hide(); // hide building overview section
     $('#history-content').hide(); // hide architecture section if shown
@@ -546,8 +593,10 @@ $('#architecture').click(function() {
 });
 
 
-	
-// Circle (feature) navigation - Rob
+///////////////////////////////////////////
+// Circle (feature) navigation - by Rob //
+/////////////////////////////////////////
+
 var screenWidth = window.innerWidth; // used to scale with different resolutions
 
 $(document).ready(function(){
@@ -566,7 +615,9 @@ $(document).ready(function(){
 	});
 });
 
-// using jquery-scrollsnap-plugin for chrome compatibility. Source:https://github.com/benoitpointet/jquery-scrollsnap-plugin */		
+// to emulate css scroll snap on all browsers
+// using jquery-scrollsnap-plugin for chrome compatibility. 
+// source(1):https://github.com/benoitpointet/jquery-scrollsnap-plugin		
 $(document).ready(function() {
 	$('.quest-gallery').scrollsnap({
 		direction: 'x',
@@ -614,24 +665,210 @@ $(".quest-gallery").scroll(function(){
 	}	
 });
 
+//////////////////////////////////////////////////
+// Local Storage. Save/Clear Progress - by Rob //
+////////////////////////////////////////////////
 
+// SAVE FOUND FEATURES
+// 0 = red circle                     
+// 1 = gold circle
+var featureState = [];
 
+// Retrieve Array
+// Store array in local storage using JSON.stringify() and JSON.parse()
+featureState = JSON.parse(localStorage.getItem("FeaturesFound")); 
 
-// Click to open features
+// Apply found/unfound on next loadup
+// Feature states are set in 'FOUND IT FROM THE CLUE SCREEN' code section
 
+    if (featureState[0] == 1){
+    //styles feature circle as done in code
+		$('#redwine-circle1').hide();
+        $('#gold-circle1').show();
+        $('#h2-feature1').html('1<br>Frilled neck lizards in boomerangs'); // update h2 text on the circle to read this instead of 'feature 1'
+        $('#h2-feature1').addClass('update-text'); // add new CSS to the h2 text
+        $('#encourage').html("That's it!"); // update the encourage <p> underneath 'make these walls talk'
+    }
+	if (featureState[1] == 1){
+		$('#redwine-circle2').hide();
+        $('#gold-circle2').show();
+        $('#h2-feature2').html('2<br>Suspended light fittings');
+        $('#h2-feature2').addClass('update-text feature2-position-update');
+        $('#encourage').html('Well spotted!');	
+	}
+	if (featureState[2] == 1){
+		$('#redwine-circle3').hide();
+        $('#gold-circle3').show();
+        $('#h2-feature3').html('3<br>Geometrically patterned marble floor');
+        $('#h2-feature3').addClass('update-text feature3-position-update');
+        $('#encourage').html('Good find!');
+	}
+	if (featureState[3] == 1){
+		$('#redwine-circle4').hide();
+        $('#gold-circle4').show();
+        $('#h2-feature4').html('4<br>Stained glass platypus skylight');
+        $('#h2-feature4').addClass('update-text feature4-position-update');
+        $('#encourage').html("You're pretty good at this!");
+	}
+	if (featureState[4] == 1){
+		$('#redwine-circle5').hide();
+        $('#gold-circle5').show();
+        $('#h2-feature5').html('5<br>Sir Colin MacKenzie plaque');
+        $('#h2-feature5').addClass('update-text feature5-position-update');
+        $('#encourage').html('Too easy for you?');
+	}
+	if (featureState[5] == 1){
+	    $('#redwine-circle6').hide();
+        $('#gold-circle6').show();
+        $('#h2-feature6').html('6<br>Bronze cast scupltures');
+        $('#h2-feature6').addClass('update-text feature6-position-update');
+        $('#encourage').html('How are your photos looking?');
+	}
+	if (featureState[6] == 1){
+	    $('#redwine-circle7').hide();
+        $('#gold-circle7').show();
+        $('#h2-feature7').html('7<br>Theatrette');
+        $('#h2-feature7').addClass('update-text feature7-position-update');
+        $('#encourage').html("Pretty cool, huh?");
+	}
+	if (featureState[7] == 1){
+	    $('#redwine-circle8').hide();
+        $('#gold-circle8').show();
+        $('#h2-feature8').html('8<br>Memorial fishpond');
+        $('#h2-feature8').addClass('update-text feature8-position-update');
+        $('#encourage').html("Nice out here, isn't it?");
+	}
+	if (featureState[8] == 1){
+	    $('#redwine-circle9').hide();
+        $('#gold-circle9').show();
+        $('#h2-feature9').html('9<br>Wombat heads within plaques');
+        $('#h2-feature9').addClass('update-text feature9-position-update');
+        $('#encourage').html("C'mon, share your photos!");
+	}
+	
+// SAVE FAVOURITES
+// saved under featureState[9]-[17]
+// 0 = not favourited                     
+// 1 = favourited
+
+if (featureState[9] == 1){
+	$('#favourite-no-fill-feature1').hide();
+	$('#favourite-fill-feature1').show();
+    $('#fav-feature1').show(); 
+    numberOfFav++; 
+    noFav();      
+	}
+
+if (featureState[10] == 1){
+	$('#favourite-no-fill-feature2').hide();
+	$('#favourite-fill-feature2').show();
+    $('#fav-feature2').show(); 
+    numberOfFav++; 
+    noFav();      
+	}
+
+if (featureState[11] == 1){
+	$('#favourite-no-fill-feature3').hide();
+	$('#favourite-fill-feature3').show();
+    $('#fav-feature3').show(); 
+    numberOfFav++; 
+    noFav();      
+	}
+
+if (featureState[12] == 1){
+	$('#favourite-no-fill-feature4').hide();
+	$('#favourite-fill-feature4').show();
+    $('#fav-feature4').show(); 
+    numberOfFav++; 
+    noFav();      
+	}	
+	
+if (featureState[13] == 1){
+	$('#favourite-no-fill-feature5').hide();
+	$('#favourite-fill-feature5').show();
+    $('#fav-feature5').show(); 
+    numberOfFav++; 
+    noFav();      
+	}
+
+if (featureState[14] == 1){
+	$('#favourite-no-fill-feature6').hide();
+	$('#favourite-fill-feature6').show();
+    $('#fav-feature6').show(); 
+    numberOfFav++; 
+    noFav();      
+	}	
+	
+if (featureState[15] == 1){
+	$('#favourite-no-fill-feature7').hide();
+	$('#favourite-fill-feature7').show();
+    $('#fav-feature7').show(); 
+    numberOfFav++; 
+    noFav();      
+	}
+
+if (featureState[16] == 1){
+	$('#favourite-no-fill-feature8').hide();
+	$('#favourite-fill-feature8').show();
+    $('#fav-feature8').show(); 
+    numberOfFav++; 
+    noFav();      
+	}	
+	
+if (featureState[17] == 1){
+	$('#favourite-no-fill-feature9').hide();
+	$('#favourite-fill-feature9').show();
+    $('#fav-feature9').show(); 
+    numberOfFav++; 
+    noFav();      
+	}
+
+// HIDE INTRODUCTION 'onboarding' SCREENS
+// saved under featureState[18] 
+if (featureState[18] == 1){ // after first time opening the app
+}
+
+//CLEAR DATA BUTTON	
+$('#reset-open').click(function() {
+		featureState[0] = 0;
+		featureState[1] = 0;
+		featureState[2] = 0;
+		featureState[3] = 0;
+		featureState[4] = 0;
+		featureState[5] = 0;
+		featureState[6] = 0;
+		featureState[7] = 0;
+		featureState[8] = 0;
+		featureState[9] = 0;
+		featureState[10] = 0;
+		featureState[11] = 0;
+		featureState[12] = 0;
+		featureState[13] = 0;
+		featureState[14] = 0;
+		featureState[15] = 0;
+		featureState[16] = 0;
+		featureState[17] = 0;
+		featureState[18] = 0;
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+		location.reload(); //reload the page to reset
+});			
+	
+/////////////////////////////	
+// Click to open features //
+///////////////////////////
 // Feature 1
 $('#quest1-open').click(function() {
-    
+		    
     // determine whether to show clue or 'features found' page
     if ($('#redwine-circle1').css('display') === 'none') { // if the red circle is not displaying (meaning the gold is showing because the features already been found)
         $('#home').hide(); // hide home screen
-        $('#feature1-found').show(); // go straight to 'features found' page
+        $('#feature1-found').show(); // go straight to 'features found' page		
     } else {
         $('#home').hide(); // hide the home screen
         $('#clue-1').show(); // display feature 1 clue
     }
 	
-	$('.clue-header li img').click(function() { // if back arrow is clicked
+	$('.clue-header li img').click(function() { // if back arrow is clicked	
         $('#clue-1').hide(); // hide the feature 1 clue
         $('#confirm-show').hide(); // hide the 'are you sure you want to be shown the feature' screen
         $('#confirm-found').hide(); // hide the 'are you sure you've found the feature' screen
@@ -924,14 +1161,6 @@ $('#clue-9 .hint').click(function() {
 });
 
 
-// DISTANCE HINT
-$('.distance').click(function() {
-	//add this to generate distance
-	getLocation();
-	coordA[1]; // using 1 as test. feature 1 is array[0] so fix when adding more 
-	$('.distance-image').slideToggle('swing');
-});
-
 // LOCATION HINT
 $('.room').click(function() {
 	$('.hint-room').slideToggle('swing');
@@ -942,8 +1171,9 @@ $('.photo').click(function() {
     $('.blurred-photo').slideToggle('swing');
 });
 
-
-// HAMBURGER MENU PAGES
+///////////////////////////
+// HAMBURGER MENU PAGES //
+/////////////////////////
 
 // Arc Cinema page
 $('#arc-cinema-open').click(function() {
@@ -1012,61 +1242,119 @@ $('#contact-open').click(function() {
     }); 
 });
 
+/////////////////////////
+// GEOLOCATION by Rob //
+///////////////////////
 
-// GEOLOCATION
-
-var myCoordAB = document.getElementById("distance-calculation");
-// coordinates for features - replace these and add the coordinatates of the 9 features to this array 
-var coordA = [-35.192001999999995, -35.1813205, -35.1813467];
-var coordB = [149.1149054, 149.0901401, 149.0900963];
-
+// coordinates for each feature (lat/long from the NFSA)
+var latitude = [-35.282655241584806, -35.28246611126384, -35.283181936745315, -35.283181936745315, -35.28296980359901, -35.28246611126384, -35.2829540144241, -35.28239144458315, -35.283078512819344 ];
+var longitude = [149.11541180186788, 149.11613145278247, 149.12283897097055, 149.12283897097055, 149.12166393529665, 149.11613145278247, 149.12167378965185, 149.11543088793593, 149.12182702397993 ];
+var myDistance = 0;
+var myLatitude = 0;
+var myLongitude = 0;
 
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else { 
-        myCoordAB.innerHTML = "Geolocation is unavailable.";
+        document.getElementById(myDistance).innerHTML = "Geolocation is unavailable";
     }
 }
-
-// formula from http://www.geodatasource.com/developers/javascript under LGPLv3 licence
-// tested coordA[1] coordB[1] & coordA[2] coordB[2], 5 meters within my house. checked on online calculator aswell
+// the formula used to calculate shortest distance between 2 points over the earth's surface 
+// source(2): http://www.geodatasource.com/developers/javascript (under LGPLv3 licence)
 function showPosition(position) {
-	
 	var radlat1 = Math.PI * position.coords.latitude/180
-	var radlat2 = Math.PI * coordA[1]/180
-	var theta = position.coords.longitude-coordB[1]
+	var radlat2 = Math.PI * myLatitude/180
+	var theta = position.coords.longitude-myLongitude
 	var radtheta = Math.PI * theta/180
 	var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
 	dist = Math.acos(dist)
 	dist = dist * 180/Math.PI
-	dist = dist * 60 * 1.1515 * 1.609344 * 1000
-	// math.round can be applied here	
-	myCoordAB.innerHTML = Math.round(dist) + " meters"; 
+	dist = dist * 60 * 1.1515 * 1.609344 * 1000 //convert to meters
+	document.getElementById(myDistance).innerHTML = Math.round(dist) + " meters"; 	
 }
-	
-// http://andrew.hedges.name/experiments/haversine/
-// Haversine Formula. will try this formula as an alternative
-/*
-function showPosition(position) {
-	
-var dlon = position.coords.longitude - coordB[1]
-var dlat = position.coords.latitude - coordA[1]
-var a = Math.pow((Math.sin(dlat*0.5)), 2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow((Math.sin(dlon*0.5)), 2)
-var c = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a) )
-var d = 6373 * c
 
-myCoordAB.innerHTML = d;
+// DISTANCE every click calculates distance
+$('#distance1').click(function() {
+	myLatitude = latitude[0];	
+	myLongitude = longitude[0];
+	myDistance = "distance-calculation1";
+	getLocation();
+	$('.distance-image').slideToggle('swing');
+});
 
-}
-*/
+$('#distance2').click(function() {
+	myLatitude = latitude[1];	
+	myLongitude = longitude[1];
+	myDistance = "distance-calculation2";
+	getLocation();
+	$('.distance-image').slideToggle('swing');
+});
 
+$('#distance3').click(function() {
+	myLatitude = latitude[2];	
+	myLongitude = longitude[2];
+	myDistance = "distance-calculation3";
+	getLocation();
+	$('.distance-image').slideToggle('swing');
+});
 
-// Confirmation Screens - 'are you sure' screens for found it and show me options
+$('#distance4').click(function() {
+	myLatitude = latitude[3];	
+	myLongitude = longitude[3];
+	myDistance = "distance-calculation4";
+	getLocation();
+	$('.distance-image').slideToggle('swing');
+});
 
+$('#distance5').click(function() {
+	myLatitude = latitude[4];	
+	myLongitude = longitude[4];
+	myDistance = "distance-calculation5";
+	getLocation();
+	$('.distance-image').slideToggle('swing');
+});
+
+$('#distance6').click(function() {
+	myLatitude = latitude[5];	
+	myLongitude = longitude[5];
+	myDistance = "distance-calculation6";
+	getLocation();
+	$('.distance-image').slideToggle('swing');
+});
+
+$('#distance7').click(function() {
+	myLatitude = latitude[6];	
+	myLongitude = longitude[6];
+	myDistance = "distance-calculation7";
+	getLocation();
+	$('.distance-image').slideToggle('swing');
+});
+
+$('#distance8').click(function() {
+	myLatitude = latitude[7];	
+	myLongitude = longitude[7];
+	myDistance = "distance-calculation8";
+	getLocation();
+$('.distance-image').slideToggle('swing');	
+});
+
+$('#distance9').click(function() {
+	myLatitude = latitude[8];	
+	myLongitude = longitude[8];
+	myDistance = "distance-calculation9";
+	getLocation();
+	$('.distance-image').slideToggle('swing');
+});
+
+///////////////////////////
+// Confirmation Screens //
+/////////////////////////
+
+// 'are you sure' screens for found it and show me options 
 // FOUND IT FROM THE CLUE SCREEN
 
-$('.found-it').click(function() {
+$('.found-it').click(function() {	
 	$('#confirm-found').show(); // show confirmation screen
 });
 
@@ -1090,6 +1378,8 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature1').html('1<br>Frilled neck lizards in boomerangs'); // update h2 text on the circle to read this instead of 'feature 1'
         $('#h2-feature1').addClass('update-text'); // add new CSS to the h2 text
         $('#encourage').html("That's it!"); // update the encourage <p> underneath 'make these walls talk'
+		featureState[0] = 1;												 // ADDED these here - by Rob
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); //
     }
     
     // if clue for Feature 2 is shown
@@ -1103,6 +1393,8 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature2').html('2<br>Suspended light fittings');
         $('#h2-feature2').addClass('update-text feature2-position-update');
         $('#encourage').html('Well spotted!');
+		featureState[1] = 1;												 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
     // if clue for Feature 3 is shown
@@ -1116,6 +1408,8 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature3').html('3<br>Geometrically patterned marble floor');
         $('#h2-feature3').addClass('update-text feature3-position-update');
         $('#encourage').html('Good find!');
+		featureState[2] = 1;												 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
     // if clue for Feature 4 is shown
@@ -1129,6 +1423,8 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature4').html('4<br>Stained glass platypus skylight');
         $('#h2-feature4').addClass('update-text feature4-position-update');
         $('#encourage').html("You're pretty good at this!");
+		featureState[3] = 1;												 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
     // if clue for Feature 5 is shown
@@ -1142,6 +1438,8 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature5').html('5<br>Sir Colin MacKenzie plaque');
         $('#h2-feature5').addClass('update-text feature5-position-update');
         $('#encourage').html('Too easy for you?');
+		featureState[4] = 1;												 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
     // if clue for Feature 6 is shown
@@ -1155,6 +1453,8 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature6').html('6<br>Bronze cast scupltures');
         $('#h2-feature6').addClass('update-text feature6-position-update');
         $('#encourage').html('How are your photos looking?');
+		featureState[5] = 1;												 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
     // if clue for Feature 7 is shown
@@ -1168,6 +1468,8 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature7').html('7<br>Theatrette');
         $('#h2-feature7').addClass('update-text feature7-position-update');
         $('#encourage').html("Pretty cool, huh?");
+		featureState[6] = 1;												 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
     // if clue for Feature 8 is shown
@@ -1181,6 +1483,8 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature8').html('8<br>Memorial fishpond');
         $('#h2-feature8').addClass('update-text feature8-position-update');
         $('#encourage').html("Nice out here, isn't it?");
+		featureState[7] = 1;												 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
     // if clue for Feature 9 is shown
@@ -1194,12 +1498,15 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature9').html('9<br>Wombat heads within plaques');
         $('#h2-feature9').addClass('update-text feature9-position-update');
         $('#encourage').html("C'mon, share your photos!");
+		featureState[8] = 1;												 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
 });
 
-
-// SHOW ME FROM THE CLUE SCREEN
+///////////////////////////////////
+// SHOW ME FROM THE CLUE SCREEN //
+/////////////////////////////////
 
 $('.show-me').click(function() {
 	$('#confirm-show').show(); // show confirmation screen
@@ -1333,8 +1640,9 @@ $('#confirm-show .yes').click(function() {
     
 });
 
-
-// FAVOURITING FEATURES
+///////////////////////////
+// FAVOURITING FEATURES //
+/////////////////////////
 
 var numberOfFav = 0; // variable to determine the number of favourited items
 
@@ -1345,6 +1653,8 @@ $('#favourite-no-fill-feature1').click(function() {
     $('#fav-feature1').show(); // add feature 1 to favourites list
     numberOfFav++; // add one to number of favourites
     noFav();
+	featureState[9] = 1;												 // ADDED these here - by Rob
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); //
 });
 
 // favourite Feature 2
@@ -1354,6 +1664,8 @@ $('#favourite-no-fill-feature2').click(function() {
     $('#fav-feature2').show();
     numberOfFav++;
     noFav();
+	featureState[10] = 1;												 
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // favourite Feature 3
@@ -1363,6 +1675,8 @@ $('#favourite-no-fill-feature3').click(function() {
     $('#fav-feature3').show();
     numberOfFav++;
     noFav();
+	featureState[11] = 1;												 
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // favourite Feature 4
@@ -1372,6 +1686,8 @@ $('#favourite-no-fill-feature4').click(function() {
     $('#fav-feature4').show();
     numberOfFav++;
     noFav();
+	featureState[12] = 1;												 
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // favourite Feature 5
@@ -1381,6 +1697,8 @@ $('#favourite-no-fill-feature5').click(function() {
     $('#fav-feature5').show();
     numberOfFav++;
     noFav();
+	featureState[13] = 1;												 
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // favourite Feature 6
@@ -1390,6 +1708,8 @@ $('#favourite-no-fill-feature6').click(function() {
     $('#fav-feature6').show();
     numberOfFav++;
     noFav();
+	featureState[14] = 1;												 
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // favourite Feature 7
@@ -1399,6 +1719,8 @@ $('#favourite-no-fill-feature7').click(function() {
     $('#fav-feature7').show();
     numberOfFav++;
     noFav();
+	featureState[15] = 1;												 
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // favourite Feature 8
@@ -1408,6 +1730,8 @@ $('#favourite-no-fill-feature8').click(function() {
     $('#fav-feature8').show();
     numberOfFav++;
     noFav();
+	featureState[16] = 1;												 
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // favourite Feature 9
@@ -1417,10 +1741,13 @@ $('#favourite-no-fill-feature9').click(function() {
     $('#fav-feature9').show();
     numberOfFav++;
     noFav();
+	featureState[17] = 1;												 
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
-
-// UNFAVOURITING FEATURES
+/////////////////////////////
+// UNFAVOURITING FEATURES //
+///////////////////////////
 
 // Unfavouriting from 'features found' page
 
@@ -1431,6 +1758,8 @@ $('#favourite-fill-feature1').click(function() {
     $('#fav-feature1').hide(); // hide feature 1 from favourites list
     numberOfFav--; // subtract one from number of favourites
     noFav(); // run no favourites function to see if there are now 0 favourites, if there are none, the function will show the 'no favourites' div
+	featureState[9] = 0; //Added - Rob
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // unfavourite Feature 2
@@ -1440,6 +1769,8 @@ $('#favourite-fill-feature2').click(function() {
     $('#fav-feature2').hide();
     numberOfFav--;
     noFav();
+	featureState[10] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // unfavourite Feature 3
@@ -1449,6 +1780,8 @@ $('#favourite-fill-feature3').click(function() {
     $('#fav-feature3').hide();
     numberOfFav--;
     noFav();
+	featureState[11] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // unfavourite Feature 4
@@ -1458,6 +1791,8 @@ $('#favourite-fill-feature4').click(function() {
     $('#fav-feature4').hide();
     numberOfFav--;
     noFav();
+	featureState[12] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // unfavourite Feature 5
@@ -1467,6 +1802,8 @@ $('#favourite-fill-feature5').click(function() {
     $('#fav-feature5').hide();
     numberOfFav--;
     noFav();
+	featureState[13] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // unfavourite Feature 6
@@ -1476,6 +1813,8 @@ $('#favourite-fill-feature6').click(function() {
     $('#fav-feature6').hide();
     numberOfFav--;
     noFav();
+	featureState[14] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // unfavourite Feature 7
@@ -1485,6 +1824,8 @@ $('#favourite-fill-feature7').click(function() {
     $('#fav-feature7').hide();
     numberOfFav--;
     noFav();
+	featureState[15] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // unfavourite Feature 8
@@ -1494,6 +1835,8 @@ $('#favourite-fill-feature8').click(function() {
     $('#fav-feature8').hide();
     numberOfFav--;
     noFav();
+	featureState[16] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // unfavourite Feature 9
@@ -1503,6 +1846,8 @@ $('#favourite-fill-feature9').click(function() {
     $('#fav-feature9').hide();
     numberOfFav--;
     noFav();
+	featureState[17] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // Unfavouriting directly from favourites list
@@ -1515,6 +1860,8 @@ $('#favourite-list-fill-feature1').click(function() {
     event.stopPropagation(); // to stop the event bubbling to the parent div
     numberOfFav--; // subtract one from number of favourites
     noFav(); // run no favourites function to see if there are now 0 favourites, if there are none, the function will show the 'no favourites' div
+	featureState[9] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // Unfavouriting Feature 2 from list
@@ -1525,6 +1872,8 @@ $('#favourite-list-fill-feature2').click(function() {
     event.stopPropagation();
     numberOfFav--;
     noFav();
+	featureState[10] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // Unfavouriting Feature 3 from list
@@ -1535,6 +1884,8 @@ $('#favourite-list-fill-feature3').click(function() {
     event.stopPropagation();
     numberOfFav--;
     noFav();
+	featureState[11] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // Unfavouriting Feature 4 from list
@@ -1545,6 +1896,8 @@ $('#favourite-list-fill-feature4').click(function() {
     event.stopPropagation();
     numberOfFav--;
     noFav();
+	featureState[12] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // Unfavouriting Feature 5 from list
@@ -1555,6 +1908,8 @@ $('#favourite-list-fill-feature5').click(function() {
     event.stopPropagation();
     numberOfFav--;
     noFav();
+	featureState[13] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // Unfavouriting Feature 6 from list
@@ -1565,6 +1920,8 @@ $('#favourite-list-fill-feature6').click(function() {
     event.stopPropagation();
     numberOfFav--;
     noFav();
+	featureState[14] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // Unfavouriting Feature 7 from list
@@ -1575,6 +1932,8 @@ $('#favourite-list-fill-feature7').click(function() {
     event.stopPropagation();
     numberOfFav--;
     noFav();
+	featureState[15] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // Unfavouriting Feature 8 from list
@@ -1585,6 +1944,8 @@ $('#favourite-list-fill-feature8').click(function() {
     event.stopPropagation();
     numberOfFav--;
     noFav();
+	featureState[16] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // Unfavouriting Feature 9 from list
@@ -1595,11 +1956,12 @@ $('#favourite-list-fill-feature9').click(function() {
     event.stopPropagation();
     numberOfFav--;
     noFav();
+	featureState[17] = 0;
+	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 
 // FAVOURITES FUNCTION
-
 // show 'no favourites' div if no features are favourited
 function noFav() {
     if (numberOfFav === 0) {
@@ -1666,8 +2028,9 @@ $('#fav-feature9').click(function() {
     $('#feature9-found').show();
 });
 
-
-// CLOSE FEATURES FOUND PAGE using x
+////////////////////////////////////////
+// CLOSE FEATURES FOUND PAGE using x //
+//////////////////////////////////////
 
 $('.close-found').click(function() {
     
@@ -1727,8 +2090,9 @@ $('.close-found').click(function() {
 });
 
 
-
-//INSTAFEED FOR FEATURES FOUND
+//////////////////////////////////
+//INSTAFEED FOR FEATURES FOUND //
+////////////////////////////////
 
 //Feature 1
 var NFSAfrontFeed = new Instafeed({
@@ -1828,3 +2192,13 @@ var NFSAarchFeed = new Instafeed({
     limit: 10,
 });
     NFSAarchFeed.run();
+	
+/////////////////
+// REFERENCES //
+///////////////
+/*
+(1) Benoitpointet.(2014).jquery-scrollsnap-plugin. Github. Retrieved 16 May 2017, from https://github.com/benoitpointet/jquery-scrollsnap-plugin	
+(2) GeoDataSource.com (2015). Sample Codes (JavaScript). GeoDataSource. Retrieved 16 May 2017, from http://www.geodatasource.com/developers/javascript
+*/
+
+
