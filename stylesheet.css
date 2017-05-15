@@ -317,7 +317,6 @@ div#begin {
 	width: 100%;
 	height: 8rem;
 	position: fixed;
-	overflow:hidden;
 	z-index:99;
 }
 
