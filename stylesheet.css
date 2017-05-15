@@ -545,6 +545,41 @@ nav ul li a {
     right: -75%;
 }
 
+.feature3-position-update {
+    left: inherit;
+    right: -175%;
+}
+
+.feature4-position-update {
+    left: inherit;
+    right: -275%;
+}
+
+.feature5-position-update {
+    left: inherit;
+    right: -375%;
+}
+
+.feature6-position-update {
+    left: inherit;
+    right: -475%;
+}
+
+.feature7-position-update {
+    left: inherit;
+    right: -575%;
+}
+
+.feature8-position-update {
+    left: inherit;
+    right: -675%;
+}
+
+.feature9-position-update {
+    left: inherit;
+    right: -775%;
+}
+
 /* white boxes (left and right) to fudge the end of the red line at 1st and 9th features*/
 #white-box-left {
     background-color: #fff;

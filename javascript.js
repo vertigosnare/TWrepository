@@ -659,8 +659,13 @@ $('#quest2-open').click(function() {
 
 // Feature 3
 $('#quest3-open').click(function() {
-	$('#home').hide(); 
-	$('#clue-3').show();   
+	if ($('#redwine-circle3').css('display') === 'none') {
+        $('#home').hide();
+        $('#feature3-found').show();
+    } else {
+        $('#home').hide();
+        $('#clue-3').show();
+    }    
 	
 	$('.clue-header li img').click(function() {
         $('#clue-3').hide();
@@ -672,8 +677,13 @@ $('#quest3-open').click(function() {
 
 // Feature 4
 $('#quest4-open').click(function() {
-	$('#home').hide(); 
-	$('#clue-4').show(); 
+	if ($('#redwine-circle4').css('display') === 'none') {
+        $('#home').hide();
+        $('#feature4-found').show();
+    } else {
+        $('#home').hide();
+        $('#clue-4').show();
+    }
 	
 	$('.clue-header li img').click(function() {
         $('#clue-4').hide();
@@ -685,8 +695,13 @@ $('#quest4-open').click(function() {
 
 // Feature 5
 $('#quest5-open').click(function() {
-	$('#home').hide(); 
-	$('#clue-5').show(); 
+	if ($('#redwine-circle5').css('display') === 'none') {
+        $('#home').hide();
+        $('#feature5-found').show();
+    } else {
+        $('#home').hide();
+        $('#clue-5').show();
+    } 
 	
 	$('.clue-header li img').click(function() {
         $('#clue-5').hide();
@@ -698,8 +713,13 @@ $('#quest5-open').click(function() {
 
 // Feature 6
 $('#quest6-open').click(function() {
-	$('#home').hide(); 
-	$('#clue-6').show(); 
+	if ($('#redwine-circle6').css('display') === 'none') {
+        $('#home').hide();
+        $('#feature6-found').show();
+    } else {
+        $('#home').hide();
+        $('#clue-6').show();
+    }  
 	
 	$('.clue-header li img').click(function() {
         $('#clue-6').hide();
@@ -711,8 +731,13 @@ $('#quest6-open').click(function() {
 
 // Feature 7
 $('#quest7-open').click(function() {
-	$('#home').hide(); 
-	$('#clue-7').show(); 
+	if ($('#redwine-circle7').css('display') === 'none') {
+        $('#home').hide();
+        $('#feature7-found').show();
+    } else {
+        $('#home').hide();
+        $('#clue-7').show();
+    }  
 	
 	$('.clue-header li img').click(function() {
         $('#clue-7').hide();
@@ -724,8 +749,13 @@ $('#quest7-open').click(function() {
 
 // Feature 8
 $('#quest8-open').click(function() {
-	$('#home').hide(); 
-	$('#clue-8').show(); 
+	if ($('#redwine-circle8').css('display') === 'none') {
+        $('#home').hide();
+        $('#feature8-found').show();
+    } else {
+        $('#home').hide();
+        $('#clue-8').show();
+    }   
 	
 	$('.clue-header li img').click(function() {
         $('#clue-8').hide();
@@ -737,8 +767,13 @@ $('#quest8-open').click(function() {
 
 // Feature 9
 $('#quest9-open').click(function() {
-	$('#home').hide(); 
-	$('#clue-9').show(); 
+	if ($('#redwine-circle9').css('display') === 'none') {
+        $('#home').hide();
+        $('#feature9-found').show();
+    } else {
+        $('#home').hide();
+        $('#clue-9').show();
+    }  
 	
 	$('.clue-header li img').click(function() {
         $('#clue-9').hide();
@@ -1033,6 +1068,12 @@ $('#confirm-found .yes').click(function() {
         $('#feature3-found').show();
         $('#clue-3').hide();
         $('#confirm-found').hide();
+        
+        $('#redwine-circle3').hide();
+        $('#gold-circle3').show();
+        $('#h2-feature3').html('3<br>Geometrically patterned marble floor');
+        $('#h2-feature3').addClass('update-text feature3-position-update');
+        $('#encourage').html('Good find!');
     }
     
     // if clue for Feature 4 is shown
@@ -1040,6 +1081,12 @@ $('#confirm-found .yes').click(function() {
         $('#feature4-found').show();
         $('#clue-4').hide();
         $('#confirm-found').hide();
+        
+        $('#redwine-circle4').hide();
+        $('#gold-circle4').show();
+        $('#h2-feature4').html('4<br>Stained glass platypus skylight');
+        $('#h2-feature4').addClass('update-text feature4-position-update');
+        $('#encourage').html("You're pretty good at this!");
     }
     
     // if clue for Feature 5 is shown
@@ -1047,6 +1094,12 @@ $('#confirm-found .yes').click(function() {
         $('#feature5-found').show();
         $('#clue-5').hide();
         $('#confirm-found').hide();
+        
+        $('#redwine-circle5').hide();
+        $('#gold-circle5').show();
+        $('#h2-feature5').html('5<br>Sir Colin MacKenzie plaque');
+        $('#h2-feature5').addClass('update-text feature5-position-update');
+        $('#encourage').html('Seems like this is too easy for you!');
     }
     
     // if clue for Feature 6 is shown
@@ -1054,6 +1107,12 @@ $('#confirm-found .yes').click(function() {
         $('#feature6-found').show();
         $('#clue-6').hide();
         $('#confirm-found').hide();
+        
+        $('#redwine-circle6').hide();
+        $('#gold-circle6').show();
+        $('#h2-feature6').html('6<br>Bronze cast scupltures');
+        $('#h2-feature6').addClass('update-text feature6-position-update');
+        $('#encourage').html('How are your photos looking?');
     }
     
     // if clue for Feature 7 is shown
@@ -1061,6 +1120,12 @@ $('#confirm-found .yes').click(function() {
         $('#feature7-found').show();
         $('#clue-7').hide();
         $('#confirm-found').hide();
+        
+        $('#redwine-circle7').hide();
+        $('#gold-circle7').show();
+        $('#h2-feature7').html('7<br>Theatrette');
+        $('#h2-feature7').addClass('update-text feature7-position-update');
+        $('#encourage').html("Didn't realise it was this cool, huh?");
     }
     
     // if clue for Feature 8 is shown
@@ -1068,6 +1133,12 @@ $('#confirm-found .yes').click(function() {
         $('#feature8-found').show();
         $('#clue-8').hide();
         $('#confirm-found').hide();
+        
+        $('#redwine-circle8').hide();
+        $('#gold-circle8').show();
+        $('#h2-feature8').html('8<br>Memorial fishpond');
+        $('#h2-feature8').addClass('update-text feature8-position-update');
+        $('#encourage').html("Nice out here, isn't it?");
     }
     
     // if clue for Feature 9 is shown
@@ -1075,6 +1146,12 @@ $('#confirm-found .yes').click(function() {
         $('#feature9-found').show();
         $('#clue-9').hide();
         $('#confirm-found').hide();
+        
+        $('#redwine-circle9').hide();
+        $('#gold-circle9').show();
+        $('#h2-feature9').html('9<br>Wombat heads within plaques');
+        $('#h2-feature9').addClass('update-text feature9-position-update');
+        $('#encourage').html("C'mon, share your photos!");
     }
     
 });
@@ -1126,6 +1203,12 @@ $('#confirm-show .yes').click(function() {
         $('#feature3-found').show();
         $('#clue-3').hide();
         $('#confirm-show').hide();
+        
+        $('#redwine-circle3').hide();
+        $('#gold-circle3').show();
+        $('#h2-feature3').html('3<br>Geometrically patterned marble floor');
+        $('#h2-feature3').addClass('update-text feature3-position-update');
+        $('#encourage').html('Good find!');
     }
     
     // if clue for Feature 4 is shown
@@ -1133,6 +1216,12 @@ $('#confirm-show .yes').click(function() {
         $('#feature4-found').show();
         $('#clue-4').hide();
         $('#confirm-show').hide();
+        
+        $('#redwine-circle4').hide();
+        $('#gold-circle4').show();
+        $('#h2-feature4').html('4<br>Stained glass platypus skylight');
+        $('#h2-feature4').addClass('update-text feature4-position-update');
+        $('#encourage').html("You're pretty good at this!");
     }
     
     // if clue for Feature 5 is shown
@@ -1140,6 +1229,12 @@ $('#confirm-show .yes').click(function() {
         $('#feature5-found').show();
         $('#clue-5').hide();
         $('#confirm-show').hide();
+        
+        $('#redwine-circle5').hide();
+        $('#gold-circle5').show();
+        $('#h2-feature5').html('5<br>Sir Colin MacKenzie plaque');
+        $('#h2-feature5').addClass('update-text feature5-position-update');
+        $('#encourage').html('Seems like this is too easy for you!');
     }
     
     // if clue for Feature 6 is shown
@@ -1147,6 +1242,12 @@ $('#confirm-show .yes').click(function() {
         $('#feature6-found').show();
         $('#clue-6').hide();
         $('#confirm-show').hide();
+        
+        $('#redwine-circle6').hide();
+        $('#gold-circle6').show();
+        $('#h2-feature6').html('6<br>Bronze cast scupltures');
+        $('#h2-feature6').addClass('update-text feature6-position-update');
+        $('#encourage').html('How are your photos looking?');
     }
     
     // if clue for Feature 7 is shown
@@ -1154,6 +1255,12 @@ $('#confirm-show .yes').click(function() {
         $('#feature7-found').show();
         $('#clue-7').hide();
         $('#confirm-show').hide();
+        
+        $('#redwine-circle7').hide();
+        $('#gold-circle7').show();
+        $('#h2-feature7').html('7<br>Theatrette');
+        $('#h2-feature7').addClass('update-text feature7-position-update');
+        $('#encourage').html("Didn't realise it was this cool, huh?");
     }
     
     // if clue for Feature 8 is shown
@@ -1161,6 +1268,12 @@ $('#confirm-show .yes').click(function() {
         $('#feature8-found').show();
         $('#clue-8').hide();
         $('#confirm-show').hide();
+        
+        $('#redwine-circle8').hide();
+        $('#gold-circle8').show();
+        $('#h2-feature8').html('8<br>Memorial fishpond');
+        $('#h2-feature8').addClass('update-text feature8-position-update');
+        $('#encourage').html("Nice out here, isn't it?");
     }
     
     // if clue for Feature 9 is shown
@@ -1168,6 +1281,12 @@ $('#confirm-show .yes').click(function() {
         $('#feature9-found').show();
         $('#clue-9').hide();
         $('#confirm-show').hide();
+        
+        $('#redwine-circle9').hide();
+        $('#gold-circle9').show();
+        $('#h2-feature9').html('9<br>Wombat heads within plaques');
+        $('#h2-feature9').addClass('update-text feature9-position-update');
+        $('#encourage').html("C'mon, share your photos!");
     }
     
 });
