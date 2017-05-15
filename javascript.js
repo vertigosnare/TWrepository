@@ -962,13 +962,55 @@ $('#arc-cinema-open').click(function() {
 });
 
 // Ghost Tour page
+$('#ghost-tour-open').click(function() {
+	$('#home').hide(); // hide the home screen
+	$('#ghost-tour').show(); // show the arc cinema page
+    // hide the hamburger menu if item within it is clicked - IMPORTANT for user experience
+    $('.js-menu').removeClass('active');
+    $('body').removeClass('menu-open');
+    $('nav').slideToggle('swing');
+    isActive = false; // returns to correct state
+	
+	$('.menu-header img').click(function() { // if cross is clicked
+	   $('#ghost-tour').hide(); // hide the arc cinema page
+	   $('#home').show(); // show the home screen
+    }); 
+});
+
 
 
 // About the NFSA page
+$('#about-open').click(function() {
+	$('#home').hide(); // hide the home screen
+	$('#about').show(); // show the arc cinema page
+    // hide the hamburger menu if item within it is clicked - IMPORTANT for user experience
+    $('.js-menu').removeClass('active');
+    $('body').removeClass('menu-open');
+    $('nav').slideToggle('swing');
+    isActive = false; // returns to correct state
+	
+	$('.menu-header img').click(function() { // if cross is clicked
+	   $('#about').hide(); // hide the arc cinema page
+	   $('#home').show(); // show the home screen
+    }); 
+});
 
 
 // Contact page
-
+$('#contact-open').click(function() {
+	$('#home').hide(); // hide the home screen
+	$('#contact').show(); // show the arc cinema page
+    // hide the hamburger menu if item within it is clicked - IMPORTANT for user experience
+    $('.js-menu').removeClass('active');
+    $('body').removeClass('menu-open');
+    $('nav').slideToggle('swing');
+    isActive = false; // returns to correct state
+	
+	$('.menu-header img').click(function() { // if cross is clicked
+	   $('#contact').hide(); // hide the arc cinema page
+	   $('#home').show(); // show the home screen
+    }); 
+});
 
 
 // GEOLOCATION

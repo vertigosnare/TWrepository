@@ -1678,11 +1678,6 @@ div#fav-feature9 {
 
 /* ------------------------- 14. Menu Content ----------------------------- */
 
-/* ----- Arc Cinema page ----- */
-#arc-cinema {
-	width: 100%;
-}
-
 .menu-header {
 	width: 100%;
 	height: 5.5rem;
@@ -1701,6 +1696,13 @@ div#fav-feature9 {
 .menu-content {
 	margin: 10rem 3rem 5rem;
     line-height: 1.5;
+}
+
+.menu-heading {
+	text-transform: uppercase;
+	font-weight: 400;
+	color: #91732b;
+	letter-spacing: 1px;
 }
 
 .menu-content h1 {
@@ -1725,6 +1727,27 @@ div#fav-feature9 {
 	margin-bottom: 0;
 	font-weight: bold;
 	font-size: 2rem;
+}
+
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+    .menu-header {
+        height: 8rem;
+    }
+    
+    .menu-header img {
+        width: 7rem;
+    }
+    
+    .menu-content {
+        width: 70%;
+        margin: 15rem auto;
+    }
+
+}
+/* ----- Arc Cinema page ----- */
+#arc-cinema {
+	width: 100%;
 }
 
 .arc-cinema-top-content {
@@ -1768,18 +1791,6 @@ div#cinema-img2 {
 }
 
 @media screen and (max-width: 768px) and (min-width: 415px) {
-    .menu-header {
-        height: 8rem;
-    }
-    
-    .menu-header img {
-        width: 7rem;
-    }
-    
-    .menu-content {
-        width: 70%;
-        margin: 15rem auto;
-    }
     
     .menu-content h1,
     .arc-cinema-date,
@@ -1801,6 +1812,111 @@ div#cinema-img2 {
 
 }
 
+
+/* ----- Ghost Tour page ----- */
+#ghost-tour {
+	width: 100%;
+}
+
+#ghost-tour h2 {
+	text-align: left;
+}
+
+
+#ghost-tour-description p{
+    line-height: 1.5;
+	
+}
+
+#ghost-tour-description a {
+	text-decoration: none;
+	color: #363636;
+	
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+   
+    .ghost-tour-description p {
+        font-size: 2rem;
+    }
+    
+    .menu-content h2,
+    .menu-content h3 {
+       font-size: 3rem;
+	}
+
+}
+
+/* ----- About page ----- */
+#about {
+	width: 100%;
+}
+
+#about h2 {
+	text-align: left;
+}
+
+#about-description p{
+    line-height: 1.5;
+	
+}
+
+#about ul {
+	line-height: 1;
+	padding-left: 1.5rem;
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+   
+    .about-description p,
+	#about ul{
+        font-size: 2rem;
+    }
+    
+    .menu-content h2{
+       font-size: 3rem;
+	}
+
+}
+
+/* ----- Contact page ----- */
+#contact {
+	width: 100%;
+}
+
+#contact h2 {
+	text-align: left;
+}
+
+
+#contact-description p{
+    line-height: 1.5;
+	
+}
+
+#contact li {
+	list-style-type: none;
+	line-height: 1.3;
+	margin: 5px 0;
+}
+
+#contact ul span {
+	font-weight: 400;
+	
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+   
+    .ghost-tour-description p {
+        font-size: 2rem;
+    }
+    
+    .menu-content h2,
+    .menu-content h3 {
+       font-size: 3rem;
+	}
+
+}
 
 
 
