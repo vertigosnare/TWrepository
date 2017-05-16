@@ -1780,7 +1780,7 @@ $('#confirm-show .yes').click(function() {
 // show 'congrats' div if all 9 features have been unlocked
 
 function showCongrats() {
-    if (featuresComplete === 1) {
+    if (featuresComplete === 9) {
 		$('.close-found').one('click', function() { // important so the congrats screen only shows once
 			$("#congrats").show();
         });
