@@ -2031,6 +2031,109 @@ $('.close-found').click(function() {
     }
 });
 
+//////////////////////////////////
+//INSTAFEED FOR FEATURES FOUND //
+////////////////////////////////
+
+//Feature 1
+var NFSAfrontFeed = new Instafeed({
+    target: 'NFSAfront',
+    get: 'tagged',
+    tagName: 'NFSAfront',
+    clientId: '1cb4e751c51849d6b9c31feb243d0582',
+    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
+    limit: 10,
+});
+    NFSAfrontFeed.run();
+
+//Feature 2
+var NFSAgeometricFeed = new Instafeed({
+    target: 'NFSAgeometric',
+    get: 'tagged',
+    tagName: 'NFSAgeometric',
+    clientId: '1cb4e751c51849d6b9c31feb243d0582',
+    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
+    limit: 10,
+});
+    NFSAgeometricFeed.run();
+
+//Feature 3
+var NFSAquarryFeed = new Instafeed({
+    target: 'NFSAquarry',
+    get: 'tagged',
+    tagName: 'NFSAquarry',
+    clientId: '1cb4e751c51849d6b9c31feb243d0582',
+    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
+    limit: 10,
+});
+    NFSAquarryFeed.run();
+
+//Feature 4
+var NFSAluxferFeed = new Instafeed({
+    target: 'NFSAluxfer',
+    get: 'tagged',
+    tagName: 'NFSAluxfer',
+    clientId: '1cb4e751c51849d6b9c31feb243d0582',
+    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
+    limit: 10,
+});
+    NFSAluxferFeed.run();
+
+//Feature 5
+var NFSAcolinFeed = new Instafeed({
+    target: 'NFSAcolin',
+    get: 'tagged',
+    tagName: 'NFSAcolin',
+    clientId: '1cb4e751c51849d6b9c31feb243d0582',
+    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
+    limit: 10,
+});
+    NFSAcolinFeed.run();
+
+//Feature 6
+var NFSAbronzeFeed = new Instafeed({
+    target: 'NFSAbronze',
+    get: 'tagged',
+    tagName: 'NFSAbronze',
+    clientId: '1cb4e751c51849d6b9c31feb243d0582',
+    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
+    limit: 10,
+});
+    NFSAbronzeFeed.run();
+
+//Feature 7
+var NFSAredFeed = new Instafeed({
+    target: 'NFSAred',
+    get: 'tagged',
+    tagName: 'NFSAred',
+    clientId: '1cb4e751c51849d6b9c31feb243d0582',
+    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
+    limit: 10,
+});
+    NFSAredFeed.run();
+
+//Feature 8
+var NFSAladyFeed = new Instafeed({
+    target: 'NFSAlady',
+    get: 'tagged',
+    tagName: 'NFSAlady',
+    clientId: '1cb4e751c51849d6b9c31feb243d0582',
+    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
+    limit: 10,
+});
+    NFSAladyFeed.run();
+
+//Feature 9 
+var NFSAarchFeed = new Instafeed({
+    target: 'NFSAarch',
+    get: 'tagged',
+    tagName: 'NFSAarch',
+    clientId: '1cb4e751c51849d6b9c31feb243d0582',
+    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
+    limit: 10,
+});
+    NFSAarchFeed.run();
+
 /////////////////
 // REFERENCES //
 ///////////////
