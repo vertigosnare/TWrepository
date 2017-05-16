@@ -6,6 +6,7 @@ u3120296 Blaszkowski
 */
 
 /* TABLE OF CONTENTS
+	0. Local Storage
 	1. LAUNCH SCREEN
 	2. USER ONBOARDING SCREENS
 	3. Top Navigation - hamburger menu 
@@ -13,17 +14,15 @@ u3120296 Blaszkowski
 	5. History timeline - within building tab 
 	6. Architecture - within building tab 
 	7. Circle (feature) navigation
-	8. Local Storage. Save/Clear Progress
 	9. Click to open features 
-	10. HAMBURGER MENU PAGES
-	11. Confirmation Screens
-	12. SHOW ME FROM THE CLUE SCREEN 
-	13. FAVOURITING FEATURES 
-	14. UNFAVOURITING FEATURES
-	15. CLOSE FEATURES FOUND PAGE using x
-	16. INSTAFEED FOR FEATURES FOUND		
-	17. REFERENCES
+	9. HAMBURGER MENU PAGES
+	10. Confirmation Screens
+	11. SHOW ME FROM THE CLUE SCREEN 
+	12. FAVOURITING FEATURES 
+	13. CLOSE FEATURES FOUND PAGE using x		
+	14. REFERENCES
 */
+
 
 
 
@@ -37,6 +36,215 @@ $(document).ready(function() {
     }
 });
 
+//////////////////////////////////////////////////
+// Local Storage. Save/Clear Progress - by Rob //
+////////////////////////////////////////////////
+
+// SAVE FOUND FEATURES
+// 0 = red circle                     
+// 1 = gold circle
+var featureState = [];
+featureState[18] = 0;
+
+// Retrieve Array
+// Store array in local storage using JSON.stringify(). Retrieve using JSON.parse()
+var storedState = JSON.parse(localStorage.getItem("FeaturesFound")); //featuresFound is name given to what we have stored
+// Prepares local storage
+if (storedState == null){
+		featureState[0] = 0;
+		featureState[1] = 0;
+		featureState[2] = 0;
+		featureState[3] = 0;
+		featureState[4] = 0;
+		featureState[5] = 0;
+		featureState[6] = 0;
+		featureState[7] = 0;
+		featureState[8] = 0;
+		featureState[9] = 0;
+		featureState[10] = 0;
+		featureState[11] = 0;
+		featureState[12] = 0;
+		featureState[13] = 0;
+		featureState[14] = 0;
+		featureState[15] = 0;
+		featureState[16] = 0;
+		featureState[17] = 0;
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+		location.reload();
+}
+// test saved slots with this window.alert(storedState);
+// Apply found/unfound on next loadup
+// Feature states are set in 'FOUND IT FROM THE CLUE SCREEN' code section
+
+if(storedState != null){ //chrome does not care, other browsers need this 
+    if (storedState[0] == 1){
+    //styles feature circle as done in code
+		$('#redwine-circle1').hide();
+        $('#gold-circle1').show();
+        $('#h2-feature1').html('1<br>Frilled neck lizards in boomerangs'); // update h2 text on the circle to read this instead of 'feature 1'
+        $('#h2-feature1').addClass('update-text'); // add new CSS to the h2 text
+        $('#encourage').html("That's it!"); // update the encourage <p> underneath 'make these walls talk'
+    }
+	
+	if (storedState[1] == 1){
+		$('#redwine-circle2').hide();
+        $('#gold-circle2').show();
+        $('#h2-feature2').html('2<br>Suspended light fittings');
+        $('#h2-feature2').addClass('update-text feature2-position-update');
+        $('#encourage').html('Well spotted!');	
+	}
+	if (storedState[2] == 1){
+		$('#redwine-circle3').hide();
+        $('#gold-circle3').show();
+        $('#h2-feature3').html('3<br>Geometrically patterned marble floor');
+        $('#h2-feature3').addClass('update-text feature3-position-update');
+        $('#encourage').html('Good find!');
+	}
+	if (storedState[3] == 1){
+		$('#redwine-circle4').hide();
+        $('#gold-circle4').show();
+        $('#h2-feature4').html('4<br>Stained glass platypus skylight');
+        $('#h2-feature4').addClass('update-text feature4-position-update');
+        $('#encourage').html("You're pretty good at this!");
+	}
+	if (storedState[4] == 1){
+		$('#redwine-circle5').hide();
+        $('#gold-circle5').show();
+        $('#h2-feature5').html('5<br>Sir Colin MacKenzie plaque');
+        $('#h2-feature5').addClass('update-text feature5-position-update');
+        $('#encourage').html('Too easy for you?');
+	}
+	if (storedState[5] == 1){
+	    $('#redwine-circle6').hide();
+        $('#gold-circle6').show();
+        $('#h2-feature6').html('6<br>Bronze cast scupltures');
+        $('#h2-feature6').addClass('update-text feature6-position-update');
+        $('#encourage').html('How are your photos looking?');
+	}
+	if (storedState[6] == 1){
+	    $('#redwine-circle7').hide();
+        $('#gold-circle7').show();
+        $('#h2-feature7').html('7<br>Theatrette');
+        $('#h2-feature7').addClass('update-text feature7-position-update');
+        $('#encourage').html("Pretty cool, huh?");
+	}
+	if (storedState[7] == 1){
+	    $('#redwine-circle8').hide();
+        $('#gold-circle8').show();
+        $('#h2-feature8').html('8<br>Memorial fishpond');
+        $('#h2-feature8').addClass('update-text feature8-position-update');
+        $('#encourage').html("Nice out here, isn't it?");
+	}
+	if (storedState[8] == 1){
+	    $('#redwine-circle9').hide();
+        $('#gold-circle9').show();
+        $('#h2-feature9').html('9<br>Wombat heads within plaques');
+        $('#h2-feature9').addClass('update-text feature9-position-update');
+        $('#encourage').html("C'mon, share your photos!");
+	}
+	
+// SAVE FAVOURITES
+// saved under featureState[9]-[17]
+// 0 = not favourited                     
+// 1 = favourited
+
+
+if (storedState[9] == 1){
+	$('#favourite-no-fill-1').hide();
+	$('#favourite-fill-1').show(); 
+    $('#fav-feature1').show(); 
+    numberOfFav++; 
+    noFav();
+	}
+
+if (storedState[10] == 1){
+	$('#favourite-no-fill-2').hide();
+	$('#favourite-fill-2').show(); 
+    $('#fav-feature2').show(); 
+    numberOfFav++; 
+    noFav();    
+	}
+
+if (storedState[11] == 1){
+	$('#favourite-no-fill-3').hide();
+	$('#favourite-fill-3').show(); 
+    $('#fav-feature3').show(); 
+    numberOfFav++; 
+    noFav();      
+	}
+
+if (storedState[12] == 1){
+	$('#favourite-no-fill-4').hide();
+	$('#favourite-fill-4').show(); 
+    $('#fav-feature4').show(); 
+    numberOfFav++; 
+    noFav();     
+	}	
+	
+if (storedState[13] == 1){
+	$('#favourite-no-fill-5').hide();
+	$('#favourite-fill-5').show(); 
+    $('#fav-feature5').show(); 
+    numberOfFav++; 
+    noFav();      
+	}
+
+if (storedState[14] == 1){
+	$('#favourite-no-fill-6').hide();
+	$('#favourite-fill-6').show(); 
+    $('#fav-feature6').show(); 
+    numberOfFav++; 
+    noFav();    
+	}	
+	
+if (storedState[15] == 1){
+	$('#favourite-no-fill-7').hide();
+	$('#favourite-fill-7').show(); 
+    $('#fav-feature7').show(); 
+    numberOfFav++; 
+    noFav();     
+	}
+
+if (storedState[16] == 1){
+	$('#favourite-no-fill-8').hide();
+	$('#favourite-fill-8').show(); 
+    $('#fav-feature8').show(); 
+    numberOfFav++; 
+    noFav();       
+	}	
+	
+if (storedState[17] == 1){
+	$('#favourite-no-fill-9').hide();
+	$('#favourite-fill-9').show(); 
+    $('#fav-feature9').show(); 
+    numberOfFav++; 
+    noFav();      
+	}
+}
+
+//CLEAR DATA BUTTON	
+$('#reset-open').click(function() {
+		featureState[0] = 0;
+		featureState[1] = 0;
+		featureState[2] = 0;
+		featureState[3] = 0;
+		featureState[4] = 0;
+		featureState[5] = 0;
+		featureState[6] = 0;
+		featureState[7] = 0;
+		featureState[8] = 0;
+		featureState[9] = 0;
+		featureState[10] = 0;
+		featureState[11] = 0;
+		featureState[12] = 0;
+		featureState[13] = 0;
+		featureState[14] = 0;
+		featureState[15] = 0;
+		featureState[16] = 0;
+		featureState[17] = 0;
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+		location.reload(); //reload the page to reset
+});			
 
 
 
@@ -52,20 +260,16 @@ setTimeout (function() {
 
 // fade in user onboarding screen after 5.3 seconds
 $(function(){
-    if ($('.launch').css('display') === 'block' && featureState[18] == 0) { // only if the launch screen is displayed 
-        setTimeout (function() {											// don't want it to fade in if wrong device message is displayed 
-            $("#onboarding1").fadeIn("slow");								// ADDED featureState check - by Rob
+    if ($('.launch').css('display') === 'block') { // only if the launch screen is displayed - don't want it to fade in if wrong device message is displayed
+        setTimeout (function() {
+            $("#onboarding1").fadeIn("slow");
             $('body').removeClass('redwine-gradient');
             $('body').addClass('gold-gradient'); // use gold gradient background for onboarding screens
-        }, 700); 
+        }, 700); //(was 5300)
     }
-	else{
-		setTimeout (function() {
-            $("#home").fadeIn("slow");
-            $('body').removeClass('redwine-gradient');
-        }, 700);
-	}
 });
+
+
 
 //////////////////////////////
 // USER ONBOARDING SCREENS //
@@ -125,16 +329,12 @@ $('#begin').on('click', function() {
     $('body').removeClass('redwine-gradient');
     $('body').removeClass('gold-gradient');
     $('#home').show();
-	featureState[18] = 1;												 // ADDED - by Rob
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 // enable swiping right
 $('#onboarding4').on('swiperight', function() {
     $('#onboarding4').hide();
     $('#onboarding3').show();
-	featureState[18] = 1;												 
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
 });
 
 //////////////////////////////////////
@@ -665,193 +865,7 @@ $(".quest-gallery").scroll(function(){
 	}	
 });
 
-//////////////////////////////////////////////////
-// Local Storage. Save/Clear Progress - by Rob //
-////////////////////////////////////////////////
 
-// SAVE FOUND FEATURES
-// 0 = red circle                     
-// 1 = gold circle
-var featureState = [];
-
-// Retrieve Array
-// Store array in local storage using JSON.stringify() and JSON.parse()
-featureState = JSON.parse(localStorage.getItem("FeaturesFound")); 
-
-// Apply found/unfound on next loadup
-// Feature states are set in 'FOUND IT FROM THE CLUE SCREEN' code section
-
-    if (featureState[0] == 1){
-    //styles feature circle as done in code
-		$('#redwine-circle1').hide();
-        $('#gold-circle1').show();
-        $('#h2-feature1').html('1<br>Frilled neck lizards in boomerangs'); // update h2 text on the circle to read this instead of 'feature 1'
-        $('#h2-feature1').addClass('update-text'); // add new CSS to the h2 text
-        $('#encourage').html("That's it!"); // update the encourage <p> underneath 'make these walls talk'
-    }
-	if (featureState[1] == 1){
-		$('#redwine-circle2').hide();
-        $('#gold-circle2').show();
-        $('#h2-feature2').html('2<br>Suspended light fittings');
-        $('#h2-feature2').addClass('update-text feature2-position-update');
-        $('#encourage').html('Well spotted!');	
-	}
-	if (featureState[2] == 1){
-		$('#redwine-circle3').hide();
-        $('#gold-circle3').show();
-        $('#h2-feature3').html('3<br>Geometrically patterned marble floor');
-        $('#h2-feature3').addClass('update-text feature3-position-update');
-        $('#encourage').html('Good find!');
-	}
-	if (featureState[3] == 1){
-		$('#redwine-circle4').hide();
-        $('#gold-circle4').show();
-        $('#h2-feature4').html('4<br>Stained glass platypus skylight');
-        $('#h2-feature4').addClass('update-text feature4-position-update');
-        $('#encourage').html("You're pretty good at this!");
-	}
-	if (featureState[4] == 1){
-		$('#redwine-circle5').hide();
-        $('#gold-circle5').show();
-        $('#h2-feature5').html('5<br>Sir Colin MacKenzie plaque');
-        $('#h2-feature5').addClass('update-text feature5-position-update');
-        $('#encourage').html('Too easy for you?');
-	}
-	if (featureState[5] == 1){
-	    $('#redwine-circle6').hide();
-        $('#gold-circle6').show();
-        $('#h2-feature6').html('6<br>Bronze cast scupltures');
-        $('#h2-feature6').addClass('update-text feature6-position-update');
-        $('#encourage').html('How are your photos looking?');
-	}
-	if (featureState[6] == 1){
-	    $('#redwine-circle7').hide();
-        $('#gold-circle7').show();
-        $('#h2-feature7').html('7<br>Theatrette');
-        $('#h2-feature7').addClass('update-text feature7-position-update');
-        $('#encourage').html("Pretty cool, huh?");
-	}
-	if (featureState[7] == 1){
-	    $('#redwine-circle8').hide();
-        $('#gold-circle8').show();
-        $('#h2-feature8').html('8<br>Memorial fishpond');
-        $('#h2-feature8').addClass('update-text feature8-position-update');
-        $('#encourage').html("Nice out here, isn't it?");
-	}
-	if (featureState[8] == 1){
-	    $('#redwine-circle9').hide();
-        $('#gold-circle9').show();
-        $('#h2-feature9').html('9<br>Wombat heads within plaques');
-        $('#h2-feature9').addClass('update-text feature9-position-update');
-        $('#encourage').html("C'mon, share your photos!");
-	}
-	
-// SAVE FAVOURITES
-// saved under featureState[9]-[17]
-// 0 = not favourited                     
-// 1 = favourited
-
-if (featureState[9] == 1){
-	$('#favourite-no-fill-feature1').hide();
-	$('#favourite-fill-feature1').show();
-    $('#fav-feature1').show(); 
-    numberOfFav++; 
-    noFav();      
-	}
-
-if (featureState[10] == 1){
-	$('#favourite-no-fill-feature2').hide();
-	$('#favourite-fill-feature2').show();
-    $('#fav-feature2').show(); 
-    numberOfFav++; 
-    noFav();      
-	}
-
-if (featureState[11] == 1){
-	$('#favourite-no-fill-feature3').hide();
-	$('#favourite-fill-feature3').show();
-    $('#fav-feature3').show(); 
-    numberOfFav++; 
-    noFav();      
-	}
-
-if (featureState[12] == 1){
-	$('#favourite-no-fill-feature4').hide();
-	$('#favourite-fill-feature4').show();
-    $('#fav-feature4').show(); 
-    numberOfFav++; 
-    noFav();      
-	}	
-	
-if (featureState[13] == 1){
-	$('#favourite-no-fill-feature5').hide();
-	$('#favourite-fill-feature5').show();
-    $('#fav-feature5').show(); 
-    numberOfFav++; 
-    noFav();      
-	}
-
-if (featureState[14] == 1){
-	$('#favourite-no-fill-feature6').hide();
-	$('#favourite-fill-feature6').show();
-    $('#fav-feature6').show(); 
-    numberOfFav++; 
-    noFav();      
-	}	
-	
-if (featureState[15] == 1){
-	$('#favourite-no-fill-feature7').hide();
-	$('#favourite-fill-feature7').show();
-    $('#fav-feature7').show(); 
-    numberOfFav++; 
-    noFav();      
-	}
-
-if (featureState[16] == 1){
-	$('#favourite-no-fill-feature8').hide();
-	$('#favourite-fill-feature8').show();
-    $('#fav-feature8').show(); 
-    numberOfFav++; 
-    noFav();      
-	}	
-	
-if (featureState[17] == 1){
-	$('#favourite-no-fill-feature9').hide();
-	$('#favourite-fill-feature9').show();
-    $('#fav-feature9').show(); 
-    numberOfFav++; 
-    noFav();      
-	}
-
-// HIDE INTRODUCTION 'onboarding' SCREENS
-// saved under featureState[18] 
-if (featureState[18] == 1){ // after first time opening the app
-}
-
-//CLEAR DATA BUTTON	
-$('#reset-open').click(function() {
-		featureState[0] = 0;
-		featureState[1] = 0;
-		featureState[2] = 0;
-		featureState[3] = 0;
-		featureState[4] = 0;
-		featureState[5] = 0;
-		featureState[6] = 0;
-		featureState[7] = 0;
-		featureState[8] = 0;
-		featureState[9] = 0;
-		featureState[10] = 0;
-		featureState[11] = 0;
-		featureState[12] = 0;
-		featureState[13] = 0;
-		featureState[14] = 0;
-		featureState[15] = 0;
-		featureState[16] = 0;
-		featureState[17] = 0;
-		featureState[18] = 0;
-		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-		location.reload(); //reload the page to reset
-});			
 	
 /////////////////////////////	
 // Click to open features //
@@ -1378,7 +1392,10 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature1').html('1<br>Frilled neck lizards in boomerangs'); // update h2 text on the circle to read this instead of 'feature 1'
         $('#h2-feature1').addClass('update-text'); // add new CSS to the h2 text
         $('#encourage').html("That's it!"); // update the encourage <p> underneath 'make these walls talk'
-		featureState[0] = 1;												 // ADDED these here - by Rob
+		
+		featureState = storedState;
+		featureState[0] = 1;
+	
 		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); //
     }
     
@@ -1393,7 +1410,10 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature2').html('2<br>Suspended light fittings');
         $('#h2-feature2').addClass('update-text feature2-position-update');
         $('#encourage').html('Well spotted!');
+		
+		featureState = storedState;
 		featureState[1] = 1;												 
+		
 		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
@@ -1408,7 +1428,10 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature3').html('3<br>Geometrically patterned marble floor');
         $('#h2-feature3').addClass('update-text feature3-position-update');
         $('#encourage').html('Good find!');
+		
+		featureState = storedState;
 		featureState[2] = 1;												 
+		
 		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
@@ -1423,7 +1446,10 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature4').html('4<br>Stained glass platypus skylight');
         $('#h2-feature4').addClass('update-text feature4-position-update');
         $('#encourage').html("You're pretty good at this!");
+		
+		featureState = storedState;
 		featureState[3] = 1;												 
+		
 		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
@@ -1438,7 +1464,10 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature5').html('5<br>Sir Colin MacKenzie plaque');
         $('#h2-feature5').addClass('update-text feature5-position-update');
         $('#encourage').html('Too easy for you?');
+
+		featureState = storedState;
 		featureState[4] = 1;												 
+		
 		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
@@ -1453,7 +1482,10 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature6').html('6<br>Bronze cast scupltures');
         $('#h2-feature6').addClass('update-text feature6-position-update');
         $('#encourage').html('How are your photos looking?');
+		
+		featureState = storedState;
 		featureState[5] = 1;												 
+		
 		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
@@ -1468,7 +1500,10 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature7').html('7<br>Theatrette');
         $('#h2-feature7').addClass('update-text feature7-position-update');
         $('#encourage').html("Pretty cool, huh?");
+		
+		featureState = storedState;
 		featureState[6] = 1;												 
+		
 		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
@@ -1483,7 +1518,10 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature8').html('8<br>Memorial fishpond');
         $('#h2-feature8').addClass('update-text feature8-position-update');
         $('#encourage').html("Nice out here, isn't it?");
+		
+		featureState = storedState;
 		featureState[7] = 1;												 
+		
 		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
@@ -1498,7 +1536,10 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature9').html('9<br>Wombat heads within plaques');
         $('#h2-feature9').addClass('update-text feature9-position-update');
         $('#encourage').html("C'mon, share your photos!");
+		
+		featureState = storedState;
 		featureState[8] = 1;												 
+		
 		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
     }
     
@@ -1643,323 +1684,225 @@ $('#confirm-show .yes').click(function() {
 ///////////////////////////
 // FAVOURITING FEATURES //
 /////////////////////////
+// edits by Rob
 
 var numberOfFav = 0; // variable to determine the number of favourited items
 
 // favourite Feature 1
-$('#favourite-no-fill-feature1').click(function() {
-    $(this).hide(); // hide the heart with no fill
-    $('#favourite-fill-feature1').show(); // show the filled heart to indicate this has been favourited
-    $('#fav-feature1').show(); // add feature 1 to favourites list
-    numberOfFav++; // add one to number of favourites
-    noFav();
-	featureState[9] = 1;												 // ADDED these here - by Rob
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); //
+$('#favourite-toggle-1').click(function() {
+	if (storedState[9]==0 || storedState == null){
+		$('#favourite-no-fill-1').hide();
+		$('#favourite-fill-1').show(); // show the filled heart to indicate this has been favourited
+		$('#fav-feature1').show(); // add feature 1 to favourites list
+		numberOfFav++; // add one to number of favourites
+		noFav();
+		featureState = storedState;
+		featureState[9] = 1;
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
+	else {
+		$('#favourite-fill-1').hide();
+		$('#favourite-no-fill-1').show();
+		$('#fav-feature1').hide(); // hide feature 1 from favourites list
+		numberOfFav--; // subtract one from number of favourites
+		noFav(); // run no favourites function to see if there are now 0 favourites, if there are none, the function will show the 'no favourites' div
+		featureState = storedState;
+		featureState[9] = 0; 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
 });
 
 // favourite Feature 2
-$('#favourite-no-fill-feature2').click(function() {
-    $(this).hide();
-    $('#favourite-fill-feature2').show();
-    $('#fav-feature2').show();
-    numberOfFav++;
-    noFav();
-	featureState[10] = 1;												 
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+$('#favourite-toggle-2').click(function() {
+	if (storedState[10]==0 || storedState == null){
+		$('#favourite-no-fill-2').hide();
+		$('#favourite-fill-2').show(); 
+		$('#fav-feature2').show(); 
+		numberOfFav++; 
+		noFav();
+		featureState = storedState;
+		featureState[10] = 1;
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
+	else {
+		$('#favourite-fill-2').hide();
+		$('#favourite-no-fill-2').show();
+		$('#fav-feature2').hide(); 
+		numberOfFav--; 
+		noFav(); 
+		featureState = storedState;
+		featureState[10] = 0; 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
 });
 
 // favourite Feature 3
-$('#favourite-no-fill-feature3').click(function() {
-    $(this).hide();
-    $('#favourite-fill-feature3').show();
-    $('#fav-feature3').show();
-    numberOfFav++;
-    noFav();
-	featureState[11] = 1;												 
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+$('#favourite-toggle-3').click(function() {
+	if (storedState[11]==0 || storedState == null){
+		$('#favourite-no-fill-3').hide();
+		$('#favourite-fill-3').show(); 
+		$('#fav-feature3').show(); 
+		numberOfFav++; 
+		noFav();
+		featureState = storedState;
+		featureState[11] = 1;
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
+	else {
+		$('#favourite-fill-3').hide();
+		$('#favourite-no-fill-3').show();
+		$('#fav-feature3').hide(); 
+		numberOfFav--; 
+		noFav(); 
+		featureState = storedState;
+		featureState[11] = 0; 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
 });
 
 // favourite Feature 4
-$('#favourite-no-fill-feature4').click(function() {
-    $(this).hide();
-    $('#favourite-fill-feature4').show();
-    $('#fav-feature4').show();
-    numberOfFav++;
-    noFav();
-	featureState[12] = 1;												 
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+$('#favourite-toggle-4').click(function() {
+	if (storedState[12]==0 || storedState == null){
+		$('#favourite-no-fill-4').hide();
+		$('#favourite-fill-4').show(); 
+		$('#fav-feature4').show(); 
+		numberOfFav++; 
+		noFav();
+		featureState = storedState;
+		featureState[12] = 1;
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
+	else {
+		$('#favourite-fill-4').hide();
+		$('#favourite-no-fill-4').show();
+		$('#fav-feature4').hide(); 
+		numberOfFav--; 
+		noFav(); 
+		featureState = storedState;
+		featureState[12] = 0; 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
 });
 
 // favourite Feature 5
-$('#favourite-no-fill-feature5').click(function() {
-    $(this).hide();
-    $('#favourite-fill-feature5').show();
-    $('#fav-feature5').show();
-    numberOfFav++;
-    noFav();
-	featureState[13] = 1;												 
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+$('#favourite-toggle-5').click(function() {
+	if (storedState[13]==0 || storedState == null){
+		$('#favourite-no-fill-5').hide();
+		$('#favourite-fill-5').show(); 
+		$('#fav-feature5').show(); 
+		numberOfFav++; 
+		noFav();
+		featureState = storedState;
+		featureState[13] = 1;
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
+	else {
+		$('#favourite-fill-5').hide();
+		$('#favourite-no-fill-5').show();
+		$('#fav-feature5').hide(); 
+		numberOfFav--; 
+		noFav(); 
+		featureState = storedState;
+		featureState[13] = 0; 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
 });
 
 // favourite Feature 6
-$('#favourite-no-fill-feature6').click(function() {
-    $(this).hide();
-    $('#favourite-fill-feature6').show();
-    $('#fav-feature6').show();
-    numberOfFav++;
-    noFav();
-	featureState[14] = 1;												 
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+$('#favourite-toggle-6').click(function() {
+	if (storedState[14]==0 || storedState == null){
+		$('#favourite-no-fill-6').hide();
+		$('#favourite-fill-6').show(); 
+		$('#fav-feature6').show(); 
+		numberOfFav++; 
+		noFav();
+		featureState = storedState;
+		featureState[14] = 1;
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
+	else {
+		$('#favourite-fill-6').hide();
+		$('#favourite-no-fill-6').show();
+		$('#fav-feature6').hide(); 
+		numberOfFav--; 
+		noFav(); 
+		featureState = storedState;
+		featureState[14] = 0; 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
 });
 
 // favourite Feature 7
-$('#favourite-no-fill-feature7').click(function() {
-    $(this).hide();
-    $('#favourite-fill-feature7').show();
-    $('#fav-feature7').show();
-    numberOfFav++;
-    noFav();
-	featureState[15] = 1;												 
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+$('#favourite-toggle-7').click(function() {
+	if (storedState[15]==0 || storedState == null){
+		$('#favourite-no-fill-7').hide();
+		$('#favourite-fill-7').show(); 
+		$('#fav-feature7').show(); 
+		numberOfFav++; 
+		noFav();
+		featureState = storedState;
+		featureState[15] = 1;
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
+	else {
+		$('#favourite-fill-7').hide();
+		$('#favourite-no-fill-7').show();
+		$('#fav-feature7').hide(); 
+		numberOfFav--; 
+		noFav(); 
+		featureState = storedState;
+		featureState[15] = 0; 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
 });
 
 // favourite Feature 8
-$('#favourite-no-fill-feature8').click(function() {
-    $(this).hide();
-    $('#favourite-fill-feature8').show();
-    $('#fav-feature8').show();
-    numberOfFav++;
-    noFav();
-	featureState[16] = 1;												 
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+$('#favourite-toggle-8').click(function() {
+	if (storedState[16]==0 || storedState == null){
+		$('#favourite-no-fill-8').hide();
+		$('#favourite-fill-8').show(); 
+		$('#fav-feature8').show(); 
+		numberOfFav++; 
+		noFav();
+		featureState = storedState;
+		featureState[16] = 1;
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
+	else {
+		$('#favourite-fill-8').hide();
+		$('#favourite-no-fill-8').show();
+		$('#fav-feature8').hide(); 
+		numberOfFav--; 
+		noFav(); 
+		featureState = storedState;
+		featureState[16] = 0; 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
 });
 
 // favourite Feature 9
-$('#favourite-no-fill-feature9').click(function() {
-    $(this).hide();
-    $('#favourite-fill-feature9').show();
-    $('#fav-feature9').show();
-    numberOfFav++;
-    noFav();
-	featureState[17] = 1;												 
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+$('#favourite-toggle-9').click(function() {
+	if (storedState[17]==0 || storedState == null){
+		$('#favourite-no-fill-9').hide();
+		$('#favourite-fill-9').show(); 
+		$('#fav-feature9').show(); 
+		numberOfFav++; 
+		noFav();
+		featureState = storedState;
+		featureState[17] = 1;
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
+	else {
+		$('#favourite-fill-9').hide();
+		$('#favourite-no-fill-9').show();
+		$('#fav-feature9').hide(); 
+		numberOfFav--; 
+		noFav(); 
+		featureState = storedState;
+		featureState[17] = 0; 
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
+	}
 });
-
-/////////////////////////////
-// UNFAVOURITING FEATURES //
-///////////////////////////
-
-// Unfavouriting from 'features found' page
-
-// unfavourite Feature 1
-$('#favourite-fill-feature1').click(function() {
-    $(this).hide();
-    $('#favourite-no-fill-feature1').show();
-    $('#fav-feature1').hide(); // hide feature 1 from favourites list
-    numberOfFav--; // subtract one from number of favourites
-    noFav(); // run no favourites function to see if there are now 0 favourites, if there are none, the function will show the 'no favourites' div
-	featureState[9] = 0; //Added - Rob
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// unfavourite Feature 2
-$('#favourite-fill-feature2').click(function() {
-    $(this).hide();
-    $('#favourite-no-fill-feature2').show();
-    $('#fav-feature2').hide();
-    numberOfFav--;
-    noFav();
-	featureState[10] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// unfavourite Feature 3
-$('#favourite-fill-feature3').click(function() {
-    $(this).hide();
-    $('#favourite-no-fill-feature3').show(); 
-    $('#fav-feature3').hide();
-    numberOfFav--;
-    noFav();
-	featureState[11] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// unfavourite Feature 4
-$('#favourite-fill-feature4').click(function() {
-    $(this).hide();
-    $('#favourite-no-fill-feature4').show();
-    $('#fav-feature4').hide();
-    numberOfFav--;
-    noFav();
-	featureState[12] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// unfavourite Feature 5
-$('#favourite-fill-feature5').click(function() {
-    $(this).hide();
-    $('#favourite-no-fill-feature5').show();
-    $('#fav-feature5').hide();
-    numberOfFav--;
-    noFav();
-	featureState[13] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// unfavourite Feature 6
-$('#favourite-fill-feature6').click(function() {
-    $(this).hide();
-    $('#favourite-no-fill-feature6').show();
-    $('#fav-feature6').hide();
-    numberOfFav--;
-    noFav();
-	featureState[14] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// unfavourite Feature 7
-$('#favourite-fill-feature7').click(function() {
-    $(this).hide();
-    $('#favourite-no-fill-feature7').show();
-    $('#fav-feature7').hide();
-    numberOfFav--;
-    noFav();
-	featureState[15] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// unfavourite Feature 8
-$('#favourite-fill-feature8').click(function() {
-    $(this).hide();
-    $('#favourite-no-fill-feature8').show();
-    $('#fav-feature8').hide();
-    numberOfFav--;
-    noFav();
-	featureState[16] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// unfavourite Feature 9
-$('#favourite-fill-feature9').click(function() {
-    $(this).hide();
-    $('#favourite-no-fill-feature9').show();
-    $('#fav-feature9').hide();
-    numberOfFav--;
-    noFav();
-	featureState[17] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// Unfavouriting directly from favourites list
-
-// Unfavouriting Feature 1 from list
-$('#favourite-list-fill-feature1').click(function() {
-    $('#fav-feature1').hide(); // hide feature 1 from favourites list
-    $('#favourite-fill-feature1').hide(); // hide fill heart on 'features found' page
-    $('#favourite-no-fill-feature1').show(); // show no-fill heart on 'features found' page
-    event.stopPropagation(); // to stop the event bubbling to the parent div
-    numberOfFav--; // subtract one from number of favourites
-    noFav(); // run no favourites function to see if there are now 0 favourites, if there are none, the function will show the 'no favourites' div
-	featureState[9] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// Unfavouriting Feature 2 from list
-$('#favourite-list-fill-feature2').click(function() {
-    $('#fav-feature2').hide();
-    $('#favourite-fill-feature2').hide();
-    $('#favourite-no-fill-feature2').show();
-    event.stopPropagation();
-    numberOfFav--;
-    noFav();
-	featureState[10] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// Unfavouriting Feature 3 from list
-$('#favourite-list-fill-feature3').click(function() {
-    $('#fav-feature3').hide();
-    $('#favourite-fill-feature3').hide();
-    $('#favourite-no-fill-feature3').show();
-    event.stopPropagation();
-    numberOfFav--;
-    noFav();
-	featureState[11] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// Unfavouriting Feature 4 from list
-$('#favourite-list-fill-feature4').click(function() {
-    $('#fav-feature4').hide();
-    $('#favourite-fill-feature4').hide();
-    $('#favourite-no-fill-feature4').show();
-    event.stopPropagation();
-    numberOfFav--;
-    noFav();
-	featureState[12] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// Unfavouriting Feature 5 from list
-$('#favourite-list-fill-feature5').click(function() {
-    $('#fav-feature5').hide();
-    $('#favourite-fill-feature5').hide();
-    $('#favourite-no-fill-feature5').show();
-    event.stopPropagation();
-    numberOfFav--;
-    noFav();
-	featureState[13] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// Unfavouriting Feature 6 from list
-$('#favourite-list-fill-feature6').click(function() {
-    $('#fav-feature6').hide();
-    $('#favourite-fill-feature6').hide();
-    $('#favourite-no-fill-feature6').show();
-    event.stopPropagation();
-    numberOfFav--;
-    noFav();
-	featureState[14] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// Unfavouriting Feature 7 from list
-$('#favourite-list-fill-feature7').click(function() {
-    $('#fav-feature7').hide();
-    $('#favourite-fill-feature7').hide();
-    $('#favourite-no-fill-feature7').show();
-    event.stopPropagation();
-    numberOfFav--;
-    noFav();
-	featureState[15] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// Unfavouriting Feature 8 from list
-$('#favourite-list-fill-feature8').click(function() {
-    $('#fav-feature8').hide();
-    $('#favourite-fill-feature8').hide();
-    $('#favourite-no-fill-feature8').show();
-    event.stopPropagation();
-    numberOfFav--;
-    noFav();
-	featureState[16] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
-// Unfavouriting Feature 9 from list
-$('#favourite-list-fill-feature9').click(function() {
-    $('#fav-feature9').hide();
-    $('#favourite-fill-feature9').hide();
-    $('#favourite-no-fill-feature9').show();
-    event.stopPropagation();
-    numberOfFav--;
-    noFav();
-	featureState[17] = 0;
-	localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
-});
-
 
 // FAVOURITES FUNCTION
 // show 'no favourites' div if no features are favourited
@@ -1970,7 +1913,6 @@ function noFav() {
         $('#no-fav').hide();
     }
 }
-
 
 // FAVOURITES LIST AS A SHORTCUT TO 'FEATURES FOUND' INFO PAGE
 
@@ -2089,110 +2031,6 @@ $('.close-found').click(function() {
     }
 });
 
-
-//////////////////////////////////
-//INSTAFEED FOR FEATURES FOUND //
-////////////////////////////////
-
-//Feature 1
-var NFSAfrontFeed = new Instafeed({
-    target: 'NFSAfront',
-    get: 'tagged',
-    tagName: 'NFSAfront',
-    clientId: '1cb4e751c51849d6b9c31feb243d0582',
-    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
-    limit: 10,
-});
-    NFSAfrontFeed.run();
-
-//Feature 2
-var NFSAgeometricFeed = new Instafeed({
-    target: 'NFSAgeometric',
-    get: 'tagged',
-    tagName: 'NFSAgeometric',
-    clientId: '1cb4e751c51849d6b9c31feb243d0582',
-    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
-    limit: 10,
-});
-    NFSAgeometricFeed.run();
-
-//Feature 3
-var NFSAquarryFeed = new Instafeed({
-    target: 'NFSAquarry',
-    get: 'tagged',
-    tagName: 'NFSAquarry',
-    clientId: '1cb4e751c51849d6b9c31feb243d0582',
-    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
-    limit: 10,
-});
-    NFSAquarryFeed.run();
-
-//Feature 4
-var NFSAluxferFeed = new Instafeed({
-    target: 'NFSAluxfer',
-    get: 'tagged',
-    tagName: 'NFSAluxfer',
-    clientId: '1cb4e751c51849d6b9c31feb243d0582',
-    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
-    limit: 10,
-});
-    NFSAluxferFeed.run();
-
-//Feature 5
-var NFSAcolinFeed = new Instafeed({
-    target: 'NFSAcolin',
-    get: 'tagged',
-    tagName: 'NFSAcolin',
-    clientId: '1cb4e751c51849d6b9c31feb243d0582',
-    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
-    limit: 10,
-});
-    NFSAcolinFeed.run();
-
-//Feature 6
-var NFSAbronzeFeed = new Instafeed({
-    target: 'NFSAbronze',
-    get: 'tagged',
-    tagName: 'NFSAbronze',
-    clientId: '1cb4e751c51849d6b9c31feb243d0582',
-    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
-    limit: 10,
-});
-    NFSAbronzeFeed.run();
-
-//Feature 7
-var NFSAredFeed = new Instafeed({
-    target: 'NFSAred',
-    get: 'tagged',
-    tagName: 'NFSAred',
-    clientId: '1cb4e751c51849d6b9c31feb243d0582',
-    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
-    limit: 10,
-});
-    NFSAredFeed.run();
-
-//Feature 8
-var NFSAladyFeed = new Instafeed({
-    target: 'NFSAlady',
-    get: 'tagged',
-    tagName: 'NFSAlady',
-    clientId: '1cb4e751c51849d6b9c31feb243d0582',
-    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
-    limit: 10,
-});
-    NFSAladyFeed.run();
-
-//Feature 9 
-var NFSAarchFeed = new Instafeed({
-    target: 'NFSAarch',
-    get: 'tagged',
-    tagName: 'NFSAarch',
-    clientId: '1cb4e751c51849d6b9c31feb243d0582',
-    accessToken: '14121461.ba4c844.7650653627624e89a5b92ab26e839094',
-    limit: 10,
-});
-    NFSAarchFeed.run();
-	
 /////////////////
 // REFERENCES //
 ///////////////
