@@ -1377,6 +1377,8 @@ $('#confirm-found .no').click(function() {
 	$('#confirm-found').hide();
 });
 
+var featuresComplete = 0; // variable to determine how many features have been found
+
 // if confirm 'yes' found
 $('#confirm-found .yes').click(function() {
     
@@ -1392,11 +1394,14 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature1').html('1<br>Frilled neck lizards in boomerangs'); // update h2 text on the circle to read this instead of 'feature 1'
         $('#h2-feature1').addClass('update-text'); // add new CSS to the h2 text
         $('#encourage').html("That's it!"); // update the encourage <p> underneath 'make these walls talk'
+        
+        featuresComplete++;
+		showCongrats();
 		
 		featureState = storedState;
 		featureState[0] = 1;
 	
-		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); //
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
     }
     
     // if clue for Feature 2 is shown
@@ -1410,6 +1415,9 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature2').html('2<br>Suspended light fittings');
         $('#h2-feature2').addClass('update-text feature2-position-update');
         $('#encourage').html('Well spotted!');
+        
+        featuresComplete++;
+		showCongrats();
 		
 		featureState = storedState;
 		featureState[1] = 1;												 
@@ -1428,6 +1436,9 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature3').html('3<br>Geometrically patterned marble floor');
         $('#h2-feature3').addClass('update-text feature3-position-update');
         $('#encourage').html('Good find!');
+        
+        featuresComplete++;
+		showCongrats();
 		
 		featureState = storedState;
 		featureState[2] = 1;												 
@@ -1446,6 +1457,9 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature4').html('4<br>Stained glass platypus skylight');
         $('#h2-feature4').addClass('update-text feature4-position-update');
         $('#encourage').html("You're pretty good at this!");
+        
+        featuresComplete++;
+		showCongrats();
 		
 		featureState = storedState;
 		featureState[3] = 1;												 
@@ -1465,7 +1479,10 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature5').addClass('update-text feature5-position-update');
         $('#encourage').html('Too easy for you?');
 
-		featureState = storedState;
+		featuresComplete++;
+		showCongrats();
+        
+        featureState = storedState;
 		featureState[4] = 1;												 
 		
 		localStorage.setItem("FeaturesFound", JSON.stringify(featureState)); 
@@ -1483,6 +1500,9 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature6').addClass('update-text feature6-position-update');
         $('#encourage').html('How are your photos looking?');
 		
+        featuresComplete++;
+		showCongrats();
+        
 		featureState = storedState;
 		featureState[5] = 1;												 
 		
@@ -1501,6 +1521,9 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature7').addClass('update-text feature7-position-update');
         $('#encourage').html("Pretty cool, huh?");
 		
+        featuresComplete++;
+		showCongrats();
+        
 		featureState = storedState;
 		featureState[6] = 1;												 
 		
@@ -1519,6 +1542,9 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature8').addClass('update-text feature8-position-update');
         $('#encourage').html("Nice out here, isn't it?");
 		
+        featuresComplete++;
+		showCongrats();
+        
 		featureState = storedState;
 		featureState[7] = 1;												 
 		
@@ -1537,6 +1563,9 @@ $('#confirm-found .yes').click(function() {
         $('#h2-feature9').addClass('update-text feature9-position-update');
         $('#encourage').html("C'mon, share your photos!");
 		
+        featuresComplete++;
+		showCongrats();
+        
 		featureState = storedState;
 		featureState[8] = 1;												 
 		
@@ -1558,6 +1587,8 @@ $('#confirm-show .no').click(function(){
 	$('#confirm-show').hide();
 });
 
+
+
 // if confirm 'yes' show me
 $('#confirm-show .yes').click(function() {
     
@@ -1574,7 +1605,12 @@ $('#confirm-show .yes').click(function() {
         $('#h2-feature1').addClass('update-text');
         $('#encourage').html("That's it!"); // update the encourage <p> underneath 'make these walls talk'
 		featuresComplete++;
-		showCongrats ();
+		showCongrats();
+        
+        featureState = storedState;
+		featureState[0] = 1;
+	
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
     }
     
     // if clue for Feature 2 is shown
@@ -1589,7 +1625,12 @@ $('#confirm-show .yes').click(function() {
         $('#h2-feature2').addClass('update-text feature2-position-update');
         $('#encourage').html('Well spotted!');
 		featuresComplete++;
-		showCongrats ();
+		showCongrats();
+        
+        featureState = storedState;
+		featureState[1] = 1;
+	
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
     }
     
     // if clue for Feature 3 is shown
@@ -1604,7 +1645,12 @@ $('#confirm-show .yes').click(function() {
         $('#h2-feature3').addClass('update-text feature3-position-update');
         $('#encourage').html('Good find!');
 		featuresComplete++;
-		showCongrats ();
+		showCongrats();
+        
+        featureState = storedState;
+		featureState[2] = 1;
+	
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
     }
     
     // if clue for Feature 4 is shown
@@ -1619,7 +1665,12 @@ $('#confirm-show .yes').click(function() {
         $('#h2-feature4').addClass('update-text feature4-position-update');
         $('#encourage').html("You're pretty good at this!");
 		featuresComplete++;
-		showCongrats ();
+		showCongrats();
+        
+        featureState = storedState;
+		featureState[3] = 1;
+	
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
     }
     
     // if clue for Feature 5 is shown
@@ -1635,6 +1686,11 @@ $('#confirm-show .yes').click(function() {
         $('#encourage').html('Too easy for you?');
 		featuresComplete++;
 		showCongrats ();
+        
+        featureState = storedState;
+		featureState[4] = 1;
+	
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
     }
     
     // if clue for Feature 6 is shown
@@ -1649,7 +1705,12 @@ $('#confirm-show .yes').click(function() {
         $('#h2-feature6').addClass('update-text feature6-position-update');
         $('#encourage').html('How are your photos looking?');
 		featuresComplete++;
-		showCongrats ();
+		showCongrats();
+        
+        featureState = storedState;
+		featureState[5] = 1;
+	
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
     }
     
     // if clue for Feature 7 is shown
@@ -1664,7 +1725,12 @@ $('#confirm-show .yes').click(function() {
         $('#h2-feature7').addClass('update-text feature7-position-update');
         $('#encourage').html("Pretty cool, huh?");
 		featuresComplete++;
-		showCongrats ();
+		showCongrats();
+        
+        featureState = storedState;
+		featureState[6] = 1;
+	
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
     }
     
     // if clue for Feature 8 is shown
@@ -1679,7 +1745,12 @@ $('#confirm-show .yes').click(function() {
         $('#h2-feature8').addClass('update-text feature8-position-update');
         $('#encourage').html("Nice out here, isn't it?");
 		featuresComplete++;
-		showCongrats ();
+		showCongrats();
+        
+        featureState = storedState;
+		featureState[7] = 1;
+	
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
     }
     
     // if clue for Feature 9 is shown
@@ -1694,28 +1765,34 @@ $('#confirm-show .yes').click(function() {
         $('#h2-feature9').addClass('update-text feature9-position-update');
         $('#encourage').html("C'mon, share your photos!");
 		featuresComplete++;
-		showCongrats ();
+		showCongrats();
+        
+        featureState = storedState;
+		featureState[8] = 1;
+	
+		localStorage.setItem("FeaturesFound", JSON.stringify(featureState));
     }
-    // CONGRATULATIONS FUNCTION
+    
+});
+
+
+// CONGRATULATIONS FUNCTION
 // show 'congrats' div if all 9 features have been unlocked
-// Not sure how to get screen to display AFTER last 'feature found' page appears
-//Have set to 1 for now
 
-var featuresComplete = 0; // variable to determine how many features have been found
-
-function showCongrats(){
-	if (featuresComplete === 1){
-		$('.close-found').click(function() {
-			$("#congrats").show(); })
+function showCongrats() {
+    if (featuresComplete === 1) {
+		$('.close-found').one('click', function() { // important so the congrats screen only shows once
+			$("#congrats").show();
+        });
 	} else {
 		$("#congrats").hide();
-	}
-	};
+    }
+}
+    
 
 // to exit the screen click anywhere, can change to button or exit symbol
 $("#congrats").click(function(){
 	$("#congrats").hide();
-});
 });
 
 

@@ -2158,7 +2158,7 @@ img.dark-tick {
 
 #congrats {
     text-align: center;
-    font-size: 2.1rem;
+    font-size: 1.8rem;
     color: #fff;
     position: fixed;
     top: 50%;
@@ -2173,19 +2173,35 @@ img.dark-tick {
 	align-content: center;
 	text-align:center;
 }
+
+    .congrats-content img:first-of-type {
+        width: 6rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1rem;
+    }
+
+    .congrats-content img#trophy {
+        width: 20%;
+        margin: 50% auto 10%;
+    }
+    
     .congrats-content h1 {
-        font-size: 2.3rem;
+        font-size: 2rem;
         text-transform: uppercase;
-        letter-spacing: 3px;
-        margin-bottom: 10%;
-		margin-top: 40%;
+        letter-spacing: 2px;
+        margin-bottom: 5%;
 		bottom: 0;
     }
-	
-.congrats-content img {
-	width: 20%;
-	margin: 3rem;
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+    .congrats-content img#trophy {
+        margin: 40% auto 10%;
+    }
 }
+	
+
 
 /* ------------------------- X. General media queries ----------------------------- */
 
