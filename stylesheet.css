@@ -2184,7 +2184,7 @@ img.dark-tick {
 
     .congrats-content img#trophy {
         width: 20%;
-        margin: 50% auto 10%;
+        margin: 40% auto 10%;
     }
     
     .congrats-content h1 {
@@ -2194,6 +2194,16 @@ img.dark-tick {
         margin-bottom: 5%;
 		bottom: 0;
     }
+
+.congrats-content h3 {
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+.congrats-content p {
+    font-weight: 200;
+    margin: 10% 5% 5% 5%;
+}
 
 @media screen and (max-width: 768px) and (min-width: 415px) {
     .congrats-content img#trophy {
